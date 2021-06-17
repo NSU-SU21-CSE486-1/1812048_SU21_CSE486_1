@@ -14,13 +14,13 @@
 <p align="center"><strong>Course No</strong>: CSE 486 <strong>Sec</strong><strong>:</strong> 01</p>
 <p align="center"><strong>Faculty</strong>: Shaikh Shawon Arefin Shimon (SAS3)</p>
 <p align="center"><strong><u>Member 1</u></strong><u>:</u></p>
-<p align="center"><strong>Name</strong><strong>:</strong> ABC DEF</p>
-<p align="center"><strong>ID</strong><strong>:&nbsp; </strong>1234567</p>
-<p align="center"><strong>Email</strong><strong>:</strong> <a href="mailto:abc.def@northsouth.edu">abc.def@northsouth.edu</a></p>
+<p align="center"><strong>Name</strong><strong>:</strong> Afra Nawar</p>
+<p align="center"><strong>ID</strong><strong>:&nbsp; </strong>1812048</p>
+<p align="center"><strong>Email</strong><strong>:</strong> <a href="mailto:afra.nawar05@northsouth.edu">afra.nawar05@northsouth.edu</a></p>
 
-<p align="center"><strong>Git Repository</strong><strong>: </strong><a href="https://github.com/NSU-SP21-CSE486-1/1234567-SP21-CSE486-S01">https://github.com/NSU-SP21-CSE486-1/1234567-SP21-CSE486-S01</a></p>
+<p align="center"><strong>Git Repository</strong><strong>: </strong><a href="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1">https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1</a></p>
 
-<p align="center"><strong>Date Prepared</strong><strong>: </strong>March 03, 2021</p>
+<p align="center"><strong>Date Prepared</strong><strong>: </strong> June 17, 2021</p>
 <p><strong>&nbsp;</strong></p>
 <p><strong>&nbsp;</strong></p>
 
