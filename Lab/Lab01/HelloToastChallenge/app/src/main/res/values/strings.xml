@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Hello Toast Challenge</string>
+    <string name="button_toast">Toast</string>
+    <string name="button_count">Count</string>
+    <string name="count_value_start">0</string>
+    <string name="toast_mssg">Hello Toast</string>
+</resources>
