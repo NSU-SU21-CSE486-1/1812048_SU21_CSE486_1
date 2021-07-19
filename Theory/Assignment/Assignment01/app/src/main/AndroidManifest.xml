@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project01">
+        <activity android:name=".AddPhoneEmail"></activity>
+        <activity android:name=".DisplayInfoActivity" />
+        <activity android:name=".UniversityAffiliation" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
