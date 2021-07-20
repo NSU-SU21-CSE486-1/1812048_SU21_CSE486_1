@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 dob = bindingUtil.dobEdittextview.getText().toString();
                 nid = bindingUtil.nidEdittextview.getText().toString();
 
-                if(name.trim().length()>2 & nid.trim().length()>9 & isDateCorrect(dob) & bgroupisset)
+                if(name.trim().length()>2 & nid.trim().length()>=9 & isDateCorrect(dob) & bgroupisset)
                 {
                     UserInfo userInfo = new UserInfo(getApplicationContext());
                     userInfo.setBloodGroup(bgroup);
@@ -90,13 +90,10 @@ public class MainActivity extends AppCompatActivity {
     private boolean isDateCorrect(String dateString) {
         SimpleDateFormat f = new SimpleDateFormat("dd/mm/yyyy");
         try {
-            Toast.makeText(getApplicationContext(),"Here",Toast.LENGTH_LONG).show();
-
             Date date = f.parse(dateString);
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
-
-            return matchesDatePattern(dateString);    //added my method
+            return matchesDatePattern(dateString);
         }
        catch (ParseException e) {
 

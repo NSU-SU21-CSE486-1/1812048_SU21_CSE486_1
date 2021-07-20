@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="universities">
+        <item>NSU</item>
+        <item>BRAC</item>
+        <item>BUET</item>
+    </string-array>
+
+    <string-array name="NSUdept">
+        <item>CSE</item>
+        <item>Architecture</item>
+        <item>EEE</item>
+        <item>ETE</item>
+        <item>Biochemistry</item>
+        <item>Accounting</item>
+        <item>Economics</item>
+        <item>Finance</item>
+        <item>HRM</item>
+        <item>Management</item>
+        <item>Marketing</item>
+        <item>English</item>
+        <item>Law</item>
+    </string-array>
+    <string-array name="BRACdept">
+        <item>CSE</item>
+        <item>EEE</item>
+        <item>ETE</item>
+        <item>Biochemistry</item>
+        <item>Accounting</item>
+        <item>Economics</item>
+        <item>Finance</item>
+        <item>HRM</item>
+        <item>Marketing</item>
+        <item>English</item>
+        <item>Law</item>
+    </string-array>
+    <string-array name="BUETdept">
+        <item>CSE</item>
+        <item>EEE</item>
+        <item>ETE</item>
+        <item>Soil Science</item>
+        <item>Mechanical</item>
+    </string-array>
+</resources>

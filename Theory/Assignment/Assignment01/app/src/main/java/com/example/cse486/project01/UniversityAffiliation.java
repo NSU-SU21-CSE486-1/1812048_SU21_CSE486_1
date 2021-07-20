@@ -8,20 +8,26 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import com.example.cse486.project01.databinding.ActivityMainBinding;
 import com.example.cse486.project01.databinding.ActivityUniversityAffiliationBinding;
 
 public class UniversityAffiliation extends AppCompatActivity {
-    private String uni;
-    private String dept;
+    private boolean uni;
+    private boolean dept;
+    private String uni_name;
+    private String dept_name;
     private String sid;
     private String study;
     private boolean dobisset = true;
     private boolean bgroupisset = false;
     final String[] studies = {
             "BS", "MS", "Post-Doc", "PhD"};
+
     private boolean studyisset = false;
 
     @Override
@@ -31,24 +37,63 @@ public class UniversityAffiliation extends AppCompatActivity {
         ActivityUniversityAffiliationBinding bindingUtil = DataBindingUtil.setContentView(this,R.layout.activity_university_affiliation);
         UserInfo userInfo = new UserInfo(getApplicationContext());
 
-        bindingUtil.prevInfo.setText("Name: "+userInfo.getName()+"\nDOB: "+userInfo.getDOB()+"\nNID: "+userInfo.getNID()+"\nBlood Group: "+userInfo.getBloodGroup());
+
+        bindingUtil.uninameDropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                int abc;
+                uni_name = parent.getItemAtPosition(position).toString();
+                if(uni_name.equals("NSU"))
+                {
+                    abc=R.array.NSUdept;
+                }
+                else if(uni_name.equals("BRAC"))
+                {
+                    abc=R.array.BRACdept;
+                }
+                else
+                {
+                    abc=R.array.BUETdept;
+                }
+                ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(), abc, android.R.layout.simple_spinner_item);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                bindingUtil.deptDropdown.setAdapter(adapter);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
+        bindingUtil.prevInfo.setText(String.format("Name: %s\nDOB: %s\nNID: %s\nBlood Group: %s", userInfo.getName(), userInfo.getDOB(), userInfo.getNID(), userInfo.getBloodGroup()));
 
         bindingUtil.uniButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uni = bindingUtil.uninameEdittextview.getText().toString();
-                dept = bindingUtil.deptEdittextview.getText().toString();
+                  if(bindingUtil.uninameDropdown.getSelectedItem()!=null) {
+                      uni_name = bindingUtil.uninameDropdown.getSelectedItem().toString();
+                      uni=true;
+                  }
+                if(bindingUtil.deptDropdown.getSelectedItem()!=null) {
+                    dept_name = bindingUtil.deptDropdown.getSelectedItem().toString();
+                    dept=true;
+                }
+               
                 sid = bindingUtil.sidEdittextview.getText().toString();
                 study = bindingUtil.study.getText().toString();
 
-                if(uni.trim().length()>3 & sid.trim().length()>3 & dept.trim().length()>2 & studyisset)
+
+                if(uni & sid.trim().length()>3 & dept & studyisset)
                 {
 
-                    userInfo.setUni(uni);
-                    userInfo.setDept(dept);
+                    userInfo.setUni(uni_name);
+                    userInfo.setDept(dept_name);
                     userInfo.setStudy(study);
                     userInfo.setSID(sid);
-
                     Intent intent = new Intent(getApplicationContext(),DisplayInfoActivity.class);
                     startActivity(intent);
 
