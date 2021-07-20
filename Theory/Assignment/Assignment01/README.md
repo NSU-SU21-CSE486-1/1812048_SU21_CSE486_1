@@ -23,7 +23,7 @@ Activity to display intermediate information obtained so far. List View is used 
 
 <img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment01/SS/DisplayInfo1.png" width="300"/>
 
-### Add Phone adn Email Activity
+### Add Phone and Email Activity
 Activity to get user phone and email. Regex is used for email validation
 
 <img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment01/SS/Emailphone.png" width="300"/>
