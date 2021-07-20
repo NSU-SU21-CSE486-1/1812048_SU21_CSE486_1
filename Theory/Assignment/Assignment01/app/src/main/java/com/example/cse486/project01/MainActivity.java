@@ -13,6 +13,13 @@ import android.widget.Toast;
 
 import com.example.cse486.project01.databinding.ActivityMainBinding;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
     private String name;
@@ -39,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 dob = bindingUtil.dobEdittextview.getText().toString();
                 nid = bindingUtil.nidEdittextview.getText().toString();
 
-                if(name.trim().length()>2 & nid.trim().length()>3 & dob.trim().length()>0 & bgroupisset)
+                if(name.trim().length()>2 & nid.trim().length()>9 & isDateCorrect(dob) & bgroupisset)
                 {
                     UserInfo userInfo = new UserInfo(getApplicationContext());
                     userInfo.setBloodGroup(bgroup);
@@ -78,6 +85,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private boolean isDateCorrect(String dateString) {
+        SimpleDateFormat f = new SimpleDateFormat("dd/mm/yyyy");
+        try {
+            Toast.makeText(getApplicationContext(),"Here",Toast.LENGTH_LONG).show();
+
+            Date date = f.parse(dateString);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+
+            return matchesDatePattern(dateString);    //added my method
+        }
+       catch (ParseException e) {
+
+           return false;
+        }
+    }
+
+    private boolean matchesDatePattern(String dateString) {
+        return dateString.matches("\\d{2}/\\d{2}/\\d{4}");
     }
 
 
