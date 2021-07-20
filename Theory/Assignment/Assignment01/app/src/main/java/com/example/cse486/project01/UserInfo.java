@@ -99,7 +99,7 @@ public class UserInfo {
 
     public String getUni() {
 
-        return userinfopref.getString("department", "0");
+        return userinfopref.getString("uni", "0");
     }
 
     public void setUni(String uni) {

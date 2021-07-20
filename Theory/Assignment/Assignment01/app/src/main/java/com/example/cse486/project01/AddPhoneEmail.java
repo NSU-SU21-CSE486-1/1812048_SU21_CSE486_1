@@ -27,7 +27,7 @@ public class AddPhoneEmail extends AppCompatActivity {
         setContentView(R.layout.activity_add_phone_email);
         UserInfo userInfo = new UserInfo(getApplicationContext());
 
-        ActivityAddPhoneEmailBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_add_phone_email)
+        ActivityAddPhoneEmailBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_add_phone_email);
 
 
         binding.addInfoBtn.setOnClickListener(new View.OnClickListener() {
