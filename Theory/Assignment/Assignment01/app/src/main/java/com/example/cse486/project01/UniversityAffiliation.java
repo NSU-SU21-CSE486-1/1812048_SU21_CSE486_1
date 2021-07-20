@@ -41,7 +41,7 @@ public class UniversityAffiliation extends AppCompatActivity {
                 sid = bindingUtil.sidEdittextview.getText().toString();
                 study = bindingUtil.study.getText().toString();
 
-                if(uni.trim().length()>2 & sid.trim().length()>3 & dept.trim().length()>0 & studyisset)
+                if(uni.trim().length()>3 & sid.trim().length()>3 & dept.trim().length()>2 & studyisset)
                 {
 
                     userInfo.setUni(uni);
