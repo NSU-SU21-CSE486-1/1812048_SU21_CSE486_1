@@ -5,5 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddPhoneEmail">
+    <TextView
+        android:id="@+id/sign_up_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:layout_margin="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/name_edittextview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_textview"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:hint="Name"
+        android:layout_margin="30dp" />
+
+    <EditText
+        android:id="@+id/nid_edittextview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/name_edittextview"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:hint="NID"
+        android:layout_margin="30dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
