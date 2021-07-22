@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">UniClubz</string>
     <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
 </resources>
