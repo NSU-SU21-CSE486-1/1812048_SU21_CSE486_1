@@ -35,11 +35,13 @@ public class LauncherActivity extends AppCompatActivity {
     // Go to Sign Up Screen
     public void signup(View view) {
 
-        Intent intent = new Intent();
+        Intent intent = new Intent(getApplicationContext(),Signup.class);
+        startActivity(intent);
     }
 
     // Go to Login Screen
     public void login(View view) {
-        Intent intent = new Intent();
+        Intent intent = new Intent(getApplicationContext(),Login.class);
+        startActivity(intent);
     }
 }

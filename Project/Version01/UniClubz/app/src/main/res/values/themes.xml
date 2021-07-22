@@ -15,8 +15,14 @@
     </style>
 
     <style name="text_button_style" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">#FF1E1E</item>
+        <item name="android:textColor">@color/themered</item>
 
 
+    </style>
+    <style name="edit_text" parent="Widget.AppCompat.EditText">
+    </style>
+    <style name="button_theme" parent="Widget.AppCompat.Button">
+        <item name="backgroundTint">@color/themered</item>
+        <item name="android:layout_margin">20dp</item>
     </style>
 </resources>
