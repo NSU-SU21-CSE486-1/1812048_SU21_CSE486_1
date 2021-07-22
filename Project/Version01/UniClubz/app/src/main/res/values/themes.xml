@@ -11,6 +11,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="fontFamily">@font/inder</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -26,6 +27,9 @@
     <style name="button_theme" parent="Widget.AppCompat.Button">
         <item name="backgroundTint">@color/themered</item>
         <item name="android:layout_margin">20dp</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textSize">30sp</item>
+
     </style>
 
     <style name="spinner" parent="Widget.AppCompat.Spinner.Underlined">
