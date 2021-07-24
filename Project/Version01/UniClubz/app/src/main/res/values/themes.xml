@@ -36,4 +36,15 @@
         <item name="android:layout_marginHorizontal">25dp</item>
         <item name="android:layout_margin">5dp</item>
     </style>
+
+    <style name="card_button" parent="Widget.AppCompat.Button">
+        <item name="android:layout_marginHorizontal">25dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_height">130dp</item>
+        <item name="android:layout_width">130dp</item>
+        <item name="backgroundTint">@color/themered</item>
+    </style>
+
+
 </resources>
