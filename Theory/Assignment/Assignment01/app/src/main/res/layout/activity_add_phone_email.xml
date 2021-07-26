@@ -17,7 +17,7 @@
             android:id="@+id/phoneemail_textview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Additional Info"
+            android:text="@string/additional_info"
             android:gravity="center"
             android:textSize="40sp"
             android:layout_margin="20dp"
@@ -32,7 +32,7 @@
             app:layout_constraintTop_toBottomOf="@+id/phoneemail_textview"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:hint="Phone"
+            android:hint="@string/phone"
             android:layout_margin="30dp" />
 
         <EditText
@@ -42,14 +42,14 @@
             app:layout_constraintTop_toBottomOf="@+id/phone_edittextview"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:hint="Email"
+            android:hint="@string/email"
             android:layout_margin="30dp" />
 
         <Button
             android:id="@+id/add_info_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Next"
+            android:hint="@string/next"
             app:layout_constraintTop_toBottomOf="@+id/email_edittextview"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

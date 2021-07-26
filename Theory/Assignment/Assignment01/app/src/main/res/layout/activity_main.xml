@@ -18,7 +18,7 @@
             android:id="@+id/sign_up_textview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
+            android:text="@string/sign_up"
             android:gravity="center"
             android:textSize="40sp"
             android:layout_margin="20dp"
@@ -33,7 +33,7 @@
             app:layout_constraintTop_toBottomOf="@+id/sign_up_textview"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:hint="Name"
+            android:hint="@string/name"
             android:layout_margin="30dp" />
 
         <EditText
@@ -43,14 +43,14 @@
             app:layout_constraintTop_toBottomOf="@+id/name_edittextview"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:hint="NID"
+            android:hint="@string/nid"
             android:layout_margin="30dp" />
 
         <TextView
             android:id="@+id/blood_group"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Blood Group"
+            android:hint="@string/blood_group"
             android:background="@android:drawable/editbox_dropdown_light_frame"
             app:layout_constraintTop_toBottomOf="@+id/nid_edittextview"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -66,7 +66,7 @@
             android:id="@+id/dob_edittextview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Date of Birth (dd/mm/yyyy)"
+            android:hint="@string/date_of_birth_dd_mm_yyyy"
             app:layout_constraintTop_toBottomOf="@+id/blood_group"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -79,7 +79,7 @@
             android:id="@+id/sign_up_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Sign Up"
+            android:hint="@string/sign_up"
             app:layout_constraintTop_toBottomOf="@+id/dob_edittextview"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
