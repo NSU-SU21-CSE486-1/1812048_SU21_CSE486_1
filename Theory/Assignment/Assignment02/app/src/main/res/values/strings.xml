@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Project02</string>
+    <string name="additional_info">Additional Info</string>
+    <string name="phone">Phone</string>
+    <string name="email">Email</string>
+    <string name="next">Next</string>
+    <string name="user_information">User Information</string>
+    <string name="complete_user_profile">Complete User Profile</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="name">Name</string>
+    <string name="nid">NID</string>
+    <string name="blood_group">Blood Group</string>
+    <string name="date_of_birth_dd_mm_yyyy">Date of Birth (dd/mm/yyyy)</string>
+    <string name="university_affiliation">University Affiliation</string>
+    <string name="university">University</string>
+    <string name="student_id">Student ID</string>
+    <string name="study_level">Study Level</string>
+    <string name="add_university">Add University</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+</resources>
