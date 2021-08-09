@@ -17,6 +17,7 @@
     <string name="study_level">Study Level</string>
     <string name="add_university">Add University</string>
     <string name="title_activity_main2">MainActivity2</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_1">Basic Info</string>
+    <string name="tab_text_2">University</string>
+    <string name="tab_text_3">Phone</string>
 </resources>
