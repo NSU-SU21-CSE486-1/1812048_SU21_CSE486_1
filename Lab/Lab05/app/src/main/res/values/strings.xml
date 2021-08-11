@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BroadCastReceiverChallenge</string>
+    <string name="hp_connected">Head Phone connected!</string>
+    <string name="hp_disconnected">Head Phone disconnected!</string>
+</resources>
