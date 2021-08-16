@@ -1,12 +1,24 @@
 package com.example.project02;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SimpleAdapter;
+
+import com.example.project02.databinding.FragmentBasicInfoBinding;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,50 +26,47 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class BasicInfo extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private String[] headers = new String[]{"Name", "Date of Birth", "NID", "Blood Group"};
 
     public BasicInfo() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BasicInfo.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static BasicInfo newInstance(String param1, String param2) {
+    public static BasicInfo newInstance() {
         BasicInfo fragment = new BasicInfo();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        UserInfo userInfo = new UserInfo(getContext());
+        FragmentBasicInfoBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_basic_info, container, false);
+
+        String[] userarr = new String[]{userInfo.getName(),userInfo.getDOB(),userInfo.getNID(), userInfo.getBloodGroup()};
+
+        List<Map<String, String>> data = new ArrayList<Map<String, String>>();
+        for (int i=0;i<4;i++) {
+            Map<String, String> datum = new HashMap<String, String>(2);
+            datum.put("desc", headers[i]);
+            datum.put("txt", userarr[i]);
+            data.add(datum);
+        }
+        SimpleAdapter adapter = new SimpleAdapter(this.getContext(), data,
+                android.R.layout.simple_list_item_2,
+                new String[] {"desc", "txt"},
+                new int[] {android.R.id.text1,
+                        android.R.id.text2});
+        binding.displayList2.setAdapter(adapter);
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_basic_info, container, false);
     }
