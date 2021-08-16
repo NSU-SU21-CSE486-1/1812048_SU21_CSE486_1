@@ -4,6 +4,8 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.util.Log;
 
+import java.security.Key;
+
 public class UserInfo {
 
     // Shared Preferences
@@ -15,7 +17,8 @@ public class UserInfo {
 
     private static final String PREF_NAME = "UserInfoPref";
     enum Keys{
-        LOGGED_IN
+        LOGGED_IN,
+        FIRST_TIME
     }
 
     public UserInfo(Context context) {
@@ -150,6 +153,18 @@ public class UserInfo {
 
     public boolean isLoggedIn() {
         return userinfopref.getBoolean(Keys.LOGGED_IN.name(), false);
+    }
+
+    public void setfirst(boolean first) {
+        editor = userinfopref.edit();
+        editor.putBoolean(Keys.FIRST_TIME.name(), first);
+        editor.apply();
+
+    }
+    public boolean getfirst() {
+        return userinfopref.getBoolean(Keys.FIRST_TIME.name(), true);
+
+
     }
 
 
