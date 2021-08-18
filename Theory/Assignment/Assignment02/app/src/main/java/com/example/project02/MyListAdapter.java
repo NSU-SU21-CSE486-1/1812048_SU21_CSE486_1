@@ -1,12 +1,15 @@
 package com.example.project02;
 
 
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder>{
@@ -28,11 +31,12 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
         public void onBindViewHolder(ViewHolder holder, int position) {
             final Student myListData = listdata[position];
             holder.name.setText(listdata[position].getStdname());
-            holder.nid.setImageResource(listdata[position].getStdnid());
+            holder.nid.setText(listdata[position].getStdnid());
             holder.layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(view.getContext(),"click on item: "+myListData.getDescription(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(view.getContext(), "click on item: " + myListData.getStdnid(), Toast.LENGTH_LONG).show();
+
                 }
             });
         }
@@ -55,4 +59,4 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
             }
         }
     }
-}
+
