@@ -52,41 +52,38 @@ public class PhonesFragment extends Fragment {
         Boolean first = userInfo.getfirst();
         if(first)
         {
-            Student student1 = new Student("Arif Hossain","123456789");
-            Student student2 = new Student("Sarah Khan","987654211");
-            Student student3 = new Student("Dalia Saif","333444555");
-            Student student4 = new Student("Sanam Saif","333444555");
-            Student student5 = new Student("Rakif Ahmed","333444555");
-            ArrayList<Student> woi=new ArrayList<>();
-            woi.add(student1);
-            woi.add(student2);
-            woi.add(student3);
-            woi.add(student4);
-            woi.add(student5);
+            Phone phone1 = new Phone("Home","123456789");
+            Phone phone2 = new Phone("Office","987654211");
+            Phone phone3 = new Phone("Work","333444555");
+            ArrayList<Phone> woi=new ArrayList<>();
+            woi.add(phone1);
+            woi.add(phone2);
+            woi.add(phone3);
 
-            SerializableManager.saveSerializable(getContext(),woi,"students.txt");
+
+            SerializableManager.saveSerializable(getContext(),woi,"phones.txt");
 
         }
         else {
 
-           ArrayList<Student> arrayList = SerializableManager.readSerializable(getContext(),"student.txt");
-            ArrayList<String> names = new ArrayList<String>();
-            ArrayList<String> nid = new ArrayList<String>();
-            for (Student a:
+           ArrayList<Phone> arrayList = SerializableManager.readSerializable(getContext(),"phones.txt");
+           ArrayList<String> names = new ArrayList<String>();
+           ArrayList<String> nid = new ArrayList<String>();
+            for (Phone a:
                  arrayList) {
-                names.add(a.getStdname());
-                nid.add(a.getStdnid());
+                names.add(a.getTag());
+                nid.add(a.getNumber());
 
             }
-            String[] namesarr = new String[arrayList.size()];
-            names.toArray(namesarr);
-            String[] nidarr = new String[arrayList.size()];
-            nid.toArray(nidarr);
+            String[] tagsarr = new String[arrayList.size()];
+            names.toArray(tagsarr);
+            String[] numarr = new String[arrayList.size()];
+            nid.toArray(numarr);
             List<Map<String, String>> data = new ArrayList<Map<String, String>>();
             for (int i=0;i<8;i++) {
                 Map<String, String> datum = new HashMap<String, String>(2);
-                datum.put("desc", namesarr[i]);
-                datum.put("txt", nidarr[i]);
+                datum.put("desc", tagsarr[i]);
+                datum.put("txt", numarr[i]);
                 data.add(datum);
             }
             SimpleAdapter adapter = new SimpleAdapter(getContext(), data,

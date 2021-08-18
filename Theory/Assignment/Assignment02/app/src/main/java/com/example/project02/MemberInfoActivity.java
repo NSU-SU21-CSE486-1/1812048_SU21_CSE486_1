@@ -49,6 +49,8 @@ public class MemberInfoActivity extends AppCompatActivity {
             }
         }
 
+        String sname = userInfo.getName();
+        String snid = userInfo.getNID();
 
         //get Submitted NID and student name
         // put to recycler view
