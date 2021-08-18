@@ -64,6 +64,9 @@ public class MemberInfoActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
+
+        recyclerView.seton
+
         //get Submitted NID and student name
         // put to recycler view
 

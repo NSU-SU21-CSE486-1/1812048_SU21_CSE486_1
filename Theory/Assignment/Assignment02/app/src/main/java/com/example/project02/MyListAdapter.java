@@ -36,6 +36,16 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(view.getContext(), "click on item: " + myListData.getStdnid(), Toast.LENGTH_LONG).show();
+                    AlertDialog.Builder alertDialogBuilder =
+                            new AlertDialog.Builder(view.getContext())
+                                    .setTitle("Student Information")
+                                    .setMessage("Name: "+myListData.getStdname()+"\nNID: "+myListData.getStdnid())
+                                    .setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.cancel();
+                                        }
+                                    });
+
 
                 }
             });
@@ -58,5 +68,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
                 layout = (LinearLayout)itemView.findViewById(R.id.listlinearlayout);
             }
         }
+
+
     }
 
