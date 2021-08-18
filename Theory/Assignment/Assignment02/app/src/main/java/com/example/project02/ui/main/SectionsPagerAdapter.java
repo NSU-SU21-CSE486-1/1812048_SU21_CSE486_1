@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.project02.BasicInfo;
-import com.example.project02.Phones;
+import com.example.project02.BasicInfoFragment;
+import com.example.project02.PhonesFragment;
 import com.example.project02.R;
-import com.example.project02.Universities;
+import com.example.project02.UniversitiesFragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -31,9 +31,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        if (position == 0) return BasicInfo.newInstance();
-        if (position == 1) return new Universities();
-        if (position == 2) return new Phones();
+        if (position == 0) return BasicInfoFragment.newInstance();
+        if (position == 1) return new UniversitiesFragment();
+        if (position == 2) return new PhonesFragment();
 
         return PlaceholderFragment.newInstance(position + 1);
     }

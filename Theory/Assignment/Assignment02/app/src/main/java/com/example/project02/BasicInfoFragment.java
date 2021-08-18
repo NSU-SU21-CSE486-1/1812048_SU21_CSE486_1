@@ -1,6 +1,5 @@
 package com.example.project02;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,22 +17,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link BasicInfo#newInstance} factory method to
+ * Use the {@link BasicInfoFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BasicInfo extends Fragment {
+public class BasicInfoFragment extends Fragment {
     private String[] headers = new String[]{"Name", "Date of Birth", "NID", "Blood Group"};
 
-    public BasicInfo() {
+    public BasicInfoFragment() {
         // Required empty public constructor
     }
 
-    public static BasicInfo newInstance() {
-        BasicInfo fragment = new BasicInfo();
+    public static BasicInfoFragment newInstance() {
+        BasicInfoFragment fragment = new BasicInfoFragment();
         return fragment;
     }
 

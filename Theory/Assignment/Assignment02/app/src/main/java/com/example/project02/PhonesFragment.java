@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SimpleAdapter;
 
-import com.example.project02.databinding.FragmentBasicInfoBinding;
 import com.example.project02.databinding.FragmentPhonesBinding;
 
 import java.util.ArrayList;
@@ -21,20 +20,20 @@ import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Phones#newInstance} factory method to
+ * Use the {@link PhonesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Phones extends Fragment {
+public class PhonesFragment extends Fragment {
 
 
-    public Phones() {
+    public PhonesFragment() {
         // Required empty public constructor
     }
 
 
     // TODO: Rename and change types and number of parameters
-    public static Phones newInstance(String param1, String param2) {
-        Phones fragment = new Phones();
+    public static PhonesFragment newInstance(String param1, String param2) {
+        PhonesFragment fragment = new PhonesFragment();
         return fragment;
     }
 

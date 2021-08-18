@@ -10,18 +10,18 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Universities#newInstance} factory method to
+ * Use the {@link UniversitiesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Universities extends Fragment {
+public class UniversitiesFragment extends Fragment {
 
-    public Universities() {
+    public UniversitiesFragment() {
         // Required empty public constructor
     }
 
     // TODO: Rename and change types and number of parameters
-    public static Universities newInstance(String param1, String param2) {
-        Universities fragment = new Universities();
+    public static UniversitiesFragment newInstance(String param1, String param2) {
+        UniversitiesFragment fragment = new UniversitiesFragment();
         return fragment;
     }
 
