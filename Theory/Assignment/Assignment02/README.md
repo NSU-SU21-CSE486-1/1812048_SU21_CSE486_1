@@ -1,6 +1,6 @@
 
 # Assignment 2
-## Lateral Navigationb Tabbed View Activity
+## Lateral Navigation Tabbed View Activity
 
 > The requirements are added in blockquotes.
 
