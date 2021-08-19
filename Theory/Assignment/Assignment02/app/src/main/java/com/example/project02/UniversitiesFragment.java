@@ -1,7 +1,9 @@
 package com.example.project02;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -18,6 +20,11 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class UniversitiesFragment extends Fragment {
+
+    ArrayList<UniAffiliation> uniAffiliations = new ArrayList<>();
+    View view;
+    ListView listView;
+
 
     public UniversitiesFragment() {
         // Required empty public constructor
@@ -38,22 +45,22 @@ public class UniversitiesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_universities, container, false);
+        view = inflater.inflate(R.layout.fragment_universities, container, false);
 
-        ListView listView = view.findViewById(R.id.list_view);
-        ArrayList<UniAffiliation> uniAffiliations = new ArrayList<>();
+        listView = view.findViewById(R.id.list_view);
 
-        UserInfo userInfo = new UserInfo(getContext());
-        Boolean first = userInfo.getfirst();
 
-        if(first)
+
+        uniAffiliations = SerializableManager.readSerializable(getContext(), "unis.txt");
+
+        if(uniAffiliations==null || uniAffiliations.size()<=1)
         {
-
+            uniAffiliations = new ArrayList<UniAffiliation>();
             uniAffiliations.add(new UniAffiliation("NSU","123456789","CSE","BS"));
             uniAffiliations.add(new UniAffiliation("BRAC","34567898","EEE","MS"));
             uniAffiliations.add(new UniAffiliation("NSU","178239200","Law","PHD"));
 
-            SerializableManager.saveSerializable(getContext(),uniAffiliations,"unis.txt");
+
 
         }
         else {
@@ -61,10 +68,40 @@ public class UniversitiesFragment extends Fragment {
             uniAffiliations = SerializableManager.readSerializable(getContext(), "unis.txt");
         }
 
-        UniArrayAdapter adapter = new UniArrayAdapter(getActivity().getBaseContext(),R.layout.fragment_universities,uniAffiliations);
-        adapter.addAll(uniAffiliations);
-        listView.setAdapter(adapter);
+        setlistview();
+
+        view.findViewById(R.id.addphonebtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),UniAffiliation.class);
+                startActivityForResult(intent,1);
+
+            }
+        });
 
         return view;
     }
+
+    public void setlistview()
+    {
+        UniArrayAdapter adapter = new UniArrayAdapter(getActivity().getBaseContext(),R.layout.fragment_universities,uniAffiliations);
+        adapter.addAll(uniAffiliations);
+        listView.setAdapter(adapter);
+        SerializableManager.saveSerializable(getContext(),uniAffiliations,"unis.txt");
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1)
+        {
+            UniAffiliation phone = new UniAffiliation(data.getStringExtra("name"),data.getStringExtra("sid"),data.getStringExtra("dept"),data.getStringExtra("lvl"));
+            uniAffiliations.add(phone);
+            setlistview();
+
+            // Toast.makeText(getActivity().getBaseContext(), phone.getNumber(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

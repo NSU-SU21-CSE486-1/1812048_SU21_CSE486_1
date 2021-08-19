@@ -18,6 +18,8 @@ import android.view.View;
 import com.example.project02.ui.main.SectionsPagerAdapter;
 import com.example.project02.databinding.ActivityMain2Binding;
 
+import java.util.ArrayList;
+
 public class MainActivity2 extends AppCompatActivity {
 
     private ActivityMain2Binding binding;
@@ -28,6 +30,15 @@ public class MainActivity2 extends AppCompatActivity {
 
         binding = ActivityMain2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        UserInfo userInfo = new UserInfo(getApplicationContext());
+        if(userInfo.getfirst()) {
+            SerializableManager.saveSerializable(getApplicationContext(), new ArrayList<UniAffiliation>().add(new UniAffiliation("BUET", "1234567890", "CSE", "BS")), "unis.txt");
+            SerializableManager.saveSerializable(getApplicationContext(), new ArrayList<Phone>().add(new Phone("Office", "1234567890")), "phones.txt");
+            SerializableManager.saveSerializable(getApplicationContext(), new ArrayList<Student>().add(new Student("Office", "1234567890")), "students.txt");
+            userInfo.setfirst(false);
+        }
+
 
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = binding.viewPager;

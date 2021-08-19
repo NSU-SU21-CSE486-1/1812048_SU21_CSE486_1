@@ -61,8 +61,9 @@ public class PhonesFragment extends Fragment {
 
         woi = SerializableManager.readSerializable(getContext(), "phones.txt");
 
-        if(woi.size()<=0)
+        if(woi == null || woi.size()<=1)
         {
+            woi = new ArrayList<Phone>();
             Phone phone1 = new Phone("Home","123456789");
             Phone phone2 = new Phone("Office","987654211");
             Phone phone3 = new Phone("Work","333444555");

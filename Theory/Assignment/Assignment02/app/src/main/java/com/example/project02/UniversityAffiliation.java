@@ -93,8 +93,22 @@ public class UniversityAffiliation extends AppCompatActivity {
                     userInfo.setDept(dept_name);
                     userInfo.setStudy(study);
                     userInfo.setSID(sid);
-                    Intent intent = new Intent(getApplicationContext(),DisplayInfoActivity.class);
-                    startActivity(intent);
+
+                    if(getCallingActivity()!=null)
+                    {
+                        Intent data = new Intent();
+                        data.putExtra("name",uni_name);
+                        data.putExtra("dept",dept_name);
+                        data.putExtra("sid",sid);
+                        data.putExtra("lvl",study);
+                        setResult(RESULT_OK,data);
+                        finish();
+
+                    }
+                   else {
+                        Intent intent = new Intent(getApplicationContext(), DisplayInfoActivity.class);
+                        startActivity(intent);
+                    }
 
 
                 }
