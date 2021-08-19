@@ -23,8 +23,11 @@ public class MemberInfoActivity extends AppCompatActivity {
         ActivityMemberInfoBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_member_info);
         ArrayList<Student> arrayList = new ArrayList<>();
 
-        Boolean first = userInfo.getfirst();
-        if (first) {
+        arrayList = SerializableManager.readSerializable(getApplicationContext(), "students.txt");
+
+        if(arrayList==null || arrayList.size()<=1)
+        {
+            arrayList = new ArrayList<Student>();
             Student student1 = new Student("Arif Hossain", "123456789");
             Student student2 = new Student("Sarah Khan", "987654211");
             Student student3 = new Student("Dalia Saif", "333444555");

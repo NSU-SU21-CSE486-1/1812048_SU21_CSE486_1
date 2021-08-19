@@ -33,9 +33,16 @@ public class MainActivity2 extends AppCompatActivity {
 
         UserInfo userInfo = new UserInfo(getApplicationContext());
         if(userInfo.getfirst()) {
-            SerializableManager.saveSerializable(getApplicationContext(), new ArrayList<UniAffiliation>().add(new UniAffiliation("BUET", "1234567890", "CSE", "BS")), "unis.txt");
-            SerializableManager.saveSerializable(getApplicationContext(), new ArrayList<Phone>().add(new Phone("Office", "1234567890")), "phones.txt");
-            SerializableManager.saveSerializable(getApplicationContext(), new ArrayList<Student>().add(new Student("Office", "1234567890")), "students.txt");
+            ArrayList<UniAffiliation> uniAffiliations = new ArrayList<>();
+            ArrayList<Phone> phones = new ArrayList<>();
+            ArrayList<Student> students = new ArrayList<>();
+            uniAffiliations.add(new UniAffiliation("BUET", "1234567890", "CSE", "BS"));
+            phones.add(new Phone("Office", "1234567890"));
+            students.add(new Student("Sarah Ansari", "1234567890"));
+
+            SerializableManager.saveSerializable(getApplicationContext(),uniAffiliations, "unis.txt");
+            SerializableManager.saveSerializable(getApplicationContext(), phones, "phones.txt");
+            SerializableManager.saveSerializable(getApplicationContext(),students, "students.txt");
             userInfo.setfirst(false);
         }
 
