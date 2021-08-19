@@ -34,10 +34,10 @@ public class UniArrayAdapter extends ArrayAdapter<UniAffiliation> {
         TextView sid = (TextView) rowView.findViewById(R.id.sid);
         TextView study = (TextView) rowView.findViewById(R.id.study);
 
-        uname.setText(uniAffiliations.get(position).getUniname());
-        udept.setText(uniAffiliations.get(position).getUnidept());
-        sid.setText(uniAffiliations.get(position).getUnisid());
-        study.setText(uniAffiliations.get(position).getUnilevel());
+        uname.setText("Uni: "+uniAffiliations.get(position).getUniname());
+        udept.setText("Department: "+uniAffiliations.get(position).getUnidept());
+        sid.setText("ID: "+uniAffiliations.get(position).getUnisid());
+        study.setText("Study Level: "+uniAffiliations.get(position).getUnilevel());
 
         return rowView;
     }
