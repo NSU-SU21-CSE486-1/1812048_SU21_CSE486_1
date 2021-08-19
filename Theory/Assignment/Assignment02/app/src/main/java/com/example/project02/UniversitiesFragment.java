@@ -56,9 +56,9 @@ public class UniversitiesFragment extends Fragment {
         if(uniAffiliations==null || uniAffiliations.size()<=1)
         {
             uniAffiliations = new ArrayList<UniAffiliation>();
-            uniAffiliations.add(new UniAffiliation("NSU","123456789","CSE","BS"));
-            uniAffiliations.add(new UniAffiliation("BRAC","34567898","EEE","MS"));
-            uniAffiliations.add(new UniAffiliation("NSU","178239200","Law","PHD"));
+            uniAffiliations.add(new UniAffiliation("NSU","123456789","CSE","BS","afra@nsu.edu"));
+            uniAffiliations.add(new UniAffiliation("BRAC","34567898","EEE","MS","afra@brac.edu"));
+            uniAffiliations.add(new UniAffiliation("NSU","178239200","Law","PHD","afra05@nsu.edu"));
 
 
 
@@ -96,7 +96,7 @@ public class UniversitiesFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==1)
         {
-            UniAffiliation phone = new UniAffiliation(data.getStringExtra("name"),data.getStringExtra("sid"),data.getStringExtra("dept"),data.getStringExtra("lvl"));
+            UniAffiliation phone = new UniAffiliation(data.getStringExtra("name"),data.getStringExtra("sid"),data.getStringExtra("dept"),data.getStringExtra("lvl"),data.getStringExtra("email"));
             uniAffiliations.add(phone);
             setlistview();
 

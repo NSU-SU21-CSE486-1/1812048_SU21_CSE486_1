@@ -35,6 +35,10 @@ public class UniversityAffiliation extends AppCompatActivity {
         setContentView(R.layout.activity_university_affiliation);
         ActivityUniversityAffiliationBinding bindingUtil = DataBindingUtil.setContentView(this,R.layout.activity_university_affiliation);
         UserInfo userInfo = new UserInfo(getApplicationContext());
+        if(getCallingActivity()!=null)
+        {
+            bindingUtil.uniemail.setVisibility(View.VISIBLE);
+        }
 
 
         bindingUtil.uninameDropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -101,6 +105,8 @@ public class UniversityAffiliation extends AppCompatActivity {
                         data.putExtra("dept",dept_name);
                         data.putExtra("sid",sid);
                         data.putExtra("lvl",study);
+                        String email = bindingUtil.uniemail.getText().toString();
+                        data.putExtra("email",email);
                         setResult(RESULT_OK,data);
                         finish();
 
