@@ -23,7 +23,7 @@
             android:divider="#00FFFFFF"
             android:dividerHeight="20dp"
             android:padding="10dp"
-            tools:listitem="@layout/unicard">
+        >
 
         </ListView>
 

@@ -53,13 +53,13 @@ public class PhonesFragment extends Fragment {
         binding.addphonebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(this,)
+              //  Intent intent = new Intent(this,)
             }
         });
 
         ArrayList<Phone> woi=new ArrayList<>();
 
-        Boolean first = userInfo.getfirst();
+        boolean first = userInfo.getfirst();
         if(first)
         {
             Phone phone1 = new Phone("Home","123456789");

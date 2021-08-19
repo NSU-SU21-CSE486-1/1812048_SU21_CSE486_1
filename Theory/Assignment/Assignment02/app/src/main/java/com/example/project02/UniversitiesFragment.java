@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,6 +38,33 @@ public class UniversitiesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_universities, container, false);
+        View view = inflater.inflate(R.layout.fragment_universities, container, false);
+
+        ListView listView = view.findViewById(R.id.list_view);
+        ArrayList<UniAffiliation> uniAffiliations = new ArrayList<>();
+
+        UserInfo userInfo = new UserInfo(getContext());
+        Boolean first = userInfo.getfirst();
+
+        if(first)
+        {
+
+            uniAffiliations.add(new UniAffiliation("NSU","123456789","CSE","BS"));
+            uniAffiliations.add(new UniAffiliation("BRAC","34567898","EEE","MS"));
+            uniAffiliations.add(new UniAffiliation("NSU","178239200","Law","PHD"));
+
+            SerializableManager.saveSerializable(getContext(),uniAffiliations,"unis.txt");
+
+        }
+        else {
+
+            uniAffiliations = SerializableManager.readSerializable(getContext(), "unis.txt");
+        }
+
+        UniArrayAdapter adapter = new UniArrayAdapter(getActivity().getBaseContext(),R.layout.fragment_universities,uniAffiliations);
+        adapter.addAll(uniAffiliations);
+        listView.setAdapter(adapter);
+
+        return view;
     }
 }
