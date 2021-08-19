@@ -1,5 +1,7 @@
 package com.example.project02;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -96,9 +98,11 @@ public class UniversitiesFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==1)
         {
-            UniAffiliation phone = new UniAffiliation(data.getStringExtra("name"),data.getStringExtra("sid"),data.getStringExtra("dept"),data.getStringExtra("lvl"),data.getStringExtra("email"));
-            uniAffiliations.add(phone);
-            setlistview();
+            if(data!=null && resultCode!=RESULT_OK) {
+                UniAffiliation phone = new UniAffiliation(data.getStringExtra("name"), data.getStringExtra("sid"), data.getStringExtra("dept"), data.getStringExtra("lvl"), data.getStringExtra("email"));
+                uniAffiliations.add(phone);
+                setlistview();
+            }
 
             // Toast.makeText(getActivity().getBaseContext(), phone.getNumber(), Toast.LENGTH_SHORT).show();
         }

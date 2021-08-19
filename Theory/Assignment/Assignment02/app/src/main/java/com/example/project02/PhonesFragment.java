@@ -1,5 +1,7 @@
 package com.example.project02;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -130,9 +132,11 @@ public class PhonesFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==1)
         {
-            Phone phone = new Phone(data.getStringExtra("tag"),data.getStringExtra("phone"));
-            woi.add(phone);
-            setuplistview(woi);
+            if(data!=null && resultCode!= RESULT_OK) {
+                Phone phone = new Phone(data.getStringExtra("tag"), data.getStringExtra("phone"));
+                woi.add(phone);
+                setuplistview(woi);
+            }
 
           // Toast.makeText(getActivity().getBaseContext(), phone.getNumber(), Toast.LENGTH_SHORT).show();
         }
