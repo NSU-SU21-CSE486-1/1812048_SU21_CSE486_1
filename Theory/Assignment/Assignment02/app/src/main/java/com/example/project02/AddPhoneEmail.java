@@ -30,29 +30,52 @@ public class AddPhoneEmail extends AppCompatActivity {
 
         ActivityAddPhoneEmailBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_add_phone_email);
 
+        if(getCallingActivity()!=null) {
 
-        binding.addInfoBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                phone = binding.phoneEdittextview.getText().toString();
-                email = binding.emailEdittextview.getText().toString();
-                if(phone.trim().length()==11 & validate(email))
-                {
+            binding.phoneemailTextview.setText("Add Phone");
+            binding.emailEdittextview.setHint("Tag");
 
-                    userInfo.setEmail(email);
-                    userInfo.setPhone(phone);
-
-                    Intent intent = new Intent(getApplicationContext(),FinalActivity.class);
-                    startActivity(intent);
-
-
+            binding.addInfoBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                   String pt = binding.phoneEdittextview.getText().toString();
+                    String tt = binding.emailEdittextview.getText().toString();
+                    if(pt.length()>=10 && tt.length()>=1)
+                    {
+                        Intent data = new Intent();
+                        data.putExtra("phone",pt);
+                        data.putExtra("tag",tt);
+                        setResult(RESULT_OK,data);
+                        finish();
+                    }
                 }
-                else
-                {
-                    Toast.makeText(getApplicationContext(),"Please fill up all Fields Properly",Toast.LENGTH_LONG).show();
+            });
+
+
+        }
+        else {
+
+
+            binding.addInfoBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    phone = binding.phoneEdittextview.getText().toString();
+                    email = binding.emailEdittextview.getText().toString();
+                    if (phone.trim().length() == 11 & validate(email)) {
+
+                        userInfo.setEmail(email);
+                        userInfo.setPhone(phone);
+
+                        Intent intent = new Intent(getApplicationContext(), FinalActivity.class);
+                        startActivity(intent);
+
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Please fill up all Fields Properly", Toast.LENGTH_LONG).show();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     public static boolean validate(String emailStr) {

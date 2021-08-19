@@ -3,6 +3,7 @@ package com.example.project02;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.example.project02.databinding.FragmentPhonesBinding;
 
@@ -25,6 +27,9 @@ import java.util.Map;
  * create an instance of this fragment.
  */
 public class PhonesFragment extends Fragment {
+    ArrayList<Phone> woi=new ArrayList<>();
+    View view;
+    ListView listView;
 
 
     public PhonesFragment() {
@@ -49,18 +54,14 @@ public class PhonesFragment extends Fragment {
                              Bundle savedInstanceState) {
         UserInfo userInfo = new UserInfo(getContext());
         FragmentPhonesBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_phones, container, false);
+        view = inflater.inflate(R.layout.fragment_phones, container, false);
+        listView = view.findViewById(R.id.display_list2);
 
-        binding.addphonebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              //  Intent intent = new Intent(this,)
-            }
-        });
 
-        ArrayList<Phone> woi=new ArrayList<>();
 
-        boolean first = userInfo.getfirst();
-        if(first)
+        woi = SerializableManager.readSerializable(getContext(), "phones.txt");
+
+        if(woi.size()<=0)
         {
             Phone phone1 = new Phone("Home","123456789");
             Phone phone2 = new Phone("Office","987654211");
@@ -71,17 +72,32 @@ public class PhonesFragment extends Fragment {
             woi.add(phone3);
 
 
-            SerializableManager.saveSerializable(getContext(),woi,"phones.txt");
+        //    SerializableManager.saveSerializable(getContext(),woi,"phones.txt");
 
         }
-        else {
 
-            woi = SerializableManager.readSerializable(getContext(), "phones.txt");
+        setuplistview(woi);
+
+
+        view.findViewById(R.id.addphonebtn).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getContext(),AddPhoneEmail.class);
+                    startActivityForResult(intent,1);
+
+                }
+            });
+
+            return view;
+
         }
-           ArrayList<String> names = new ArrayList<String>();
-           ArrayList<String> nid = new ArrayList<String>();
+
+        public void setuplistview(ArrayList<Phone> woi)
+        {
+            ArrayList<String> names = new ArrayList<String>();
+            ArrayList<String> nid = new ArrayList<String>();
             for (Phone a:
-                 woi) {
+                    woi) {
                 names.add(a.getTag());
                 nid.add(a.getNumber());
 
@@ -103,20 +119,24 @@ public class PhonesFragment extends Fragment {
                     new int[] {android.R.id.text1,
                             android.R.id.text2});
 
-            View view = inflater.inflate(R.layout.fragment_phones, container, false);
-            ListView listView = view.findViewById(R.id.display_list2);
             listView.setAdapter(adapter);
-
-            binding.addphonebtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(getContext(),AddPhoneEmail.class);
-                    startActivity(intent);
-                }
-            });
-
-            return view;
-
+         //  SerializableManager.removeSerializable(getActivity().getBaseContext(),"phones.txt");
+            SerializableManager.saveSerializable(getActivity().getBaseContext(),woi,"phones.txt");
         }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1)
+        {
+            Phone phone = new Phone(data.getStringExtra("tag"),data.getStringExtra("phone"));
+            woi.add(phone);
+            setuplistview(woi);
+
+          // Toast.makeText(getActivity().getBaseContext(), phone.getNumber(), Toast.LENGTH_SHORT).show();
+        }
     }
+
+
+
+}
