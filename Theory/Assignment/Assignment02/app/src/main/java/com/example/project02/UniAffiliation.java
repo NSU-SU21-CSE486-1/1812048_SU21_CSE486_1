@@ -1,6 +1,8 @@
 package com.example.project02;
 
-public class UniAffiliation {
+import java.io.Serializable;
+
+public class UniAffiliation implements Serializable {
 
     private String uniname;
     private String unisid;

@@ -1,5 +1,6 @@
 package com.example.project02;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,7 +10,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.example.project02.databinding.FragmentBasicInfoBinding;
 
@@ -24,14 +27,16 @@ import java.util.Map;
  * create an instance of this fragment.
  */
 public class BasicInfoFragment extends Fragment {
+    private static Context mcontext;
     private String[] headers = new String[]{"Name", "Date of Birth", "NID", "Blood Group"};
 
     public BasicInfoFragment() {
         // Required empty public constructor
     }
 
-    public static BasicInfoFragment newInstance() {
+    public static BasicInfoFragment newInstance(Context context) {
         BasicInfoFragment fragment = new BasicInfoFragment();
+        mcontext = context;
         return fragment;
     }
 
@@ -46,10 +51,13 @@ public class BasicInfoFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        assert container != null;
         UserInfo userInfo = new UserInfo(getContext());
+
         FragmentBasicInfoBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_basic_info, container, false);
 
         String[] userarr = new String[]{userInfo.getName(),userInfo.getDOB(),userInfo.getNID(), userInfo.getBloodGroup()};
+       // Toast.makeText(mcontext, userarr[1], Toast.LENGTH_SHORT).show();
 
         List<Map<String, String>> data = new ArrayList<Map<String, String>>();
         for (int i=0;i<4;i++) {
@@ -58,14 +66,18 @@ public class BasicInfoFragment extends Fragment {
             datum.put("txt", userarr[i]);
             data.add(datum);
         }
-        SimpleAdapter adapter = new SimpleAdapter(this.getContext(), data,
+        SimpleAdapter adapter = new SimpleAdapter(getActivity().getBaseContext(), data,
                 android.R.layout.simple_list_item_2,
                 new String[] {"desc", "txt"},
                 new int[] {android.R.id.text1,
                         android.R.id.text2});
-        binding.displayList2.setAdapter(adapter);
+        View view = inflater.inflate(R.layout.fragment_basic_info, container, false);
+
+        ListView listView = view.findViewById(R.id.display_list2);
+        listView.setAdapter(adapter);
+
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_basic_info, container, false);
+        return view;
     }
 }

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.example.project02.databinding.FragmentPhonesBinding;
@@ -49,13 +50,22 @@ public class PhonesFragment extends Fragment {
         UserInfo userInfo = new UserInfo(getContext());
         FragmentPhonesBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_phones, container, false);
 
+        binding.addphonebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(this,)
+            }
+        });
+
+        ArrayList<Phone> woi=new ArrayList<>();
+
         Boolean first = userInfo.getfirst();
         if(first)
         {
             Phone phone1 = new Phone("Home","123456789");
             Phone phone2 = new Phone("Office","987654211");
             Phone phone3 = new Phone("Work","333444555");
-            ArrayList<Phone> woi=new ArrayList<>();
+
             woi.add(phone1);
             woi.add(phone2);
             woi.add(phone3);
@@ -66,32 +76,36 @@ public class PhonesFragment extends Fragment {
         }
         else {
 
-           ArrayList<Phone> arrayList = SerializableManager.readSerializable(getContext(),"phones.txt");
+            woi = SerializableManager.readSerializable(getContext(), "phones.txt");
+        }
            ArrayList<String> names = new ArrayList<String>();
            ArrayList<String> nid = new ArrayList<String>();
             for (Phone a:
-                 arrayList) {
+                 woi) {
                 names.add(a.getTag());
                 nid.add(a.getNumber());
 
             }
-            String[] tagsarr = new String[arrayList.size()];
+            String[] tagsarr = new String[woi.size()];
             names.toArray(tagsarr);
-            String[] numarr = new String[arrayList.size()];
+            String[] numarr = new String[woi.size()];
             nid.toArray(numarr);
             List<Map<String, String>> data = new ArrayList<Map<String, String>>();
-            for (int i=0;i<8;i++) {
+            for (int i=0;i<woi.size();i++) {
                 Map<String, String> datum = new HashMap<String, String>(2);
                 datum.put("desc", tagsarr[i]);
                 datum.put("txt", numarr[i]);
                 data.add(datum);
             }
-            SimpleAdapter adapter = new SimpleAdapter(getContext(), data,
+            SimpleAdapter adapter = new SimpleAdapter(getActivity().getBaseContext(), data,
                     android.R.layout.simple_list_item_2,
                     new String[] {"desc", "txt"},
                     new int[] {android.R.id.text1,
                             android.R.id.text2});
-            binding.displayList2.setAdapter(adapter);
+
+            View view = inflater.inflate(R.layout.fragment_phones, container, false);
+            ListView listView = view.findViewById(R.id.display_list2);
+            listView.setAdapter(adapter);
 
             binding.addphonebtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -101,7 +115,8 @@ public class PhonesFragment extends Fragment {
                 }
             });
 
+            return view;
+
         }
-        return inflater.inflate(R.layout.fragment_phones, container, false);
+
     }
-}

@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,12 +20,12 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
         public MyListAdapter(Student[] listdata) {
             this.listdata = listdata;
         }
+        @NonNull
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
             View listItem= layoutInflater.inflate(R.layout.list_item, parent, false);
-            ViewHolder viewHolder = new ViewHolder(listItem);
-            return viewHolder;
+            return new ViewHolder(listItem);
         }
 
         @Override
@@ -35,7 +36,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
             holder.layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(view.getContext(), "click on item: " + myListData.getStdnid(), Toast.LENGTH_LONG).show();
+                   // Toast.makeText(view.getContext(), "click on item: " + myListData.getStdnid(), Toast.LENGTH_LONG).show();
                     AlertDialog.Builder alertDialogBuilder =
                             new AlertDialog.Builder(view.getContext())
                                     .setTitle("Student Information")
@@ -45,6 +46,8 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
                                             dialog.cancel();
                                         }
                                     });
+
+                    alertDialogBuilder.show();
 
 
                 }
@@ -64,7 +67,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
             public ViewHolder(View itemView) {
                 super(itemView);
                 this.name = (TextView) itemView.findViewById(R.id.list_tv);
-                this.name = (TextView) itemView.findViewById(R.id.user_info_text);
+                this.nid = (TextView) itemView.findViewById(R.id.user_info_text);
                 layout = (LinearLayout)itemView.findViewById(R.id.listlinearlayout);
             }
         }

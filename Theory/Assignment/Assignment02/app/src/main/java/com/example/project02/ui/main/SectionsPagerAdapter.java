@@ -31,7 +31,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        if (position == 0) return BasicInfoFragment.newInstance();
+        if (position == 0) return BasicInfoFragment.newInstance(mContext);
         if (position == 1) return new UniversitiesFragment();
         if (position == 2) return new PhonesFragment();
 
