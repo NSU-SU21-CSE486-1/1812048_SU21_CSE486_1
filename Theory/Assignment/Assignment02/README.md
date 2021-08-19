@@ -22,12 +22,14 @@ As shown above, the basic information about the user is displayed here, retrieve
 
 #### University Affiliation Fragment
 > Second tab should contain a listview University Affiliations 
+
 File Serialization is used for storing university affiliations. Floating Action Button is implemented which adds a new university affilication to the user's list.
 
 <img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment02/SS/unitab.png" width="300"/>
 
 #### Phone Fragment
 > Third tab should contain a listview of phone numbers
+
 File Serialization is used for storing each instance of a phone object. Floating Action Button is implemented to allow adding a new phone to the user's list.
 
 <img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment02/SS/phonetab.png" width="300"/>
@@ -38,6 +40,8 @@ File Serialization is used for storing each instance of a phone object. Floating
 
 ### Member Information Recylcerview Activity
 >Each entry in the recyclerview contains NID and person name. On tapping an entry in the recyclerview, display the information in a dialogue message
+
+File serialization is used to store different member information. The first time the app is run, new isntances of Student model object is added to a file, and in subsequent runs, these are loaded along with current user's own information. 
 
 <img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment02/SS/memberinfo.png" width="300"/>
 
