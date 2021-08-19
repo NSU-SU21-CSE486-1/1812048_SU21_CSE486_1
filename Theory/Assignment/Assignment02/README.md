@@ -1,5 +1,5 @@
 
-# Assignment 1
+# Assignment 2
 ## Lateral Navigationb Tabbed View Activity
 The full walk through of the app implemented for assignement 2 is shown in this GIF.
 
