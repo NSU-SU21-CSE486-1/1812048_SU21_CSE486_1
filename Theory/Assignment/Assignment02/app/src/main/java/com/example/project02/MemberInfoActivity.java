@@ -43,7 +43,7 @@ public class MemberInfoActivity extends AppCompatActivity {
 
         } else {
 
-            ArrayList<Student> woi = SerializableManager.readSerializable(getApplicationContext(), "student.txt");
+            ArrayList<Student> woi = SerializableManager.readSerializable(getApplicationContext(), "students.txt");
             arrayList.addAll(woi);
 //            ArrayList<String> names = new ArrayList<String>();
 //            ArrayList<String> nid = new ArrayList<String>();

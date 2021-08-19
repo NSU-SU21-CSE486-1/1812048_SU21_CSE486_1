@@ -70,10 +70,10 @@ public class UniversitiesFragment extends Fragment {
 
         setlistview();
 
-        view.findViewById(R.id.addphonebtn).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.add_uni_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(),UniAffiliation.class);
+                Intent intent = new Intent(getContext(),UniversityAffiliation.class);
                 startActivityForResult(intent,1);
 
             }

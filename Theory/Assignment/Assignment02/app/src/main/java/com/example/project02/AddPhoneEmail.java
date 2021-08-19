@@ -33,7 +33,7 @@ public class AddPhoneEmail extends AppCompatActivity {
         if(getCallingActivity()!=null) {
 
             binding.phoneemailTextview.setText("Add Phone");
-            binding.emailEdittextview.setHint("Tag");
+            binding.emailEdittextview.setHint("Tag: Home/Office/Custom");
 
             binding.addInfoBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
