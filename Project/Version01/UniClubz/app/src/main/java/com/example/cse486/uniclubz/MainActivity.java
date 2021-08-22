@@ -31,4 +31,22 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
 
     }
+
+    public void allclubs(View view) {
+    }
+
+    public void events(View view) {
+    }
+
+    public void bd(View view) {
+    }
+
+    public void profile(View view) {
+    }
+
+    public void clubadmin(View view) {
+    }
+
+    public void myclubs(View view) {
+    }
 }

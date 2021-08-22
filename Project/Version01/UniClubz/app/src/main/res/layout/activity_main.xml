@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_logovector"
         android:layout_gravity="center"
-        android:layout_margin="30dp"
+        android:layout_margin="10dp"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
         android:text="UniClubz"
         android:textSize="45sp"
         android:textColor="@color/black"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="5dp"
         android:layout_gravity="center"
         />
 
@@ -68,31 +68,27 @@
                 android:orientation="vertical"
                android:layout_margin="15dp"
                 >
+
                 <Button
-                android:id="@+id/button"
-                style="@style/card_button"
-                android:text="Button"
-                     />
-                <Button
-                    android:id="@+id/button"
+                    android:id="@+id/allclubbtn"
                     style="@style/card_button"
-                    android:text="Button"
+                    android:text="All Clubs"
+                    android:onClick="allclubs"
                     />
+
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/myclubsbtn"
                     style="@style/card_button"
-                    android:text="Button"
+                    android:text="My Clubs"
+                    android:onClick="myclubs"
                     />
+
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/eventbtn"
                     style="@style/card_button"
-                    android:text="Button"
-                    />
-                <Button
-                    android:id="@+id/button"
-                    style="@style/card_button"
-                    android:text="Button"
-                    />
+                    android:onClick="events"
+                    android:text="Events" />
+
         </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -100,31 +96,26 @@
                 android:orientation="vertical"
                 android:layout_margin="15dp"
                 >
+
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/createclubtn"
                     style="@style/card_button"
-                    android:text="Button"
-                    />
+                    android:onClick="clubadmin"
+                    android:text="Club Administration"
+                    android:textSize="13sp" />
+
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/profilebtn"
                     style="@style/card_button"
-                    android:text="Button"
-                    />
+                    android:onClick="profile"
+                    android:text="My Profile" />
+
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/bdbtn"
                     style="@style/card_button"
-                    android:text="Button"
-                    />
-                <Button
-                    android:id="@+id/button"
-                    style="@style/card_button"
-                    android:text="Button"
-                    />
-                <Button
-                    android:id="@+id/button"
-                    style="@style/card_button"
-                    android:text="Button"
-                    />
+                    android:onClick="bd"
+                    android:text="Blood Donation" />
+
             </LinearLayout>
 
         </LinearLayout>
