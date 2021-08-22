@@ -9,7 +9,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.example.cse486.uniclubz.BasicInfoFragment;
+import com.example.cse486.uniclubz.ContactInfoFragment;
 import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.UniversitiesFragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -31,7 +34,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         if (position == 0) return BasicInfoFragment.newInstance(mContext);
         if (position == 1) return new UniversitiesFragment();
-        if (position == 2) return new PhonesFragment();
+        if (position == 2) return new ContactInfoFragment();
 
         return null;
     }
