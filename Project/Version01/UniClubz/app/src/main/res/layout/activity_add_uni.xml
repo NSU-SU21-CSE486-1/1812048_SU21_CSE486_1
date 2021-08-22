@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:layout_margin="20dp">
+
+        <TextView
+            android:id="@+id/uni_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/university_affiliation"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:visibility="gone"
+            android:layout_margin="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/prev_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/uni_textview"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="10dp"
+            />
+
+        <Spinner
+            android:id="@+id/uniname_dropdown"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:entries="@array/universities"
+            android:hint="@string/university"
+            android:paddingLeft="0dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="18sp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="10dp"
+            app:layout_constraintTop_toBottomOf="@id/prev_info"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="@+id/uniname_dropdown"
+            app:layout_constraintEnd_toEndOf="@id/uniname_dropdown"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintTop_toBottomOf="@id/uniname_dropdown"
+            android:layout_marginTop="2dp"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="333dp" />
+
+        <EditText
+            android:id="@+id/sid_edittextview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/uniname_dropdown"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:hint="@string/student_id"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="10dp"
+            android:inputType="number"
+            />
+
+        <TextView
+            android:id="@+id/study"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginVertical="10dp"
+            android:hint="@string/study_level"
+            android:longClickable="false"
+            android:textIsSelectable="false"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sid_edittextview"
+            app:drawableRightCompat="@drawable/ic_baseline_add_24" />
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="@+id/study"
+            app:layout_constraintEnd_toEndOf="@id/study"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintTop_toBottomOf="@id/study"
+            android:layout_marginTop="2dp"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="333dp" />
+
+        <Spinner
+            android:id="@+id/dept_dropdown"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:textSize="18sp"
+            android:entries="@array/NSUdept"
+            app:layout_constraintTop_toBottomOf="@+id/study"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="10dp"
+            android:inputType="text"
+
+            />
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="@+id/study"
+            app:layout_constraintEnd_toEndOf="@id/study"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintTop_toBottomOf="@id/dept_dropdown"
+            android:layout_marginTop="2dp"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="333dp" />
+        <EditText
+            android:id="@+id/uniemail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginVertical="10dp"
+            android:hint="@string/university_email"
+            android:longClickable="false"
+            android:textIsSelectable="false"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dept_dropdown"
+            />
+
+
+        <Button
+            android:id="@+id/uni_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_university"
+            android:textSize="23sp"
+            app:layout_constraintTop_toBottomOf="@+id/uniemail"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_margin="30dp"
+            android:textColorHint="@color/white" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
