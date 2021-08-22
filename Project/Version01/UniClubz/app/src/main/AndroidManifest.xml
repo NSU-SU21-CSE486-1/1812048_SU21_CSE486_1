@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UniClubz">
         <activity
+            android:name=".AddContactActivity"
+            android:exported="true" />
+        <activity
             android:name=".AddUniActivity"
             android:exported="true" />
         <activity
