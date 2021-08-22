@@ -17,7 +17,7 @@ public class LauncherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_launcher);
 
         UserPref userPref = new UserPref(getApplicationContext());
-
+        userPref.setLogin(true); //for testing set true
         if(userPref.isLoggedIn())
         {
             //Go to Main Activity if User already logged in

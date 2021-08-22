@@ -70,4 +70,11 @@ public class Login extends AppCompatActivity {
         //Validate info check against DB/ firebase
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(getApplicationContext(),LauncherActivity.class);
+        startActivity(intent);
+    }
 }

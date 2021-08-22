@@ -2,7 +2,9 @@ package com.example.cse486.uniclubz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,5 +23,12 @@ public class MainActivity extends AppCompatActivity {
         {
 
         }
+    }
+
+    public void tolauncher(View view) {
+            //Firebase Logout
+            Intent intent = new Intent(getApplicationContext(),LauncherActivity.class);
+            startActivity(intent);
+
     }
 }

@@ -20,7 +20,6 @@
         android:layout_height="wrap_content"
         android:textSize="25sp"
         android:text="Notifications"
-        android:onClick="signup"
         android:layout_weight="1"
         style="@style/text_button_style" />
     <TextView
@@ -29,7 +28,7 @@
         android:gravity="right"
         android:textSize="25sp"
         android:text="Log Out"
-        android:onClick="signup"
+        android:onClick="tolauncher"
         android:layout_weight="1"
         style="@style/text_button_style" />
 
