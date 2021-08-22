@@ -2,4 +2,7 @@
     <string name="app_name">UniClubz</string>
     <string name="sign_up">Sign Up</string>
     <string name="login">Login</string>
+    <string name="tab_text_1">Basic Info</string>
+    <string name="tab_text_2">Universities</string>
+    <string name="tab_text_3">Contact Information</string>
 </resources>
