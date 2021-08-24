@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UniClubz">
         <activity
+            android:name=".BloodDonationListActivity"
+            android:exported="true" />
+        <activity
             android:name=".EventListActivity"
             android:exported="true" />
         <activity
