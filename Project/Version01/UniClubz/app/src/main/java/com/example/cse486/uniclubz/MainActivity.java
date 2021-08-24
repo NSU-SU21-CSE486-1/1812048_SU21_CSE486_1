@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void allclubs(View view) {
+        Intent intent = new Intent(getApplicationContext(),ClubListActivity.class);
+        startActivity(intent);
     }
 
     public void events(View view) {
@@ -48,5 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void myclubs(View view) {
+        Intent intent = new Intent(getApplicationContext(),ClubListActivity.class);
+        startActivity(intent);
     }
 }
