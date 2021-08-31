@@ -3,22 +3,27 @@ package com.example.cse486.uniclubz.modelclasses;
 public class Student {
     private String nid;
     private String name;
-    private String contact;
+    private String phone;
     private String dob;
     private String bgroup;
     private String email;
+    private boolean isSet;
     public Student() {
     }
+
 
 
     public Student(String nid, String name, String contact, String dob, String bgroup, String email) {
         this.nid = nid;
         this.name = name;
-        this.contact = contact;
+        this.phone = contact;
         this.dob = dob;
         this.bgroup = bgroup;
         this.email = email;
+        setSet(true);
     }
+
+
 
     public String getNid() {
         return nid;
@@ -36,12 +41,20 @@ public class Student {
         this.name = name;
     }
 
-    public String getContact() {
-        return contact;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public boolean isSet() {
+        return isSet;
+    }
+
+    public void setSet(boolean set) {
+        isSet = set;
     }
 
     public String getDob() {

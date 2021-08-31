@@ -73,6 +73,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password" />
+        <EditText
+            android:id="@+id/dob"
+            style="@style/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Date of Birth (dd/mm/yyyy)"
+            android:inputType="date"
+            />
 
         <Button
             android:id="@+id/signup_btn"
