@@ -19,13 +19,14 @@ import com.google.firebase.auth.FirebaseUser;
 public class Login extends AppCompatActivity {
     private String email, password;
     private FirebaseAuth mAuth;
+    private UserPref userPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
-
+        userPref = new UserPref(getApplicationContext());
 
 
     }
@@ -39,8 +40,8 @@ public class Login extends AppCompatActivity {
 
         ActivityLoginBinding binding  = DataBindingUtil.setContentView(this,R.layout.activity_login);
 
-        email = binding.email.getText().toString();
-        email = binding.password.getText().toString();
+        email = binding.email.getText().toString().trim();
+        password = binding.password.getText().toString().trim();
 
         if (!email.isEmpty() && !password.isEmpty()) {
             mAuth.signInWithEmailAndPassword(email, password)
@@ -51,6 +52,7 @@ public class Login extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 //  Log.d(TAG, "signInWithEmail:success");
+                                userPref.setLogin(true);
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                                 startActivity(intent);

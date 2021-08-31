@@ -75,11 +75,12 @@
             android:hint="Password" />
 
         <Button
+            android:id="@+id/signup_btn"
             style="@style/button_theme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:hint="Login"
+            android:hint="Sign Up"
             android:onClick="loginfunc" />
 
 
