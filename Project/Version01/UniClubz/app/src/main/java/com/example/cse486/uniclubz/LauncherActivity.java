@@ -22,6 +22,7 @@ public class LauncherActivity extends AppCompatActivity {
         {
             //Go to Main Activity if User already logged in
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
         }
         else
         {

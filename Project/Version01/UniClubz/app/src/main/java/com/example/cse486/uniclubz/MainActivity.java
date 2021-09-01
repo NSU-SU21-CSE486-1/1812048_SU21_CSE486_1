@@ -6,14 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
 
+public class MainActivity extends AppCompatActivity {
+    UserPref userPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        UserPref userPref = new UserPref(getApplicationContext());
+        userPref = new UserPref(getApplicationContext());
 
         if(!userPref.isLoggedIn())
         {
@@ -27,8 +29,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void tolauncher(View view) {
             //Firebase Logout
+            FirebaseAuth.getInstance().signOut();
+            userPref.setLogin(false);
             Intent intent = new Intent(getApplicationContext(),LauncherActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            finish();
             startActivity(intent);
+
 
     }
 
@@ -38,15 +46,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void events(View view) {
+        Intent intent = new Intent(getApplicationContext(),EventListActivity.class);
+        startActivity(intent);
     }
 
     public void bd(View view) {
+        Intent intent = new Intent(getApplicationContext(),BloodDonationListActivity.class);
+        startActivity(intent);
     }
 
     public void profile(View view) {
+        Intent intent = new Intent(getApplicationContext(),Profile.class);
+        startActivity(intent);
     }
 
     public void clubadmin(View view) {
+        Intent intent = new Intent(getApplicationContext(),ClubAdminActivity.class);
+        startActivity(intent);
     }
 
     public void myclubs(View view) {
