@@ -59,15 +59,22 @@ public class Signup extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         // Sign in success, update UI with the signed-in user's information
-                                        //Log.d(TAG, "createUserWithEmail:success");
+                                        Log.d("firebase", "createUserWithEmail:success");
 
                                         FirebaseUser user = mAuth.getCurrentUser();
 
                                         writeNewUser(user.getUid(),sname,sbg,sphone,snid,email,sdob);
 
+                                         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK); // clears all previous activities task
+                                        finish();
+                                         startActivity(intent);
+
+
                                     } else {
                                         // If sign in fails, display a message to the user.
-                                    //    Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                                        Log.w("firebase", "createUserWithEmail:failure", task.getException());
                                         Toast.makeText( context,"Authentication failed.",Toast.LENGTH_SHORT).show();
 
                                     }
@@ -99,14 +106,7 @@ public class Signup extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),LauncherActivity.class);
         startActivity(intent);
     }
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-       // FirebaseUser currentUser = mAuth.getCurrentUser();
-        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-        startActivity(intent);
-    }
+
 
     public void writeNewUser(String userId, String sname, String sbg, String sphone, String snid, String email,String sdob) {
         Student user = new Student(snid, sname, sphone, sdob, sbg, email);
