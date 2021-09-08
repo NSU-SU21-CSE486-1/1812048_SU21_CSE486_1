@@ -9,8 +9,8 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.afra.cse486.project03.datasource.local.room.entity.Phone;
 import com.afra.cse486.project03.datasource.local.room.entity.StudentInfo;
-import com.afra.cse486.project03.datasource.local.room.entity.UniAffiliation;
 
 import java.util.List;
 
@@ -22,30 +22,32 @@ import java.util.List;
  * D = @Delete
  */
 @Dao
-public interface UniAffDao {
+public interface PhoneDao {
   @Insert(onConflict = OnConflictStrategy.IGNORE)
-  void insert(UniAffiliation uniAffiliation);
-
-  @Insert(onConflict = OnConflictStrategy.IGNORE)
-  long insert1(UniAffiliation uniAffiliation);
+  void insert(Phone phone);
 
   @Insert(onConflict = OnConflictStrategy.IGNORE)
-  void insertAll(UniAffiliation... uniAffiliations);
+  long insert1(Phone phone);
+
+  @Insert(onConflict = OnConflictStrategy.IGNORE)
+  void insertAll(Phone... Phone);
 
 
-  @Query("SELECT * FROM uni_affiliation ORDER BY uniname ASC")
-  LiveData<List<UniAffDao>> getAllUni();
+  @Query("SELECT * FROM phone ORDER BY tag ASC")
+  LiveData<List<Phone>> getAllPhone();
 
+  @Query("SELECT * FROM phone WHERE number LIKE :number LIMIT 1")
+  LiveData<Phone> getStudent(String number);
 
   @Update
-  void update(UniAffiliation uniAffiliation);
+  void update(Phone phone);
 
   @Update
-  void updateAll(UniAffiliation... uniAffiliations);
+  void updateAll(Phone... phones);
 
   @Delete
-  void delete(UniAffiliation uniAffiliation);
+  void delete(Phone phone);
 
   @Delete
-  void deleteAll(UniAffiliation... uniAffiliations);
+  void deleteAll(Phone... phones);
 }
