@@ -11,9 +11,11 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.afra.cse486.project03.datasource.local.room.dao.StudentInfoDao;
+import com.afra.cse486.project03.datasource.local.room.entity.Phone;
 import com.afra.cse486.project03.datasource.local.room.entity.StudentInfo;
+import com.afra.cse486.project03.datasource.local.room.entity.UniAffiliation;
 
-@Database(entities = {StudentInfo.class}, version = 3, exportSchema = false)
+@Database(entities = {StudentInfo.class, UniAffiliation.class, Phone.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
   public abstract StudentInfoDao studentInfoDao();
 
