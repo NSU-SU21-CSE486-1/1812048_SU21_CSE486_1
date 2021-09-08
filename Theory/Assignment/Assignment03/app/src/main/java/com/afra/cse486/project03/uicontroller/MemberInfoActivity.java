@@ -1,4 +1,4 @@
-package com.afra.cse486.project03;
+package com.afra.cse486.project03.uicontroller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 
+import com.afra.cse486.project03.R;
+import com.afra.cse486.project03.UserInfo;
 import com.afra.cse486.project03.databinding.ActivityMemberInfoBinding;
+import com.afra.cse486.project03.datasource.local.room.entity.Student;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.afra.cse486.project03;
+package com.afra.cse486.project03.uicontroller;
 
 import android.content.Context;
 

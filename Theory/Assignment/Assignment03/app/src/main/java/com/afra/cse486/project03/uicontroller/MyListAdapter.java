@@ -1,4 +1,4 @@
-package com.afra.cse486.project03;
+package com.afra.cse486.project03.uicontroller;
 
 
 import android.content.DialogInterface;
@@ -11,6 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.afra.cse486.project03.R;
+import com.afra.cse486.project03.datasource.local.room.entity.Student;
 
 
 public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder>{

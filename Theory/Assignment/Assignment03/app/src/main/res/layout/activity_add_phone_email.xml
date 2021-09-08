@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="30dp"
-        tools:context=".AddPhoneEmail">
+        tools:context=".uicontroller.AddPhoneEmail">
 
         <TextView
             android:id="@+id/phoneemail_textview"

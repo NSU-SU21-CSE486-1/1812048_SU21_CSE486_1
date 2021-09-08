@@ -1,4 +1,4 @@
-package com.afra.cse486.project03;
+package com.afra.cse486.project03.uicontroller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 
 import com.afra.cse486.project03.R;
+import com.afra.cse486.project03.UserInfo;
 import com.afra.cse486.project03.databinding.ActivityAddPhoneEmailBinding;
 
 import java.util.regex.Matcher;

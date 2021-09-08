@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_gravity="center"
-        tools:context="com.afra.cse486.project03.MemberInfoActivity">
+        tools:context="com.afra.cse486.project03.uicontroller.MemberInfoActivity">
 
 
         <com.google.android.material.appbar.AppBarLayout

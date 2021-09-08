@@ -1,4 +1,4 @@
-package com.afra.cse486.project03;
+package com.afra.cse486.project03.uicontroller;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.afra.cse486.project03.R;
+import com.afra.cse486.project03.UserInfo;
 import com.afra.cse486.project03.databinding.ActivityUniversityAffiliationBinding;
 
 

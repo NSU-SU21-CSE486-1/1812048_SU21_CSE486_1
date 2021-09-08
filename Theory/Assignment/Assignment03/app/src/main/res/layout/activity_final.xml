@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_margin="30dp"
-        tools:context="com.afra.cse486.project03.DisplayInfoActivity">
+        tools:context="com.afra.cse486.project03.uicontroller.DisplayInfoActivity">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

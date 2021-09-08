@@ -1,9 +1,13 @@
-package com.afra.cse486.project03;
+package com.afra.cse486.project03.uicontroller;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.afra.cse486.project03.UserInfo;
 import com.afra.cse486.project03.databinding.ActivityMain2Binding;
+import com.afra.cse486.project03.datasource.local.room.entity.Phone;
+import com.afra.cse486.project03.datasource.local.room.entity.Student;
+import com.afra.cse486.project03.datasource.local.room.entity.UniAffiliation;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -12,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 
-import com.afra.cse486.project03.tab.SectionsPagerAdapter;
+import com.afra.cse486.project03.uicontroller.tab.SectionsPagerAdapter;
 
 
 import java.util.ArrayList;

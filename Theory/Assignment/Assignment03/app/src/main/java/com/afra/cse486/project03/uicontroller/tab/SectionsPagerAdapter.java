@@ -1,4 +1,4 @@
-package com.afra.cse486.project03.tab;
+package com.afra.cse486.project03.uicontroller.tab;
 
 import android.content.Context;
 
@@ -8,11 +8,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.afra.cse486.project03.BasicInfoFragment;
-import com.afra.cse486.project03.PhonesFragment;
+import com.afra.cse486.project03.uicontroller.BasicInfoFragment;
+import com.afra.cse486.project03.uicontroller.PhonesFragment;
 
 import com.afra.cse486.project03.R;
-import com.afra.cse486.project03.UniversitiesFragment;
+import com.afra.cse486.project03.uicontroller.UniversitiesFragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to

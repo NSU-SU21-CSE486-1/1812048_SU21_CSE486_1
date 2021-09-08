@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:padding="10dp"
         android:orientation="vertical"
-        tools:context="com.afra.cse486.project03.UniversitiesFragment">
+        tools:context="com.afra.cse486.project03.uicontroller.UniversitiesFragment">
 
         <!-- TODO: Update blank fragment layout -->
         <ListView

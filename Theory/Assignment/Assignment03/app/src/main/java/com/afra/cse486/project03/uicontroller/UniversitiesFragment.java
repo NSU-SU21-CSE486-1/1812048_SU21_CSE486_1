@@ -1,4 +1,4 @@
-package com.afra.cse486.project03;
+package com.afra.cse486.project03.uicontroller;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 
+import com.afra.cse486.project03.R;
+import com.afra.cse486.project03.datasource.local.room.entity.UniAffiliation;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.afra.cse486.project03;
+package com.afra.cse486.project03.uicontroller;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -16,7 +16,10 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 
+import com.afra.cse486.project03.R;
+import com.afra.cse486.project03.UserInfo;
 import com.afra.cse486.project03.databinding.FragmentPhonesBinding;
+import com.afra.cse486.project03.datasource.local.room.entity.Phone;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,34 +1,40 @@
-package com.afra.cse486.project03;
+package com.afra.cse486.project03.uicontroller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.SimpleAdapter;
 
+import com.afra.cse486.project03.R;
+import com.afra.cse486.project03.UserInfo;
+import com.afra.cse486.project03.databinding.ActivityDisplayInfoBinding;
 
-import com.afra.cse486.project03.databinding.ActivityFinalBinding;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FinalActivity extends AppCompatActivity {
-    private String[] headers = new String[]{"Name", "Date of Birth", "NID", "Blood Group", "University", "Department", "Study Level", "Student ID","Phone","Email"};
+public class DisplayInfoActivity extends AppCompatActivity {
+
+    private String[] headers = new String[]{"Name", "Date of Birth", "NID", "Blood Group", "University", "Department", "Study Level", "Student ID"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_final);
+        setContentView(R.layout.activity_display_info);
 
         UserInfo userInfo = new UserInfo(getApplicationContext());
-        ActivityFinalBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_final);
+        ActivityDisplayInfoBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_display_info);
 
         String[] userarr = new String[]{userInfo.getName(),userInfo.getDOB(),userInfo.getNID(), userInfo.getBloodGroup(),userInfo.getUni(),
-                userInfo.getDept(),userInfo.getStudy(),userInfo.getSID(),userInfo.getPhone(),userInfo.getEmail()};
+                                        userInfo.getDept(),userInfo.getStudy(),userInfo.getSID()};
 
         List<Map<String, String>> data = new ArrayList<Map<String, String>>();
-        for (int i=0;i<10;i++) {
+        for (int i=0;i<8;i++) {
             Map<String, String> datum = new HashMap<String, String>(2);
             datum.put("desc", headers[i]);
             datum.put("txt", userarr[i]);
@@ -39,7 +45,14 @@ public class FinalActivity extends AppCompatActivity {
                 new String[] {"desc", "txt"},
                 new int[] {android.R.id.text1,
                         android.R.id.text2});
-        binding.displayList2.setAdapter(adapter);
+        binding.displayList.setAdapter(adapter);
 
+        binding.displayBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),AddPhoneEmail.class);
+                startActivity(intent);
+            }
+        });
     }
 }

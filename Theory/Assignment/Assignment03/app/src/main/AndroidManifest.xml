@@ -10,19 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project02">
         <activity
-            android:name="com.afra.cse486.project03.MemberInfoActivity"
+            android:name="com.afra.cse486.project03.uicontroller.MemberInfoActivity"
             android:exported="true" />
         <activity
-            android:name="com.afra.cse486.project03.MainActivity2"
+            android:name="com.afra.cse486.project03.uicontroller.MainActivity2"
             android:exported="true"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.Project02.NoActionBar" />
-        <activity android:name="com.afra.cse486.project03.FinalActivity" />
-        <activity android:name="com.afra.cse486.project03.AddPhoneEmail" />
-        <activity android:name="com.afra.cse486.project03.DisplayInfoActivity" />
-        <activity android:name="com.afra.cse486.project03.UniversityAffiliation" />
+        <activity android:name="com.afra.cse486.project03.uicontroller.FinalActivity" />
+        <activity android:name="com.afra.cse486.project03.uicontroller.AddPhoneEmail" />
+        <activity android:name="com.afra.cse486.project03.uicontroller.DisplayInfoActivity" />
+        <activity android:name="com.afra.cse486.project03.uicontroller.UniversityAffiliation" />
         <activity
-            android:name="com.afra.cse486.project03.MainActivity"
+            android:name="com.afra.cse486.project03.uicontroller.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

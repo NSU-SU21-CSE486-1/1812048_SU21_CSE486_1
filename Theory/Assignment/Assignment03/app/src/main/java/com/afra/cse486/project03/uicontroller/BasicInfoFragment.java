@@ -1,4 +1,4 @@
-package com.afra.cse486.project03;
+package com.afra.cse486.project03.uicontroller;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.afra.cse486.project03.R;
+import com.afra.cse486.project03.UserInfo;
 import com.afra.cse486.project03.databinding.FragmentBasicInfoBinding;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.afra.cse486.project03;
+package com.afra.cse486.project03.uicontroller;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 
+import com.afra.cse486.project03.R;
+import com.afra.cse486.project03.datasource.local.room.entity.UniAffiliation;
 
 import java.util.ArrayList;
 

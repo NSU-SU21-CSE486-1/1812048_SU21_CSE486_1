@@ -1,4 +1,4 @@
-package com.afra.cse486.project03.tab;
+package com.afra.cse486.project03.uicontroller.tab;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
