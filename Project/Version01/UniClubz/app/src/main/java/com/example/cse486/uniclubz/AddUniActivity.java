@@ -71,7 +71,6 @@ public class AddUniActivity extends AppCompatActivity {
 
 
 
-        bindingUtil.prevInfo.setText(String.format("Name: %s\nDOB: %s\nNID: %s\nBlood Group: %s", userInfo.getName(), userInfo.getDOB(), userInfo.getNID(), userInfo.getBloodGroup()));
 
         bindingUtil.uniButton.setOnClickListener(new View.OnClickListener() {
             @Override

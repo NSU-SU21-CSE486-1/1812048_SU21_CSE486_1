@@ -1,0 +1,116 @@
+package com.afra.cse486.project03;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
+
+import com.afra.cse486.project03.databinding.ActivityMainBinding;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+public class MainActivity extends AppCompatActivity {
+
+    private String name;
+    private String bgroup;
+    private String nid;
+    private String dob;
+    private boolean dobisset = true;
+    private boolean bgroupisset = false;
+    final String[] bgroups = {
+            "A+", "A-", "B+", "B-","O+","O-","AB+","AB-" };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        UserInfo userInfo = new UserInfo(getApplicationContext());
+        //for testing, go straight to Tab activity if user already entered info
+        if(userInfo.getPhone().length()>=11)
+        {
+            Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+            startActivity(intent);
+        }
+
+        // First Time use or not completed
+        ActivityMainBinding bindingUtil = DataBindingUtil.setContentView(this,R.layout.activity_main);
+
+        bindingUtil.signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                name = bindingUtil.nameEdittextview.getText().toString();
+                bgroup = bindingUtil.bloodGroup.getText().toString();
+                dob = bindingUtil.dobEdittextview.getText().toString();
+                nid = bindingUtil.nidEdittextview.getText().toString();
+
+                if(name.trim().length()>2 & nid.trim().length()>=9 & isDateCorrect(dob) & bgroupisset)
+                {
+
+                    userInfo.setBloodGroup(bgroup);
+                    userInfo.setDOB(dob);
+                    userInfo.setNID(nid);
+                    userInfo.setName(name);
+
+                    Intent intent = new Intent(getApplicationContext(), UniversityAffiliation.class);
+                    startActivity(intent);
+
+
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Please fill up all Fields",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
+        bindingUtil.bloodGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Select Blood Group");
+                builder.setItems(bgroups, new DialogInterface.OnClickListener() {@
+                        Override
+                public void onClick(DialogInterface dialog, int which) {
+                    bgroup = bgroups[which];
+                    bindingUtil.bloodGroup.setText(bgroup);
+                    bgroupisset= true;
+
+                }
+                });
+                builder.show();
+            }
+        });
+
+    }
+
+    private boolean isDateCorrect(String dateString) {
+        SimpleDateFormat f = new SimpleDateFormat("dd/mm/yyyy");
+        try {
+            Date date = f.parse(dateString);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            return matchesDatePattern(dateString);
+        }
+        catch (ParseException e) {
+
+            return false;
+        }
+    }
+
+    private boolean matchesDatePattern(String dateString) {
+        return dateString.matches("\\d{2}/\\d{2}/\\d{4}");
+    }
+
+
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="30dp"
+        tools:context="com.afra.cse486.project03.DisplayInfoActivity">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/complete_user_profile"
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            />
+        <ListView
+            android:id="@+id/display_list2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:listSelector="@color/white"
+            android:layout_weight="1"
+            android:background="#0CFF0000"
+            android:clickable="false"
+            android:padding="20dp"
+            />
+
+
+    </LinearLayout>
+</layout>

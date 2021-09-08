@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UniClubz">
         <activity
+            android:name=".CreateClub"
+            android:exported="true" />
+        <activity
             android:name=".ClubAdminActivity"
             android:exported="true" />
         <activity

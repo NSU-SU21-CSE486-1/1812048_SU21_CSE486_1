@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="30dp"
+        tools:context=".AddPhoneEmail">
+
+        <TextView
+            android:id="@+id/phoneemail_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/additional_info"
+            android:gravity="center"
+            android:textSize="40sp"
+            android:layout_margin="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/phone_edittextview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/phoneemail_textview"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:hint="@string/phone"
+            android:layout_margin="30dp" />
+
+        <EditText
+            android:id="@+id/email_edittextview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/phone_edittextview"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:hint="@string/email"
+            android:layout_margin="30dp" />
+
+        <Button
+            android:id="@+id/add_info_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/next"
+            app:layout_constraintTop_toBottomOf="@+id/email_edittextview"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_margin="30dp"
+            android:textColorHint="@color/white" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
