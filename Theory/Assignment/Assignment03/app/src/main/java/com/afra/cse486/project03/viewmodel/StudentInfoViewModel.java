@@ -6,9 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.shawonarefin.android.roomdbv06.datasource.local.room.entity.StudentInfo;
-import com.shawonarefin.android.roomdbv06.repository.StudentRepository;
-import com.shawonarefin.android.roomdbv06.uicontroller.DBListenerInterface;
+
+import com.afra.cse486.project03.datasource.local.room.entity.StudentInfo;
+import com.afra.cse486.project03.repository.StudentRepository;
+import com.afra.cse486.project03.uicontroller.DBListenerInterface;
 
 import java.util.List;
 

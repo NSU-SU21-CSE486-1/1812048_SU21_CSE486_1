@@ -2,8 +2,6 @@ package com.afra.cse486.project03.datasource.local.room.database;
 
 import android.content.Context;
 
-import com.shawonarefin.android.roomdbv06.datasource.local.room.dao.StudentInfoDao;
-import com.shawonarefin.android.roomdbv06.datasource.local.room.entity.StudentInfo;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -11,6 +9,9 @@ import java.util.concurrent.Executors;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+
+import com.afra.cse486.project03.datasource.local.room.dao.StudentInfoDao;
+import com.afra.cse486.project03.datasource.local.room.entity.StudentInfo;
 
 @Database(entities = {StudentInfo.class}, version = 3, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {

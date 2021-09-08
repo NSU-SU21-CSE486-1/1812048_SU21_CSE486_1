@@ -12,32 +12,27 @@ public class StudentInfo {
   @PrimaryKey
   @NonNull
   @ColumnInfo(name = "id")
-  private final Integer studentID;
+  private String studentID;
 
   @ColumnInfo(name = "name")
   private String studentName;
 
-  @ColumnInfo(name = "age")
-  private Integer studentAge;
-
-  public StudentInfo(@NonNull Integer studentID
-      , String studentName
-      , @NonNull Integer studentAge){
+  public StudentInfo(@NonNull String studentID
+      , String studentName){
     this.studentID = studentID;
     this.studentName = studentName;
-    this.studentAge = studentAge;
   }
 
   public void setStudentName(String studentName) {
     this.studentName = studentName;
   }
-
-  public void setStudentAge(Integer studentAge) {
-    this.studentAge = studentAge;
+  public void setStudentID(String studentID) {
+    this.studentID = studentID;
   }
 
+
   @NonNull
-  public Integer getStudentID() {
+  public String getStudentID() {
     return studentID;
   }
 
@@ -45,7 +40,4 @@ public class StudentInfo {
     return studentName;
   }
 
-  public Integer getStudentAge() {
-    return studentAge;
-  }
 }

@@ -1,6 +1,6 @@
 package com.afra.cse486.project03.datasource.local.room.dao;
 
-import com.shawonarefin.android.roomdbv06.datasource.local.room.entity.StudentInfo;
+
 
 import java.util.List;
 
@@ -11,6 +11,8 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import com.afra.cse486.project03.datasource.local.room.entity.StudentInfo;
 
 /**
  * Perform CRUD operations on student_info table defined by StudentInfo entity
