@@ -26,8 +26,6 @@ public interface UniAffDao {
   @Insert(onConflict = OnConflictStrategy.IGNORE)
   void insert(UniAffiliation uniAffiliation);
 
-  @Insert(onConflict = OnConflictStrategy.IGNORE)
-  long insert1(UniAffiliation uniAffiliation);
 
   @Insert(onConflict = OnConflictStrategy.IGNORE)
   void insertAll(UniAffiliation... uniAffiliations);

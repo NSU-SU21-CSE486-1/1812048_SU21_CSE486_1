@@ -26,8 +26,6 @@ public interface StudentInfoDao {
   @Insert(onConflict = OnConflictStrategy.IGNORE)
   void insert(StudentInfo studentInfo);
 
-  @Insert(onConflict = OnConflictStrategy.IGNORE)
-  long insert1(StudentInfo studentInfo);
 
   @Insert(onConflict = OnConflictStrategy.IGNORE)
   void insertAll(StudentInfo... studentInfos);
