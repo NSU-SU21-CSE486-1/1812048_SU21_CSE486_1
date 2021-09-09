@@ -50,4 +50,7 @@ public interface StudentInfoDao {
 
   @Delete
   void deleteAll(StudentInfo... studentInfos);
+
+  @Insert(onConflict = OnConflictStrategy.IGNORE)
+  long insert1(StudentInfo studentInfo);
 }
