@@ -8,18 +8,21 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 
 import com.afra.cse486.project03.R;
 import com.afra.cse486.project03.UserInfo;
 import com.afra.cse486.project03.databinding.FragmentPhonesBinding;
 import com.afra.cse486.project03.datasource.local.room.entity.Phone;
+import com.afra.cse486.project03.viewmodel.PhoneViewModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,6 +38,7 @@ public class PhonesFragment extends Fragment {
     ArrayList<Phone> woi=new ArrayList<>();
     View view;
     ListView listView;
+    private PhoneViewModel phoneViewModel;
 
 
     public PhonesFragment() {
@@ -58,11 +62,15 @@ public class PhonesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         UserInfo userInfo = new UserInfo(getContext());
+        phoneViewModel = new ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(this.getActivity().getApplication())).get(PhoneViewModel.class);
+
         FragmentPhonesBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_phones, container, false);
         view = inflater.inflate(R.layout.fragment_phones, container, false);
         listView = view.findViewById(R.id.display_list2);
 
-
+        ArrayList<Phone> phones = new ArrayList<>();
+        List<Phone> phones1 = phoneViewModel.getAllPhone().getValue();
+        if(phones1!=null) phones.addAll(phones1);
 
         woi = SerializableManager.readSerializable(getContext(), "phones.txt");
 
@@ -127,6 +135,7 @@ public class PhonesFragment extends Fragment {
 
             listView.setAdapter(adapter);
          //  SerializableManager.removeSerializable(getActivity().getBaseContext(),"phones.txt");
+
             SerializableManager.saveSerializable(getActivity().getBaseContext(),woi,"phones.txt");
         }
 
@@ -137,6 +146,23 @@ public class PhonesFragment extends Fragment {
         {
             if(data!=null && resultCode!= RESULT_OK) {
                 Phone phone = new Phone(data.getStringExtra("tag"), data.getStringExtra("phone"));
+
+                DBListenerInterface ref = new DBListenerInterface() {
+                    @Override
+                    public void failed() {
+                        Toast.makeText(view.getContext(),
+                                "Phones saved.",
+                                Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void passed() {
+                        Toast.makeText(view.getContext(),
+                                "Phones did not get saved.",
+                                Toast.LENGTH_LONG).show();
+                    }
+                };
+                phoneViewModel.insert1(phone,ref);
                 woi.add(phone);
                 setuplistview(woi);
             }

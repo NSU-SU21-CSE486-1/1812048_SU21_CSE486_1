@@ -32,7 +32,9 @@ public class PhoneViewModel extends AndroidViewModel {
     mRepository.insert(info);
   }
 
-
+  public void insert1(Phone info, DBListenerInterface listen){
+    mRepository.insert1(info, listen);
+  }
   public void insertAll(Phone... phones){
     mRepository.insertAll(phones);
   }

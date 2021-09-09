@@ -27,6 +27,9 @@ public interface PhoneDao {
   void insert(Phone phone);
 
   @Insert(onConflict = OnConflictStrategy.IGNORE)
+  long insert1(Phone phone);
+
+  @Insert(onConflict = OnConflictStrategy.IGNORE)
   void insertAll(Phone... Phone);
 
 
