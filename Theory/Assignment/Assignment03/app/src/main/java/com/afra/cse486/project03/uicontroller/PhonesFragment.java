@@ -71,8 +71,8 @@ public class PhonesFragment extends Fragment {
         ArrayList<Phone> phones = new ArrayList<>();
         List<Phone> phones1 = phoneViewModel.getAllPhone().getValue();
         if(phones1!=null) phones.addAll(phones1);
-
-        woi = SerializableManager.readSerializable(getContext(), "phones.txt");
+        woi = phones;
+      //  woi = SerializableManager.readSerializable(getContext(), "phones.txt");
 
         if(woi == null || woi.size()<=1)
         {

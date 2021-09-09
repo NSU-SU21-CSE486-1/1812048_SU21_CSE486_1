@@ -17,8 +17,8 @@ public class StudentInfo {
   @ColumnInfo(name = "name")
   private String studentName;
 
-  public StudentInfo(@NonNull String studentID
-      , String studentName){
+  public StudentInfo(@NonNull String studentName, String studentID
+      ){
     this.studentID = studentID;
     this.studentName = studentName;
   }

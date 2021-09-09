@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +16,13 @@ import android.widget.ListView;
 
 
 import com.afra.cse486.project03.R;
+import com.afra.cse486.project03.datasource.local.room.entity.Phone;
 import com.afra.cse486.project03.datasource.local.room.entity.UniAffiliation;
+import com.afra.cse486.project03.viewmodel.PhoneViewModel;
+import com.afra.cse486.project03.viewmodel.UniViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +34,7 @@ public class UniversitiesFragment extends Fragment {
     ArrayList<UniAffiliation> uniAffiliations = new ArrayList<>();
     View view;
     ListView listView;
-
+    UniViewModel uniViewModel;
 
     public UniversitiesFragment() {
         // Required empty public constructor
@@ -53,10 +58,13 @@ public class UniversitiesFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_universities, container, false);
 
         listView = view.findViewById(R.id.list_view);
+        uniViewModel = new ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(this.getActivity().getApplication())).get(UniViewModel.class);
 
+       // ArrayList<UniAffiliation> uniAffiliations = new ArrayList<>();
+        List<UniAffiliation> uniAffiliations1 = uniViewModel.getAllUni().getValue();
+        if(uniAffiliations1!=null) uniAffiliations.addAll(uniAffiliations1);
 
-
-        uniAffiliations = SerializableManager.readSerializable(getContext(), "unis.txt");
+    //    uniAffiliations = SerializableManager.readSerializable(getContext(), "unis.txt");
 
         if(uniAffiliations==null || uniAffiliations.size()<=1)
         {
@@ -104,6 +112,7 @@ public class UniversitiesFragment extends Fragment {
             if(data!=null && resultCode!=RESULT_OK) {
                 UniAffiliation phone = new UniAffiliation(data.getStringExtra("name"), data.getStringExtra("sid"), data.getStringExtra("dept"), data.getStringExtra("lvl"), data.getStringExtra("email"));
                 uniAffiliations.add(phone);
+                uniViewModel.insert(phone);
                 setlistview();
             }
 
