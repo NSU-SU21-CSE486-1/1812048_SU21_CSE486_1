@@ -26,12 +26,16 @@ public class PhoneRepository implements PhoneDao {
 
     @Override
     public void insert(Phone phone) {
-
+      AppDatabase.getDatabaseWriteExecutor().execute(()->{
+        mPhoneDao.insert(phone);
+      });
     }
 
     @Override
-    public void insertAll(Phone... Phone) {
-
+    public void insertAll(Phone... phone) {
+      AppDatabase.getDatabaseWriteExecutor().execute(()->{
+        mPhoneDao.insertAll(phone);
+      });
     }
 
     @Override
@@ -46,21 +50,29 @@ public class PhoneRepository implements PhoneDao {
 
     @Override
     public void update(Phone phone) {
-
+      AppDatabase.getDatabaseWriteExecutor().execute(()->{
+        mPhoneDao.update(phone);
+      });
     }
 
     @Override
     public void updateAll(Phone... phones) {
-
+      AppDatabase.getDatabaseWriteExecutor().execute(()->{
+        mPhoneDao.updateAll(phones);
+      });
     }
 
     @Override
     public void delete(Phone phone) {
-
+      AppDatabase.getDatabaseWriteExecutor().execute(()->{
+        mPhoneDao.delete(phone);
+      });
     }
 
     @Override
     public void deleteAll(Phone... phones) {
-
+      AppDatabase.getDatabaseWriteExecutor().execute(()->{
+        mPhoneDao.deleteAll(phones);
+      });
     }
 }
