@@ -10,7 +10,9 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.afra.cse486.project03.datasource.local.room.dao.PhoneDao;
 import com.afra.cse486.project03.datasource.local.room.dao.StudentInfoDao;
+import com.afra.cse486.project03.datasource.local.room.dao.UniAffDao;
 import com.afra.cse486.project03.datasource.local.room.entity.Phone;
 import com.afra.cse486.project03.datasource.local.room.entity.StudentInfo;
 import com.afra.cse486.project03.datasource.local.room.entity.UniAffiliation;
@@ -18,6 +20,8 @@ import com.afra.cse486.project03.datasource.local.room.entity.UniAffiliation;
 @Database(entities = {StudentInfo.class, UniAffiliation.class, Phone.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
   public abstract StudentInfoDao studentInfoDao();
+  public abstract PhoneDao phoneDao();
+  public abstract UniAffDao uniAffDao();
 
   private static AppDatabase INSTANCE;
   private static final int NUMBER_OF_THREADS = 4;

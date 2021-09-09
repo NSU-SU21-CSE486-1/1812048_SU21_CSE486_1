@@ -34,7 +34,7 @@ public interface PhoneDao {
   LiveData<List<Phone>> getAllPhone();
 
   @Query("SELECT * FROM phone WHERE number LIKE :number LIMIT 1")
-  LiveData<Phone> getStudent(String number);
+  LiveData<Phone> getPhone(String number);
 
   @Update
   void update(Phone phone);

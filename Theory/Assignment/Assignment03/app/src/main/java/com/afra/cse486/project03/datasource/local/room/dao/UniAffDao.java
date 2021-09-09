@@ -32,7 +32,7 @@ public interface UniAffDao {
 
 
   @Query("SELECT * FROM uni_affiliation ORDER BY uniname ASC")
-  LiveData<List<UniAffDao>> getAllUni();
+  LiveData<List<UniAffiliation>> getAllUni();
 
 
   @Update
