@@ -48,9 +48,6 @@ public class AddPhoneEmail extends AppCompatActivity {
                         data.putExtra("phone",pt);
                         data.putExtra("tag",tt);
                         setResult(RESULT_OK,data);
-                        Toast.makeText(view.getContext(),
-                                "zeeee",
-                                Toast.LENGTH_LONG).show();
                         finish();
                     }
                 }

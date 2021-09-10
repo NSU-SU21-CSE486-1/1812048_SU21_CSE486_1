@@ -60,7 +60,7 @@ public class UniversitiesFragment extends Fragment {
 
         listView = view.findViewById(R.id.list_view);
         uniViewModel = (new ViewModelProvider(this
-         ,ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication()))).get(UniViewModel.class);
+         ,ViewModelProvider.AndroidViewModelFactory.getInstance(this.getActivity().getApplication()))).get(UniViewModel.class);
 
         List<UniAffiliation> uniAffiliations1 = uniViewModel.getAllUni();
 
@@ -82,7 +82,7 @@ public class UniversitiesFragment extends Fragment {
 
         }
 
-        setlistview();
+        setlistview(uniAffiliations);
 
         view.findViewById(R.id.add_uni_btn).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +96,7 @@ public class UniversitiesFragment extends Fragment {
         return view;
     }
 
-    public void setlistview()
+    public void setlistview(ArrayList<UniAffiliation> uniAffiliations)
     {
         UniArrayAdapter adapter = new UniArrayAdapter(getActivity().getBaseContext(),R.layout.fragment_universities,uniAffiliations);
         adapter.addAll(uniAffiliations);
@@ -110,11 +110,11 @@ public class UniversitiesFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==1)
         {
-            if(data!=null && resultCode!=RESULT_OK) {
+            if(data!=null && resultCode==RESULT_OK) {
                 UniAffiliation phone = new UniAffiliation(data.getStringExtra("name"), data.getStringExtra("sid"), data.getStringExtra("dept"), data.getStringExtra("lvl"), data.getStringExtra("email"));
-                uniAffiliations.add(phone);
                 uniViewModel.insert(phone);
-                setlistview();
+                uniAffiliations.add(phone);
+                setlistview(uniAffiliations);
             }
 
             // Toast.makeText(getActivity().getBaseContext(), phone.getNumber(), Toast.LENGTH_SHORT).show();
