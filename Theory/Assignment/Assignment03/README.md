@@ -1,13 +1,19 @@
 
-# Assignment 2
-## Lateral Navigation Tabbed View Activity
+# Assignment 3
+## Lateral Navigation Tabbed View Activity with Room Persistence Library
 
 > The requirements are added in blockquotes.
 
-The full walk through of the app implemented for assignement 2 is shown in this GIF.
+### The Backend Data Storage
+In this app, the backend data storage was done using Room Library for Android. The recommended architecture with dedicated layers for local Room database, Repositories and View Model were implemented as shown in the figure below. Within the Room Database were the Data access object (DAO) classes for each of the entities, the Java classes for defining the entities and AppDatabase abstract class itself which is needed to build our database. 
 
-<img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment02/SS/uniapp.gif" width="300"/>
+<img src="https://google-developer-training.github.io/android-developer-fundamentals-course-concepts-v2/images/10-1-c-room-livedata-viewmodel/dg_architecture_summary.png" width ="500"/> 
+<a href=https://google-developer-training.github.io/android-developer-fundamentals-course-concepts-v2/unit-4-saving-user-data/lesson-10-storing-data-with-room/10-1-c-room-livedata-viewmodel/10-1-c-room-livedata-viewmodel.html"> Fig: The Architecture Utilized in The App (diagram source: Google)</a>
 
+The app three entities with dedictaed tables in the Room Database for storing the Student Information, Phone list, and University Affilitiation list. A screenshot from App Inspection page of Android Studio is presented below to demonstrate that user information is indeed being persisted in the SQL database. 
+
+<img src = "https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment03/SS/Room.PNG" width="600"/>
+                                                                                                                                        
 ### The Main Tabbed Activity
 > Implement lateral navigation (tabbed view) activity for profile implementation page
 
