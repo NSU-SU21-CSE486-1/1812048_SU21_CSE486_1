@@ -4,17 +4,15 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.afra.cse486.project03.datasource.local.room.dao.StudentInfoDao;
 import com.afra.cse486.project03.datasource.local.room.dao.UniAffDao;
 import com.afra.cse486.project03.datasource.local.room.database.AppDatabase;
-import com.afra.cse486.project03.datasource.local.room.entity.StudentInfo;
 import com.afra.cse486.project03.datasource.local.room.entity.UniAffiliation;
 
 import java.util.List;
 
 public class UniRepository implements UniAffDao {
     private UniAffDao mUniAffDao;
-    private LiveData<List<UniAffiliation>> mAllUni;
+    private List<UniAffiliation> mAllUni;
 
     public UniRepository(Application application) {
         AppDatabase db = AppDatabase.getDatabase(application);
@@ -38,8 +36,8 @@ public class UniRepository implements UniAffDao {
     }
 
     @Override
-    public LiveData<List<UniAffiliation>> getAllUni() {
-        return null;
+    public List<UniAffiliation> getAllUni() {
+        return mAllUni;
     }
 
     @Override

@@ -33,8 +33,8 @@ public interface PhoneDao {
   void insertAll(Phone... Phone);
 
 
-  @Query("SELECT * FROM phone ORDER BY tag ASC")
-  LiveData<List<Phone>> getAllPhone();
+  @Query("SELECT * FROM phone")
+  List<Phone> getAllPhone();
 
   @Query("SELECT * FROM phone WHERE number LIKE :number LIMIT 1")
   LiveData<Phone> getPhone(String number);

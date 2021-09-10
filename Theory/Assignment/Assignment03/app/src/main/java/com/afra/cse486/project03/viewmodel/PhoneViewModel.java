@@ -17,7 +17,7 @@ import java.util.List;
 public class PhoneViewModel extends AndroidViewModel {
 
   private PhoneRepository mRepository;
-  private LiveData<List<Phone>> mAllPhones;
+  private List<Phone> mAllPhones;
 
   public PhoneViewModel(@NonNull Application application) {
     super(application);
@@ -26,7 +26,7 @@ public class PhoneViewModel extends AndroidViewModel {
 
   }
 
-  public LiveData<List<Phone>> getAllPhone() {return mAllPhones;}
+  public List<Phone> getAllPhone() {return mAllPhones;}
 
   public void insert(Phone info){
     mRepository.insert(info);

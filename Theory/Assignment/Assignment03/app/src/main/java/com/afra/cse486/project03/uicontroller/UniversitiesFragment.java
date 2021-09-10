@@ -62,17 +62,12 @@ public class UniversitiesFragment extends Fragment {
         uniViewModel = (new ViewModelProvider(this
          ,ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication()))).get(UniViewModel.class);
 
-         List<UniAffiliation> uniAffiliations1 = uniViewModel.getAllUni().getValue();
-//        uniViewModel.getAllUni().observe(this, new Observer<List<UniAffiliation>>() {
-//            @Override
-//            public void onChanged(List<UniAffiliation> uniAffiliations) {
-//                    setlistview();
-//            }
-//        });
+        List<UniAffiliation> uniAffiliations1 = uniViewModel.getAllUni();
 
-       if(uniAffiliations1!=null) uniAffiliations.addAll(uniAffiliations1);
 
-    //    uniAffiliations = SerializableManager.readSerializable(getContext(), "unis.txt");
+      if(uniAffiliations1!=null) uniAffiliations.addAll(uniAffiliations1);
+
+
 
         if(uniAffiliations==null || uniAffiliations.size()<=1)
         {

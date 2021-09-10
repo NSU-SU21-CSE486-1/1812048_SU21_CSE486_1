@@ -31,8 +31,8 @@ public interface UniAffDao {
   void insertAll(UniAffiliation... uniAffiliations);
 
 
-  @Query("SELECT * FROM uni_affiliation ORDER BY uniname ASC")
-  LiveData<List<UniAffiliation>> getAllUni();
+  @Query("SELECT * FROM uni_affiliation")
+  List<UniAffiliation> getAllUni();
 
 
   @Update

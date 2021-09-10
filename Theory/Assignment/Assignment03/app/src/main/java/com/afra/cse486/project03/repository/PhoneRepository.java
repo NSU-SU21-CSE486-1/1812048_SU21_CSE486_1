@@ -16,7 +16,8 @@ import java.util.List;
 public class PhoneRepository{
 
     private PhoneDao mPhoneDao;
-    private LiveData<List<Phone>> mAllPhone;
+    private List<Phone> mAllPhone;
+
     public PhoneRepository(Application application) {
 
         AppDatabase db = AppDatabase.getDatabase(application);
@@ -50,13 +51,13 @@ public class PhoneRepository{
     }
 
 
-    public LiveData<List<Phone>> getAllPhone() {
-        return null;
+    public List<Phone> getAllPhone() {
+        return mAllPhone;
     }
 
 
     public LiveData<Phone> getPhone(String number) {
-        return null;
+        return mPhoneDao.getPhone(number);
     }
 
 

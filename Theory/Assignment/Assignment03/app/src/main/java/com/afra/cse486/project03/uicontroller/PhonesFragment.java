@@ -8,8 +8,10 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,7 @@ import com.afra.cse486.project03.datasource.local.room.entity.Phone;
 import com.afra.cse486.project03.datasource.local.room.entity.StudentInfo;
 import com.afra.cse486.project03.viewmodel.PhoneViewModel;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -69,10 +72,11 @@ public class PhonesFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_phones, container, false);
         listView = view.findViewById(R.id.display_list2);
 
-        List<Phone> phones = phoneViewModel.getAllPhone().getValue();
+        List<Phone> phones = phoneViewModel.getAllPhone();
+
         if(phones!=null) woi.addAll(phones);
 
-      //  woi = SerializableManager.readSerializable(getContext(), "phones.txt");
+
 
         if(woi == null || woi.size()<=1)
         {
@@ -87,7 +91,7 @@ public class PhonesFragment extends Fragment {
 
             phoneViewModel.insertAll(phone1,phone2,phone3);
 
-        //    SerializableManager.saveSerializable(getContext(),woi,"phones.txt");
+
 
         }
 
@@ -135,9 +139,7 @@ public class PhonesFragment extends Fragment {
                             android.R.id.text2});
 
             listView.setAdapter(adapter);
-         //  SerializableManager.removeSerializable(getActivity().getBaseContext(),"phones.txt");
 
-            SerializableManager.saveSerializable(getActivity().getBaseContext(),woi,"phones.txt");
         }
 
     @Override
@@ -145,22 +147,24 @@ public class PhonesFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==1)
         {
-            if(data!=null && resultCode!= RESULT_OK) {
+            if(data!=null && resultCode== RESULT_OK) {
                 Phone phone = new Phone(data.getStringExtra("tag"), data.getStringExtra("phone"));
 
                 DBListenerInterface ref = new DBListenerInterface() {
                     @Override
-                    public void failed() {
-                        Toast.makeText(view.getContext(),
-                                "Phones saved.",
-                                Toast.LENGTH_LONG).show();
+                    public void passed() {
+//                        Toast.makeText(view.getContext(),
+//                                "Phones saved.",
+//                                Toast.LENGTH_LONG).show();
+                        Log.d("elomelo","saved");
                     }
 
                     @Override
-                    public void passed() {
-                        Toast.makeText(view.getContext(),
-                                "Phones did not get saved.",
-                                Toast.LENGTH_LONG).show();
+                    public void failed() {
+//                        Toast.makeText(view.getContext(),
+//                                "Phones did not get saved.",
+//                                Toast.LENGTH_LONG).show();
+                        Log.d("elomelo","not saved");
                     }
                 };
                 phoneViewModel.insert1(phone,ref);
