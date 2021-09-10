@@ -12,32 +12,31 @@ public class StudentInfo {
   @PrimaryKey
   @NonNull
   @ColumnInfo(name = "id")
-  private String studentID;
+  private String id;
 
   @ColumnInfo(name = "name")
-  private String studentName;
+  private String name;
 
-  public StudentInfo(@NonNull String studentName, String studentID
+  public StudentInfo(@NonNull String id, String name
       ){
-    this.studentID = studentID;
-    this.studentName = studentName;
+    this.id = id;
+    this.name = name;
   }
-
-  public void setStudentName(String studentName) {
-    this.studentName = studentName;
-  }
-  public void setStudentID(String studentID) {
-    this.studentID = studentID;
-  }
-
 
   @NonNull
-  public String getStudentID() {
-    return studentID;
+  public String getId() {
+    return id;
   }
 
-  public String getStudentName() {
-    return studentName;
+  public void setId(@NonNull String id) {
+    this.id = id;
   }
 
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
 }

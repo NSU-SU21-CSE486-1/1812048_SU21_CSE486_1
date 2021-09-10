@@ -22,6 +22,7 @@ import com.afra.cse486.project03.R;
 import com.afra.cse486.project03.UserInfo;
 import com.afra.cse486.project03.databinding.FragmentPhonesBinding;
 import com.afra.cse486.project03.datasource.local.room.entity.Phone;
+import com.afra.cse486.project03.datasource.local.room.entity.StudentInfo;
 import com.afra.cse486.project03.viewmodel.PhoneViewModel;
 
 import java.util.ArrayList;
@@ -68,10 +69,9 @@ public class PhonesFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_phones, container, false);
         listView = view.findViewById(R.id.display_list2);
 
-        ArrayList<Phone> phones = new ArrayList<>();
-        List<Phone> phones1 = phoneViewModel.getAllPhone().getValue();
-        if(phones1!=null) phones.addAll(phones1);
-        woi = phones;
+        List<Phone> phones = phoneViewModel.getAllPhone().getValue();
+        if(phones!=null) woi.addAll(phones);
+
       //  woi = SerializableManager.readSerializable(getContext(), "phones.txt");
 
         if(woi == null || woi.size()<=1)
@@ -85,6 +85,7 @@ public class PhonesFragment extends Fragment {
             woi.add(phone2);
             woi.add(phone3);
 
+            phoneViewModel.insertAll(phone1,phone2,phone3);
 
         //    SerializableManager.saveSerializable(getContext(),woi,"phones.txt");
 

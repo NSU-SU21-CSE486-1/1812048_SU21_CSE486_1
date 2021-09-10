@@ -40,10 +40,10 @@ public class UniArrayAdapter extends ArrayAdapter<UniAffiliation> {
 
 
         uname.setText("Uni: "+uniAffiliations.get(position).getUniname());
-        udept.setText("Department: "+uniAffiliations.get(position).getUnidept());
-        sid.setText("ID: "+uniAffiliations.get(position).getUnisid());
-        study.setText("Study Level: "+uniAffiliations.get(position).getUnilevel());
-        email.setText("Email: "+uniAffiliations.get(position).getEmail());
+        udept.setText("Department: "+uniAffiliations.get(position).getDept());
+        sid.setText("ID: "+uniAffiliations.get(position).getSid());
+        study.setText("Study Level: "+uniAffiliations.get(position).getLevel());
+        email.setText("Email: "+uniAffiliations.get(position).getUniemail());
 
         return rowView;
     }

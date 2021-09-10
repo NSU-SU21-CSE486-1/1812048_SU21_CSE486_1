@@ -33,7 +33,7 @@ public class MemberInfoActivity extends AppCompatActivity {
         ActivityMemberInfoBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_member_info);
         ArrayList<StudentInfo> arrayList = new ArrayList<>();
         studentInfoViewModel = new ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication())).get(StudentInfoViewModel.class);
-    //    arrayList = SerializableManager.readSerializable(getApplicationContext(), "students.txt");
+
 
 
         List<StudentInfo> studentInfos = studentInfoViewModel.getAllStudents().getValue();
@@ -54,28 +54,16 @@ public class MemberInfoActivity extends AppCompatActivity {
             arrayList.add(student5);
 
             studentInfoViewModel.insertAll(student1,student2,student3,student4,student5);
-         //  SerializableManager.saveSerializable(getApplicationContext(), arrayList, "students.txt");
+
 
         }
-//        else {
-//
-//            ArrayList<Student> woi = SerializableManager.readSerializable(getApplicationContext(), "students.txt");
-//            arrayList.addAll(woi);
-////            ArrayList<String> names = new ArrayList<String>();
-////            ArrayList<String> nid = new ArrayList<String>();
-////            for (Student a :
-////                    arrayList) {
-////                names.add(a.getStdname());
-////                nid.add(a.getStdnid());
-////
-////            }
-//        }
+
 
         String sname = userInfo.getName();
         String snid = userInfo.getNID();
         StudentInfo student = new StudentInfo(sname,snid);
         arrayList.add(student);
-        Student[] students = new Student[arrayList.size()];
+        StudentInfo[] students = new StudentInfo[arrayList.size()];
 
         MyListAdapter adapter = new MyListAdapter(arrayList.toArray(students));
         RecyclerView recyclerView = binding.recyclerview;
@@ -83,9 +71,6 @@ public class MemberInfoActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-
-        //get Submitted NID and student name
-        // put to recycler view
 
 
     }

@@ -36,7 +36,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         if (position == 1) return new UniversitiesFragment();
         if (position == 2) return new PhonesFragment();
 
-        return PlaceholderFragment.newInstance(position + 1);
+        return null;
     }
 
     @Nullable

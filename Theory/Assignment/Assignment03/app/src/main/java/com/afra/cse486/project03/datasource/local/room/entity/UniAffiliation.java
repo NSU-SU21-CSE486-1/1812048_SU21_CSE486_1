@@ -13,80 +13,80 @@ public class UniAffiliation implements Serializable {
     @ColumnInfo(name = "uniname")
     private String uniname;
 
-    @PrimaryKey
-    @NonNull
     @ColumnInfo(name = "sid")
-    private String unisid;
+    private String sid;
 
     @ColumnInfo(name = "dept")
-    private String unidept;
+    private String dept;
 
     @ColumnInfo(name = "level")
-    private String unilevel;
+    private String level;
 
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "uniemail")
-    private String email;
+    private String uniemail;
 
 
     public UniAffiliation(){
 
     }
 
-    public UniAffiliation(String uniname, String unisid, String unidept, String unilevel) {
+    public UniAffiliation(String uniname, String sid, String dept, String level) {
         this.uniname = uniname;
-        this.unisid = unisid;
-        this.unidept = unidept;
-        this.unilevel = unilevel;
-        this.email = "N/A";
+        this.sid = sid;
+        this.dept = dept;
+        this.level = level;
+        this.uniemail = "N/A";
     }
-    public UniAffiliation(String uniname, String unisid, String unidept, String unilevel,String email) {
+    public UniAffiliation(String uniname, String sid, String dept, String level,String uniemail) {
         this.uniname = uniname;
-        this.unisid = unisid;
-        this.unidept = unidept;
-        this.unilevel = unilevel;
-        if(email.length()==0) email ="N/A";
-        this.email = email;
-    }
-
-    public void setUniname(String uniname) {
-        this.uniname = uniname;
-    }
-
-    public void setUnisid(@NonNull String unisid) {
-        this.unisid = unisid;
-    }
-
-    public void setUnidept(String unidept) {
-        this.unidept = unidept;
-    }
-
-    public void setUnilevel(String unilevel) {
-        this.unilevel = unilevel;
-    }
-
-    public void setEmail(@NonNull String email) {
-        this.email = email;
+        this.sid = sid;
+        this.dept = dept;
+        this.level = level;
+        if(uniemail.length()==0) uniemail ="N/A";
+        this.uniemail = uniemail;
     }
 
     public String getUniname() {
         return uniname;
     }
 
-    public String getUnisid() {
-        return unisid;
+    public void setUniname(String uniname) {
+        this.uniname = uniname;
     }
 
-    public String getUnidept() {
-        return unidept;
+    @NonNull
+    public String getSid() {
+        return sid;
     }
 
-    public String getUnilevel() {
-        return unilevel;
+    public void setSid(@NonNull String sid) {
+        this.sid = sid;
     }
 
-    public String getEmail() {
-        return email;
+    public String getDept() {
+        return dept;
+    }
+
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    @NonNull
+    public String getUniemail() {
+        return uniemail;
+    }
+
+    public void setUniemail(@NonNull String uniemail) {
+        this.uniemail = uniemail;
     }
 }

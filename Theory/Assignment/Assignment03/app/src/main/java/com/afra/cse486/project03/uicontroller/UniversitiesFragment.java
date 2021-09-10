@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
@@ -58,11 +59,18 @@ public class UniversitiesFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_universities, container, false);
 
         listView = view.findViewById(R.id.list_view);
-        uniViewModel = new ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(this.getActivity().getApplication())).get(UniViewModel.class);
+        uniViewModel = (new ViewModelProvider(this
+         ,ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication()))).get(UniViewModel.class);
 
-       // ArrayList<UniAffiliation> uniAffiliations = new ArrayList<>();
-        List<UniAffiliation> uniAffiliations1 = uniViewModel.getAllUni().getValue();
-        if(uniAffiliations1!=null) uniAffiliations.addAll(uniAffiliations1);
+         List<UniAffiliation> uniAffiliations1 = uniViewModel.getAllUni().getValue();
+//        uniViewModel.getAllUni().observe(this, new Observer<List<UniAffiliation>>() {
+//            @Override
+//            public void onChanged(List<UniAffiliation> uniAffiliations) {
+//                    setlistview();
+//            }
+//        });
+
+       if(uniAffiliations1!=null) uniAffiliations.addAll(uniAffiliations1);
 
     //    uniAffiliations = SerializableManager.readSerializable(getContext(), "unis.txt");
 
@@ -73,12 +81,10 @@ public class UniversitiesFragment extends Fragment {
             uniAffiliations.add(new UniAffiliation("BRAC","34567898","EEE","MS","afra@brac.edu"));
             uniAffiliations.add(new UniAffiliation("NSU","178239200","Law","PHD","afra05@nsu.edu"));
 
+            UniAffiliation[] uniAffiliations2 = new UniAffiliation[3];
+            uniViewModel.insertAll(uniAffiliations.toArray(uniAffiliations2));
 
 
-        }
-        else {
-
-            uniAffiliations = SerializableManager.readSerializable(getContext(), "unis.txt");
         }
 
         setlistview();
@@ -100,7 +106,7 @@ public class UniversitiesFragment extends Fragment {
         UniArrayAdapter adapter = new UniArrayAdapter(getActivity().getBaseContext(),R.layout.fragment_universities,uniAffiliations);
         adapter.addAll(uniAffiliations);
         listView.setAdapter(adapter);
-        SerializableManager.saveSerializable(getContext(),uniAffiliations,"unis.txt");
+
 
     }
 

@@ -16,7 +16,7 @@ import java.util.List;
 public class StudentInfoViewModel extends AndroidViewModel {
 
   private StudentRepository mRepository;
-  private LiveData<List<Integer>> mAllStudentIds;
+  private LiveData<List<String>> mAllStudentIds;
   private LiveData<List<StudentInfo>> mAllStudents;
 
   public StudentInfoViewModel(@NonNull Application application) {
@@ -26,7 +26,7 @@ public class StudentInfoViewModel extends AndroidViewModel {
     mAllStudents = mRepository.getAllStudents();
   }
 
-  public LiveData<List<Integer>> getAllStudentIds() {
+  public LiveData<List<String>> getAllStudentIds() {
     return mAllStudentIds;
   }
   public LiveData<List<StudentInfo>> getAllStudents() {return mAllStudents;}

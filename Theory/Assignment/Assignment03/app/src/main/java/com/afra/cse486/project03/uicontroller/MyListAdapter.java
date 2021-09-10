@@ -14,13 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.afra.cse486.project03.R;
 import com.afra.cse486.project03.datasource.local.room.entity.Student;
+import com.afra.cse486.project03.datasource.local.room.entity.StudentInfo;
 
 
 public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder>{
-        private Student[] listdata;
+        private StudentInfo[] listdata;
 
         // RecyclerView recyclerView;
-        public MyListAdapter(Student[] listdata) {
+        public MyListAdapter(StudentInfo[] listdata) {
             this.listdata = listdata;
         }
         @NonNull
@@ -33,9 +34,9 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
-            final Student myListData = listdata[position];
-            holder.name.setText(listdata[position].getStdname());
-            holder.nid.setText(listdata[position].getStdnid());
+            final StudentInfo myListData = listdata[position];
+            holder.name.setText(listdata[position].getName());
+            holder.nid.setText(listdata[position].getId());
             holder.layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -43,7 +44,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
                     AlertDialog.Builder alertDialogBuilder =
                             new AlertDialog.Builder(view.getContext())
                                     .setTitle("Student Information")
-                                    .setMessage("Name: "+myListData.getStdname()+"\nNID: "+myListData.getStdnid())
+                                    .setMessage("Name: "+myListData.getName()+"\nNID: "+myListData.getId())
                                     .setPositiveButton("Close", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
                                             dialog.cancel();

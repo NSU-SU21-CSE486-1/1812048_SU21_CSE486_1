@@ -31,7 +31,7 @@ public interface StudentInfoDao {
   void insertAll(StudentInfo... studentInfos);
 
   @Query("SELECT id FROM student_info ORDER BY id ASC")
-  LiveData<List<Integer>> getAllIds();
+  LiveData<List<String>> getAllIds();
 
   @Query("SELECT * FROM student_info ORDER BY id ASC")
   LiveData<List<StudentInfo>> getAllStudents();

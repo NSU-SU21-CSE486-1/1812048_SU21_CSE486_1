@@ -15,7 +15,7 @@ import java.util.List;
 
 public class StudentRepository {
   private StudentInfoDao mStudentInfoDao;
-  private LiveData<List<Integer>> mAllStudentIds;
+  private LiveData<List<String>> mAllStudentIds;
   private LiveData<List<StudentInfo>> mAllStudents;
 
 
@@ -26,7 +26,7 @@ public class StudentRepository {
     mAllStudents = mStudentInfoDao.getAllStudents();
   }
 
-  public LiveData<List<Integer>> getAllStudentIDs(){
+  public LiveData<List<String>> getAllStudentIDs(){
     return mAllStudentIds;
   }
 
