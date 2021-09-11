@@ -1,4 +1,4 @@
-package com.example.cse486.uniclubz;
+package com.example.cse486.uniclubz.View;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.ViewModel.UserPref;
 import com.example.cse486.uniclubz.databinding.ActivityAddUniBinding;
 
 public class AddUniActivity extends AppCompatActivity {

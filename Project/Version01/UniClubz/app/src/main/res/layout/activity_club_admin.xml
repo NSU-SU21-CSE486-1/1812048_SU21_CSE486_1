@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    tools:context=".ClubAdminActivity">
+    tools:context=".View.ClubAdminActivity">
 
     <TextView
         android:id="@+id/clubadmintv"

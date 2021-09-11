@@ -1,4 +1,4 @@
-package com.example.cse486.uniclubz;
+package com.example.cse486.uniclubz.View;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.cse486.uniclubz.R;
 
 /**
  * A simple {@link Fragment} subclass.

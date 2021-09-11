@@ -1,4 +1,4 @@
-package com.example.cse486.uniclubz;
+package com.example.cse486.uniclubz.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.ViewModel.UserPref;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void bd(View view) {
-        Intent intent = new Intent(getApplicationContext(),BloodDonationListActivity.class);
+        Intent intent = new Intent(getApplicationContext(), BloodDonationListActivity.class);
         startActivity(intent);
     }
 

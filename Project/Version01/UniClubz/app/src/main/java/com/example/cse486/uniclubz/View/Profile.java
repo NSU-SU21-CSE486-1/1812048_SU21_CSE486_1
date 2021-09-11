@@ -1,12 +1,14 @@
-package com.example.cse486.uniclubz;
+package com.example.cse486.uniclubz.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
+import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.ViewModel.UserPref;
 import com.example.cse486.uniclubz.databinding.ActivityProfileBinding;
-import com.example.cse486.uniclubz.managerclasses.SectionsPagerAdapter;
+import com.example.cse486.uniclubz.View.Adapter.SectionsPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class Profile extends AppCompatActivity {

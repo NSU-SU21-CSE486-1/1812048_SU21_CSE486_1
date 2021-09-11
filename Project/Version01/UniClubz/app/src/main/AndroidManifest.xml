@@ -10,42 +10,42 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UniClubz">
         <activity
-            android:name=".CreateClub"
+            android:name=".View.CreateClub"
             android:exported="true" />
         <activity
-            android:name=".ClubAdminActivity"
+            android:name=".View.ClubAdminActivity"
             android:exported="true" />
         <activity
-            android:name=".BloodDonationListActivity"
+            android:name=".View.BloodDonationListActivity"
             android:exported="true" />
         <activity
-            android:name=".EventListActivity"
+            android:name=".View.EventListActivity"
             android:exported="true" />
         <activity
-            android:name=".ClubViewActivity"
+            android:name=".View.ClubViewActivity"
             android:exported="true" />
         <activity
-            android:name=".ClubListActivity"
+            android:name=".View.ClubListActivity"
             android:exported="true" />
         <activity
-            android:name=".AddContactActivity"
+            android:name=".View.AddContactActivity"
             android:exported="true" />
         <activity
-            android:name=".AddUniActivity"
+            android:name=".View.AddUniActivity"
             android:exported="true" />
         <activity
-            android:name=".Profile"
+            android:name=".View.Profile"
             android:exported="true" />
-        <activity android:name=".Signup" />
-        <activity android:name=".Login" />
-        <activity android:name=".LauncherActivity">
+        <activity android:name=".View.Signup" />
+        <activity android:name=".View.Login" />
+        <activity android:name=".View.LauncherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".View.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

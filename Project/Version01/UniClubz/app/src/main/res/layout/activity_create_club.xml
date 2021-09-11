@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AddUniActivity"
+        tools:context=".View.AddUniActivity"
         android:layout_margin="20dp">
 
         <TextView
@@ -65,10 +65,10 @@
         <EditText
             android:id="@+id/cdesc"
             android:layout_width="0dp"
-            android:layout_height="20dp"
+            android:layout_height="100dp"
             android:layout_marginHorizontal="32dp"
             android:layout_marginVertical="10dp"
-            android:hint="Club description"
+            android:hint="Club Description"
             android:longClickable="false"
             android:textIsSelectable="false"
             android:textSize="18sp"

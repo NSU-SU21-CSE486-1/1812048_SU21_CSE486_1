@@ -1,4 +1,4 @@
-package com.example.cse486.uniclubz.managerclasses;
+package com.example.cse486.uniclubz.View.Adapter;
 
 
 import android.content.Context;
@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.cse486.uniclubz.BasicInfoFragment;
-import com.example.cse486.uniclubz.ContactInfoFragment;
+import com.example.cse486.uniclubz.View.BasicInfoFragment;
+import com.example.cse486.uniclubz.View.ContactInfoFragment;
 import com.example.cse486.uniclubz.R;
-import com.example.cse486.uniclubz.UniversitiesFragment;
+import com.example.cse486.uniclubz.View.UniversitiesFragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to

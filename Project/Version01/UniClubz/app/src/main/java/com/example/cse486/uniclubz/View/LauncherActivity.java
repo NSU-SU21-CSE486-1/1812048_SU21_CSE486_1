@@ -1,4 +1,4 @@
-package com.example.cse486.uniclubz;
+package com.example.cse486.uniclubz.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.ViewModel.UserPref;
 import com.example.cse486.uniclubz.databinding.ActivityLauncherBinding;
 
 public class LauncherActivity extends AppCompatActivity {

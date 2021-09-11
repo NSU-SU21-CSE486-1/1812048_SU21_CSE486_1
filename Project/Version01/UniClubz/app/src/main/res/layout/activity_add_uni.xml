@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AddUniActivity"
+        tools:context=".View.AddUniActivity"
         android:layout_margin="20dp">
 
         <TextView

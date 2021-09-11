@@ -19,29 +19,31 @@ The app three entities with dedictaed tables in the Room Database for storing th
 
 In the Lateral Navigation Activity, 3 tabs were created and linked with View Pager which include Basic Information Tab, University Affiliation Tab and Phone Information Tab. A submit button is added at the top on the App Bar.
 
-<img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment02/SS/basicinfo.png" width="300"/>
+<img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment03/SS/basicinfo.png" width="300"/>
 
 #### Basic Information Fragment
 > First Tab contains basic information about the members. i) Name ii) Date of Birth iii) NID iv) Blood Group
 
-As shown above, the basic information about the user is displayed here, retrieved from internal storage where data was stored when user signed up (Implemented in Assignment 1)
+As shown above, the basic information about the user is displayed here,using the data stored when user signed up
 
 #### University Affiliation Fragment
 > Second tab should contain a listview University Affiliations 
 
 Room Library is used for storing university affiliations. Floating Action Button is implemented which inserts a new university affilication to the University Affilication Table of the app database and in subsequent runs the information is retrieved using the View Model for the university affiliation repository.
 
-<img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment02/SS/unitab.png" width="300"/>
+<img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment03/SS/unitab.png" width="300"/>
+                                                                                                                                        
+<img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment03/SS/uniadd.png" width="300"/>                                                                                                                                        
 
 #### Phone Fragment
 > Third tab should contain a listview of phone numbers
 
 Room Library is used for storing phone information. Floating Action Button is implemented which inserts a new phone number to the Phone Table of the app database and in subsequent runs the information is retrieved using the View Model for the phone repository.
 
-<img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment02/SS/phonetab.png" width="300"/>
+<img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment03/SS/phonetab.png" width="300"/>
 
 
-<img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment02/SS/addphone.png" width="300"/>
+<img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment03/SS/addphone.png" width="300"/>
 
 
 ### Member Information Recylcerview Activity
@@ -49,7 +51,7 @@ Room Library is used for storing phone information. Floating Action Button is im
 
 Room Library is used to store different member information. The first time the app is run, new indtances of Student model object is added to the Student Information table of our database, and in subsequent runs, these are loaded along with current user's own information. 
 
-<img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment02/SS/memberinfo.png" width="300"/>
+<img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment03/SS/memberinfo.png" width="300"/>
 
 
-<img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment02/SS/dialog.png" width="300"/>
+<img src="https://github.com/NSU-SU21-CSE486-1/1812048_SU21_CSE486_1/blob/main/Theory/Assignment/Assignment03/SS/dialog.png" width="300"/>

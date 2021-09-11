@@ -1,4 +1,4 @@
-package com.example.cse486.uniclubz;
+package com.example.cse486.uniclubz.View;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.ViewModel.UserPref;
 import com.example.cse486.uniclubz.databinding.FragmentBasicInfoBinding;
 
 import java.util.ArrayList;

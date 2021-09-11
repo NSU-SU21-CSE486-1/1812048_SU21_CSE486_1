@@ -1,4 +1,4 @@
-package com.example.cse486.uniclubz;
+package com.example.cse486.uniclubz.ViewModel;
 
 import android.content.Context;
 import android.content.SharedPreferences;

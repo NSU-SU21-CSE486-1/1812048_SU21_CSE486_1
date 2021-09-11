@@ -1,4 +1,4 @@
-package com.example.cse486.uniclubz.modelclasses;
+package com.example.cse486.uniclubz.Model.entity;
 
 public class Student {
     private String nid;
