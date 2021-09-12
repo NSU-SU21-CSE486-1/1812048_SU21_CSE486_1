@@ -14,9 +14,9 @@ import com.example.cse486.uniclubz.R;
 
 import java.util.ArrayList;
 
-public class ClubAdapter extends RecyclerView.Adapter {
-    ArrayList<Club> clubs;
-    Context context;
+public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> {
+    private ArrayList<Club> clubs;
+    private Context context;
 
     public ClubAdapter(ArrayList<Club> clubs,Context context) {
         this.clubs = clubs;
@@ -25,16 +25,19 @@ public class ClubAdapter extends RecyclerView.Adapter {
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.clubitem, parent, false);
 
-        MyViewHolder vh = new MyViewHolder(v); // pass the view to View Holder
+        ViewHolder vh = new ViewHolder(v); // pass the view to View Holder
         return vh;
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+
+        holder.cuniname.setText(clubs.get(position).getUni());
+        holder.clubname.setText(clubs.get(position).getCname());
     }
 
     @Override
@@ -42,10 +45,11 @@ public class ClubAdapter extends RecyclerView.Adapter {
         return 0;
     }
 
-    private class MyViewHolder extends RecyclerView.ViewHolder {
+    protected class ViewHolder extends RecyclerView.ViewHolder {
         TextView clubname,cuniname;
 
-        public MyViewHolder(View v) {
+
+        public ViewHolder(View v) {
             super(v);
             clubname = (TextView) itemView.findViewById(R.id.cname);
             cuniname = (TextView) itemView.findViewById(R.id.cuniname);

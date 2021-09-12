@@ -15,30 +15,35 @@
         android:src="@drawable/ic_logovector" />
 
     <TextView
+        android:id="@+id/ename"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Event Name"
         android:textSize="20sp"
         />
     <TextView
+        android:id="@+id/ecname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Club Name"
         android:textSize="18sp"
         />
     <TextView
+        android:id="@+id/estatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Public"
         android:textSize="15sp"
         />
     <TextView
+        android:id="@+id/euname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="University Name"
         android:textSize="15sp"
         />
     <TextView
+        android:id="@+id/edate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Event Date"

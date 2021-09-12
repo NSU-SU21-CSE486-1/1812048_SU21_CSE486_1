@@ -17,4 +17,36 @@ public class Club {
         this.admins = admins;
         this.members = members;
     }
+
+    public String getCname() {
+        return cname;
+    }
+
+    public void setCname(String cname) {
+        this.cname = cname;
+    }
+
+    public String getUni() {
+        return uni;
+    }
+
+    public void setUni(String uni) {
+        this.uni = uni;
+    }
+
+    public String[] getAdmins() {
+        return admins;
+    }
+
+    public void setAdmins(String[] admins) {
+        this.admins = admins;
+    }
+
+    public String[] getMembers() {
+        return members;
+    }
+
+    public void setMembers(String[] members) {
+        this.members = members;
+    }
 }
