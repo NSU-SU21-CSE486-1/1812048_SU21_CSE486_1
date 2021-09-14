@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".View.ClubListActivity"
-    android:background="#92D6D3D3"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="All Clubs"
-        android:layout_margin="25dp"
-        android:textSize="25sp"
-        />
-    <androidx.recyclerview.widget.RecyclerView
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/clll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        tools:listitem="@layout/clubitem"
-        />
-</LinearLayout>
+        android:orientation="vertical"
+        tools:context=".View.ClubListActivity"
+        android:background="#92D6D3D3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="All Clubs"
+            android:layout_margin="25dp"
+            android:textSize="25sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/clrv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_margin="10dp"
+            tools:listitem="@layout/clubitem"
+            />
+    </LinearLayout>
+</layout>

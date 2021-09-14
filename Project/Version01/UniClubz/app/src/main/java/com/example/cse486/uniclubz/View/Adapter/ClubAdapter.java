@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,8 +27,7 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.clubitem, parent, false);
-
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.unicard, parent, false);
         ViewHolder vh = new ViewHolder(v); // pass the view to View Holder
         return vh;
     }
@@ -45,14 +45,15 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> {
         return 0;
     }
 
-    protected class ViewHolder extends RecyclerView.ViewHolder {
-        TextView clubname,cuniname;
-
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView clubname,cuniname;
+        public LinearLayout layout;
 
         public ViewHolder(View v) {
             super(v);
             clubname = (TextView) itemView.findViewById(R.id.cname);
             cuniname = (TextView) itemView.findViewById(R.id.cuniname);
+            layout = (LinearLayout) v.findViewById(R.id.clll);
         }
     }
 }
