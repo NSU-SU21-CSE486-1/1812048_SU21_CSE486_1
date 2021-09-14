@@ -15,7 +15,7 @@ import com.example.cse486.uniclubz.R;
 
 import java.util.ArrayList;
 
-public class EventAdapter extends RecyclerView.Adapter {
+public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder> {
     private ArrayList<Event> events;
     private Context context;
 
@@ -26,7 +26,7 @@ public class EventAdapter extends RecyclerView.Adapter {
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.eventitem, parent, false);
 
         MyViewHolder vh = new MyViewHolder(v); // pass the view to View Holder
@@ -34,7 +34,14 @@ public class EventAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        Event event = events.get(position);
+        holder.eclub.setText(event.getEclub());
+        holder.estatus.setText(event.getEstatus());
+        holder.edate.setText(event.getEdate());
+        holder.ename.setText(event.getEname());
+        holder.euname.setText(event.getEuni());
+
 
     }
 
@@ -44,7 +51,7 @@ public class EventAdapter extends RecyclerView.Adapter {
         return 0;
     }
 
-    private class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView ename,euname,estatus,edate,eclub;
 
         public MyViewHolder(View v) {
