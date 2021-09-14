@@ -10,10 +10,10 @@ import java.util.ArrayList;
 
 public class EventRepository implements EventDAO {
 
-    private String uid = "QFGmMdADhIMSYpb4BVwwt2zB8XG2";
+    private static String uid = "QFGmMdADhIMSYpb4BVwwt2zB8XG2";
 
 
-   public ArrayList<Event> getSampleEvents(){
+   public static ArrayList<Event> getSampleEvents(){
         ArrayList<Event> events = new ArrayList<>();
         String[] admins1 = {uid};
         String[] admins2 = {"12431241421"};
