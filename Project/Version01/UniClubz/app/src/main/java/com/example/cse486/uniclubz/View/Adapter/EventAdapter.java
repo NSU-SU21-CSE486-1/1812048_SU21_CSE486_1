@@ -9,9 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cse486.uniclubz.Model.entity.Club;
+
 import com.example.cse486.uniclubz.Model.entity.Event;
 import com.example.cse486.uniclubz.R;
+
 
 import java.util.ArrayList;
 
@@ -48,7 +49,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
 
     @Override
     public int getItemCount() {
-        return 0;
+        return events.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

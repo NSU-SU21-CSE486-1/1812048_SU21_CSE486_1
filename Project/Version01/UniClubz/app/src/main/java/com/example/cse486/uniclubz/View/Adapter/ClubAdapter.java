@@ -27,7 +27,7 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.unicard, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.clubitem, parent, false);
         ViewHolder vh = new ViewHolder(v); // pass the view to View Holder
         return vh;
     }
@@ -42,7 +42,7 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return clubs.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -53,7 +53,7 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> {
             super(v);
             clubname = (TextView) itemView.findViewById(R.id.cname);
             cuniname = (TextView) itemView.findViewById(R.id.cuniname);
-            layout = (LinearLayout) v.findViewById(R.id.clll);
+            layout = (LinearLayout) v.findViewById(R.id.clublayout);
         }
     }
 }

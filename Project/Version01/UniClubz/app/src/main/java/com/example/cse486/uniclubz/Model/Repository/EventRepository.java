@@ -18,7 +18,16 @@ public class EventRepository implements EventDAO {
         String[] admins1 = {uid};
         String[] admins2 = {"12431241421"};
         Event event = new Event("Boiskhakh Mela", "NSUSS", "Public", "NSU", "Join us at the fair for Boishakhi, Bengali New Year.","14/4/2022");
-        Event event1,event2,event3,event4 = event;
+
+       Event event1 = event;
+       Event event2 = event;
+       Event event3 = event;
+       Event event4 = event;
+
+       events.add(event);
+       events.add(event1);
+       events.add(event2);
+       events.add(event3);
         return events;
     }
 
