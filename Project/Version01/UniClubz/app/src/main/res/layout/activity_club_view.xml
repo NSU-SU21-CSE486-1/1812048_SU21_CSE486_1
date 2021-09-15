@@ -7,4 +7,124 @@
     android:layout_height="match_parent"
     tools:context=".View.ClubViewActivity">
 
+  <ImageView
+      android:id="@+id/cvimg"
+      android:layout_width="match_parent"
+      android:layout_height="255dp"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:src="@drawable/club2"
+    />
+
+  <TextView
+      android:id="@+id/cname"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/cvimg"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:text="Club Name"
+      android:textSize="30sp"
+      android:textAlignment="center"
+    />
+
+  <TextView
+      android:id="@+id/uniname"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/cname"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:text="Uni Name"
+      android:textSize="20sp"
+      android:textAlignment="center"
+      />
+
+  <TextView
+      android:id="@+id/status"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/uniname"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:text="You are a member of this club"
+      android:textSize="20sp"
+      android:textAlignment="center"
+      android:textColor="@color/themered"
+      />
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/status"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:layout_margin="8dp"
+          >
+
+        <Button
+            android:id="@+id/eventbtn"
+            style="@style/card_button"
+            android:text="Events"
+            android:onClick="toevents"
+            />
+
+        <Button
+            android:id="@+id/bdbtn"
+            style="@style/card_button"
+            android:text="Blood Donations"
+            android:onClick="tobd"
+            />
+
+        <Button
+            android:id="@+id/addevntbtn"
+            style="@style/card_button"
+            android:onClick="addevents"
+            android:text="Add Events" />
+
+      </LinearLayout>
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:layout_margin="8dp"
+          >
+
+        <Button
+            android:id="@+id/addbd"
+            style="@style/card_button"
+            android:onClick="adddonation"
+            android:text="Add Donation Post"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/addmem"
+            style="@style/card_button"
+            android:onClick="addmem"
+            android:text="Add Member" />
+
+        <Button
+            android:id="@+id/addadmin"
+            style="@style/card_button"
+            android:onClick="addadmin"
+            android:text="Add Admin" />
+
+      </LinearLayout>
+
+    </LinearLayout>
+  </ScrollView>
   </androidx.constraintlayout.widget.ConstraintLayout>
