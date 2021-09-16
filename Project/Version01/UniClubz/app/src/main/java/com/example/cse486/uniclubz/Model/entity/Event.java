@@ -1,6 +1,8 @@
 package com.example.cse486.uniclubz.Model.entity;
 
-public class Event {
+import java.io.Serializable;
+
+public class Event implements Serializable {
     private String ename;
     private String eclub;
     private String estatus;

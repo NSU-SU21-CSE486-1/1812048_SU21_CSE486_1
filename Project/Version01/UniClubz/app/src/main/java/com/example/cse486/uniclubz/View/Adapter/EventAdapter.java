@@ -1,9 +1,11 @@
 package com.example.cse486.uniclubz.View.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cse486.uniclubz.Model.entity.Event;
 import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.View.ClubViewActivity;
+import com.example.cse486.uniclubz.View.EventViewActivity;
 
 
 import java.util.ArrayList;
@@ -43,7 +47,14 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
         holder.ename.setText(event.getEname());
         holder.euname.setText(event.getEuni());
 
-
+        holder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, EventViewActivity.class);
+                intent.putExtra("event",events.get(holder.getAdapterPosition()));
+                context.startActivity(intent);
+            }
+        });
     }
 
 
@@ -54,6 +65,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView ename,euname,estatus,edate,eclub;
+        LinearLayout layout;
 
         public MyViewHolder(View v) {
             super(v);
@@ -62,6 +74,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
             edate = (TextView) itemView.findViewById(R.id.edate);
             estatus = (TextView) itemView.findViewById(R.id.estatus);
             eclub = (TextView) itemView.findViewById(R.id.ecname);
+            layout = (LinearLayout) v.findViewById(R.id.eventitem);
 
         }
     }
