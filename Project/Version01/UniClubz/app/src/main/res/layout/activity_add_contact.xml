@@ -71,6 +71,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_margin="30dp"
+            android:background="@drawable/roundbutton"
+            style="@style/button_theme"
             android:textColorHint="@color/white" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

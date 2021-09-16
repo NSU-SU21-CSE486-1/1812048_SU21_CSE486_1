@@ -54,7 +54,7 @@ public class ContactInfoFragment extends Fragment {
         UserPref userInfo = new UserPref(getContext());
       //  FragmentPhonesBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_phones, container, false);
         view = inflater.inflate(R.layout.fragment_contact_info, container, false);
-        listView = view.findViewById(R.id.display_list2);
+        listView = view.findViewById(R.id.contactinfolist);
 
 
 

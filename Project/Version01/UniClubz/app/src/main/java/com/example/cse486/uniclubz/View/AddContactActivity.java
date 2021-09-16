@@ -37,7 +37,7 @@ public class AddContactActivity extends AppCompatActivity {
 
         if(getCallingActivity()!=null) {
 
-            binding.phoneemailTextview.setText("Add Phone");
+
             binding.tagEdittextview.setHint("Tag: Home/Office/Custom");
 
             binding.addInfoBtn.setOnClickListener(new View.OnClickListener() {
