@@ -2,15 +2,26 @@ package com.example.cse486.uniclubz.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.example.cse486.uniclubz.Model.entity.Club;
 import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.View.Adapter.ClubAdapter;
+import com.example.cse486.uniclubz.ViewModel.ClubViewModel;
 import com.example.cse486.uniclubz.databinding.ActivityClubAdminBinding;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
 
 public class ClubAdminActivity extends AppCompatActivity {
 
@@ -22,10 +33,33 @@ public class ClubAdminActivity extends AppCompatActivity {
         setContentView(R.layout.activity_club_admin);
 
         ActivityClubAdminBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_club_admin);
-
+        ClubViewModel clubViewModel = new ViewModelProvider(this).get(ClubViewModel.class);
 
         createclub = binding.crtclubbtn;
         recyclerView = binding.clubadminrv;
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        ArrayList<Club> clubs = clubViewModel.getadminclubs(FirebaseAuth.getInstance().getUid());
+      //  Toast.makeText(getApplicationContext(), clubs.get(0).getCname(), Toast.LENGTH_SHORT).show();
+
+      //  recyclerView.setAdapter(adapter);
+
+
+        try {
+
+           Runnable runnable = new Runnable() {
+               @Override
+               public void run() {
+                   ClubAdapter adapter = new ClubAdapter(clubs,getApplicationContext());
+                   recyclerView.setAdapter(adapter);
+               }
+           };
+            Handler handler = new Handler();
+            handler.postDelayed(runnable,1200);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         createclub.setOnClickListener(new View.OnClickListener() {
@@ -36,5 +70,9 @@ public class ClubAdminActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
+
+
 }

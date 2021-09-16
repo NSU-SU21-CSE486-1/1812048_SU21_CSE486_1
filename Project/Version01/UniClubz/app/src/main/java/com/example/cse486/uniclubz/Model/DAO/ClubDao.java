@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public interface ClubDao {
 
-    void createClub(Club club);
+    void createClub(Club club,String uid);
 
     void getAllclubs(University university);
 

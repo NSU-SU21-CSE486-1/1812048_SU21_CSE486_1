@@ -1,23 +1,28 @@
 package com.example.cse486.uniclubz.Model.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Club implements Serializable {
     private String cname;
     private String uni;
-    private String[] admins;
-    private String[] members;
+    private ArrayList<String> admins;
+    private ArrayList<String> memberlist;
+    private String cdesc;
 
-    public Club(String cname, String uni) {
-        this.cname = cname;
-        this.uni = uni;
-    }
 
-    public Club(String cname, String uni, String[] admins, String[] members) {
+
+    public Club(String cname, String uni, String cdesc, ArrayList<String> admins, ArrayList<String> members) {
         this.cname = cname;
         this.uni = uni;
         this.admins = admins;
-        this.members = members;
+        this.memberlist = members;
+        this.cdesc = cdesc;
+    }
+
+    public Club()
+    {
+
     }
 
     public String getCname() {
@@ -36,19 +41,27 @@ public class Club implements Serializable {
         this.uni = uni;
     }
 
-    public String[] getAdmins() {
+    public ArrayList<String> getAdmins() {
         return admins;
     }
 
-    public void setAdmins(String[] admins) {
+    public void setAdmins(ArrayList<String> admins) {
         this.admins = admins;
     }
 
-    public String[] getMembers() {
-        return members;
+    public ArrayList<String> getMembers() {
+        return memberlist;
     }
 
-    public void setMembers(String[] members) {
-        this.members = members;
+    public void setMembers(ArrayList<String> members) {
+        this.memberlist = members;
+    }
+
+    public String getCdesc() {
+        return cdesc;
+    }
+
+    public void setCdesc(String cdesc) {
+        this.cdesc = cdesc;
     }
 }

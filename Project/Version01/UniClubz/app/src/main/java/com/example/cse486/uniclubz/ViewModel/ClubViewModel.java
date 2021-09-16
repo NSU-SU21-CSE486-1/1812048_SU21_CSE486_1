@@ -36,4 +36,9 @@ public class ClubViewModel extends AndroidViewModel {
     {
         return clubRepository.getAdminClubs(uid);
     }
+
+    public void createclub(Club club, String uid)
+    {
+        clubRepository.createClub(club,uid);
+    }
 }
