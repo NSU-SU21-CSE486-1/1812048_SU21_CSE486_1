@@ -18,7 +18,7 @@
       />
 
   <TextView
-      android:id="@+id/ename"
+      android:id="@+id/evname"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       app:layout_constraintTop_toBottomOf="@id/cvimg"
@@ -32,7 +32,7 @@
       android:id="@+id/date"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      app:layout_constraintTop_toBottomOf="@id/ename"
+      app:layout_constraintTop_toBottomOf="@id/evname"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       android:text="Date"
@@ -40,6 +40,7 @@
       android:textAlignment="center"
       android:textColor="@color/themered"
       />
+
   <TextView
       android:id="@+id/uniname"
       android:layout_width="match_parent"
