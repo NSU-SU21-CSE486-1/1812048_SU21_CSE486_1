@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+  </data>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:gravity="top"
+      android:layout_margin="20dp"
+      tools:context=".View.AddDonationActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Add Event"
+        android:layout_margin="20"
+        android:textSize="38sp" />
+
+    <EditText
+        android:id="@+id/name"
+        style="@style/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Event Name" />
+
+    <EditText
+        android:id="@+id/cname"
+        style="@style/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Club" />
+
+
+
+    <Spinner
+        android:id="@+id/status"
+        style="@style/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/estatus"
+        />
+    <Spinner
+        android:id="@+id/uni"
+        style="@style/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/universities"
+        android:hint="Blood Group" />
+
+    <EditText
+        android:id="@+id/desc"
+        style="@style/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:inputType="textMultiLine"
+        android:hint="Event Description" />
+    <EditText
+        android:id="@+id/dob"
+        style="@style/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date(dd/mm/yyyy)"
+        android:inputType="date"
+        />
+
+    <Button
+        android:id="@+id/signup_btn"
+        style="@style/button_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Post"
+        android:onClick="post" />
+
+
+  </LinearLayout>
+</layout>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.cse486.uniclubz">
+    package="com.example.cse486.uniclubz" >
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.UniClubz">
+        android:theme="@style/Theme.UniClubz" >
+        <activity
+            android:name=".View.AddEvent"
+            android:exported="true" />
         <activity
             android:name=".View.AddDonationActivity"
             android:exported="true" />
@@ -41,14 +44,14 @@
             android:exported="true" />
         <activity android:name=".View.Signup" />
         <activity android:name=".View.Login" />
-        <activity android:name=".View.LauncherActivity">
+        <activity android:name=".View.LauncherActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.MainActivity"></activity>
+        <activity android:name=".View.MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

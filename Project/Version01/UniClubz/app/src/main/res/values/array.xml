@@ -15,6 +15,10 @@
         <item>BRAC</item>
         <item>BUET</item>
     </string-array>
+    <string-array name="estatus">
+        <item>Public</item>
+        <item>Private</item>
+    </string-array>
     <string-array name="contacttype">
         <item>Phone</item>
         <item>Email</item>
