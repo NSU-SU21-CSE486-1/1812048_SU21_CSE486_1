@@ -24,6 +24,9 @@ public class LauncherActivity extends AppCompatActivity {
         {
             //Go to Main Activity if User already logged in
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            finish();
             startActivity(intent);
         }
         else

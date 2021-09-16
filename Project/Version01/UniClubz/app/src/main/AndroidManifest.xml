@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UniClubz" >
         <activity
+            android:name=".View.EventViewActivity"
+            android:exported="true" />
+        <activity
             android:name=".View.AddMemberActivity"
             android:exported="true" />
         <activity
