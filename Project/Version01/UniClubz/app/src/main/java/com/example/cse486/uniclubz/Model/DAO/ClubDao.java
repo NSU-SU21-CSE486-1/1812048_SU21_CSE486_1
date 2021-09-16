@@ -4,16 +4,18 @@ package com.example.cse486.uniclubz.Model.DAO;
 import com.example.cse486.uniclubz.Model.entity.Club;
 import com.example.cse486.uniclubz.Model.entity.University;
 
+import java.util.ArrayList;
+
 public interface ClubDao {
 
     void createClub(Club club);
 
     void getAllclubs(University university);
 
-    void getAllclubs();
+    ArrayList<Club> getAllclubs();
 
-    void getMyClubs(String uid);
+    ArrayList<Club> getMyClubs(String uid);
     
-    void getAdminClubs(String uid);
+    ArrayList<Club> getAdminClubs(String uid);
 
 }

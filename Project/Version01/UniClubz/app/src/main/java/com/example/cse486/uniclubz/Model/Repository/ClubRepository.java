@@ -21,18 +21,21 @@ public class ClubRepository implements ClubDao {
     }
 
     @Override
-    public void getAllclubs() {
+    public ArrayList<Club> getAllclubs() {
 
+        return null;
     }
 
     @Override
-    public void getMyClubs(String uid) {
+    public ArrayList<Club> getMyClubs(String uid) {
 
+        return null;
     }
 
     @Override
-    public void getAdminClubs(String uid) {
+    public ArrayList<Club> getAdminClubs(String uid) {
 
+        return null;
     }
 
    public ArrayList<Club> getSampleClubs(){
