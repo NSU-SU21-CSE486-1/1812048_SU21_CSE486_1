@@ -1,6 +1,5 @@
 package com.example.cse486.uniclubz.Model.Repository;
 
-import com.example.cse486.uniclubz.Model.DAO.ClubDao;
 import com.example.cse486.uniclubz.Model.DAO.EventDAO;
 import com.example.cse486.uniclubz.Model.entity.Club;
 import com.example.cse486.uniclubz.Model.entity.Event;
@@ -32,12 +31,13 @@ public class EventRepository implements EventDAO {
     }
 
     @Override
-    public void createEvent(Club club) {
+    public void createEvent(Event event) {
 
     }
 
     @Override
-    public void getAllEvents(University university) {
+    public ArrayList<Event> getAllEvents(University university) {
 
+        return null;
     }
 }
