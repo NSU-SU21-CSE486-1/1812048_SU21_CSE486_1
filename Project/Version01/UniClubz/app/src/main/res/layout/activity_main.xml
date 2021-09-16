@@ -72,20 +72,21 @@
                 <Button
                     android:id="@+id/allclubbtn"
                     style="@style/card_button"
-                    android:text="All Clubs"
+                    android:background="@drawable/roundbutton"
                     android:onClick="allclubs"
-                    />
+                    android:text="All Clubs" />
 
                 <Button
                     android:id="@+id/myclubsbtn"
                     style="@style/card_button"
-                    android:text="My Clubs"
+                    android:background="@drawable/roundbutton"
                     android:onClick="myclubs"
-                    />
+                    android:text="My Clubs" />
 
                 <Button
                     android:id="@+id/eventbtn"
                     style="@style/card_button"
+                    android:background="@drawable/roundbutton"
                     android:onClick="events"
                     android:text="Events" />
 
@@ -100,6 +101,7 @@
                 <Button
                     android:id="@+id/createclubtn"
                     style="@style/card_button"
+                    android:background="@drawable/roundbutton"
                     android:onClick="clubadmin"
                     android:text="Club Administration"
                     android:textSize="13sp" />
@@ -107,12 +109,14 @@
                 <Button
                     android:id="@+id/profilebtn"
                     style="@style/card_button"
+                    android:background="@drawable/roundbutton"
                     android:onClick="profile"
                     android:text="My Profile" />
 
                 <Button
                     android:id="@+id/bdbtn"
                     style="@style/card_button"
+                    android:background="@drawable/roundbutton"
                     android:onClick="bd"
                     android:text="Blood Donation" />
 

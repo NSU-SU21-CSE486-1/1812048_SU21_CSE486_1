@@ -27,7 +27,7 @@ public class ClubViewActivity extends AppCompatActivity {
     }
 
     public void addevents(View view) {
-        Intent intent = new Intent(getApplicationContext(),AddDonationActivity.class);
+        Intent intent = new Intent(getApplicationContext(),AddEvent.class);
         startActivity(intent);
     }
 

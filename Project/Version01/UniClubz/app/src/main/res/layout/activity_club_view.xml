@@ -79,20 +79,21 @@
         <Button
             android:id="@+id/eventbtn"
             style="@style/card_button"
-            android:text="Events"
+            android:background="@drawable/roundbutton"
             android:onClick="toevents"
-            />
+            android:text="Events" />
 
         <Button
             android:id="@+id/bdbtn"
             style="@style/card_button"
-            android:text="Blood Donations"
+            android:background="@drawable/roundbutton"
             android:onClick="tobd"
-            />
+            android:text="Blood Donations" />
 
         <Button
             android:id="@+id/addevntbtn"
             style="@style/card_button"
+            android:background="@drawable/roundbutton"
             android:onClick="addevents"
             android:text="Add Events" />
 
@@ -107,6 +108,7 @@
         <Button
             android:id="@+id/addbd"
             style="@style/card_button"
+            android:background="@drawable/roundbutton"
             android:onClick="adddonation"
             android:text="Add Donation Post"
             android:textSize="13sp" />
@@ -114,12 +116,14 @@
         <Button
             android:id="@+id/addmem"
             style="@style/card_button"
+            android:background="@drawable/roundbutton"
             android:onClick="addmem"
             android:text="Add Member" />
 
         <Button
             android:id="@+id/addadmin"
             style="@style/card_button"
+            android:background="@drawable/roundbutton"
             android:onClick="addadmin"
             android:text="Add Admin" />
 

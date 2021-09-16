@@ -90,7 +90,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:hint="Sign Up"
-            android:onClick="loginfunc" />
+            android:onClick="loginfunc"
+            android:background="@drawable/roundbutton"
+            />
 
 
     </LinearLayout>
