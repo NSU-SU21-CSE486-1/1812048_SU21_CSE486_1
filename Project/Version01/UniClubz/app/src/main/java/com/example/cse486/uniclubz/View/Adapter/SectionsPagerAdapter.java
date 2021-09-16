@@ -12,7 +12,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.example.cse486.uniclubz.View.BasicInfoFragment;
 import com.example.cse486.uniclubz.View.ContactInfoFragment;
 import com.example.cse486.uniclubz.R;
-import com.example.cse486.uniclubz.View.UniversitiesFragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to

@@ -26,4 +26,44 @@ public class University {
                 ", uniemail='" + uniemail + '\'' +
                 '}';
     }
+
+    public String getUniname() {
+        return uniname;
+    }
+
+    public void setUniname(String uniname) {
+        this.uniname = uniname;
+    }
+
+    public String getSid() {
+        return sid;
+    }
+
+    public void setSid(String sid) {
+        this.sid = sid;
+    }
+
+    public String getDept() {
+        return dept;
+    }
+
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public String getUniemail() {
+        return uniemail;
+    }
+
+    public void setUniemail(String uniemail) {
+        this.uniemail = uniemail;
+    }
 }
