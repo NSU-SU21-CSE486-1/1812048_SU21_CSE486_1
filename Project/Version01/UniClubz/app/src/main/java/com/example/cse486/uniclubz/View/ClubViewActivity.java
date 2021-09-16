@@ -37,12 +37,12 @@ public class ClubViewActivity extends AppCompatActivity {
     }
 
     public void addmem(View view) {
-        Intent intent = new Intent(getApplicationContext(),AddDonationActivity.class);
+        Intent intent = new Intent(getApplicationContext(),AddMemberActivity.class);
         startActivity(intent);
     }
 
     public void addadmin(View view) {
-        Intent intent = new Intent(getApplicationContext(),AddDonationActivity.class);
+        Intent intent = new Intent(getApplicationContext(),AddMemberActivity.class);
         startActivity(intent);
     }
 }
