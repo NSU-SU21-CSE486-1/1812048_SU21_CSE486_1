@@ -25,7 +25,7 @@ public class EventListActivity extends AppCompatActivity {
 
 
 
-        EventViewModel eventViewModel = new ViewModelProvider(this).get(EventViewModel.class)
+        EventViewModel eventViewModel = new ViewModelProvider(this).get(EventViewModel.class);
         ArrayList<Event> events =  eventViewModel.getsampleevents();
 
 

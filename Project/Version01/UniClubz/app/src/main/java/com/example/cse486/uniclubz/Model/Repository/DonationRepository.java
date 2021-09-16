@@ -3,6 +3,7 @@ package com.example.cse486.uniclubz.Model.Repository;
 import com.example.cse486.uniclubz.Model.DAO.DonationDAO;
 import com.example.cse486.uniclubz.Model.entity.Club;
 import com.example.cse486.uniclubz.Model.entity.Donation;
+import com.example.cse486.uniclubz.Model.entity.Event;
 import com.example.cse486.uniclubz.Model.entity.University;
 
 import java.util.ArrayList;
@@ -27,12 +28,13 @@ public class DonationRepository implements DonationDAO {
         return donations;
     }
     @Override
-    public void createDonation(Club club) {
+    public void createDonation(Donation donation) {
 
     }
 
     @Override
-    public void getAllDonations(University university) {
+    public ArrayList<Event> getAllDonations(University university) {
 
+        return null;
     }
 }
