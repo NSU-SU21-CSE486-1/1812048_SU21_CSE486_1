@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UniClubz">
         <activity
+            android:name=".View.AddDonationActivity"
+            android:exported="true" />
+        <activity
             android:name=".View.CreateClub"
             android:exported="true" />
         <activity
@@ -45,9 +48,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.MainActivity">
-
-        </activity>
+        <activity android:name=".View.MainActivity"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
