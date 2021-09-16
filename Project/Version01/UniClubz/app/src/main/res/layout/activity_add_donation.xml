@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="top"
+        android:layout_margin="20dp"
+        tools:context=".View.AddDonationActivity">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Blood Donation"
+            android:layout_margin="20"
+            android:textSize="38sp" />
+
+        <EditText
+            android:id="@+id/name"
+            style="@style/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Patient Name" />
+
+        <EditText
+            android:id="@+id/hospital"
+            style="@style/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hospital" />
+        <EditText
+            android:id="@+id/phone"
+            style="@style/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone" />
+
+        <EditText
+            android:id="@+id/contactname"
+            style="@style/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contact Person" />
+
+        <Spinner
+            android:id="@+id/bgroup"
+            style="@style/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/bgroup"
+            android:hint="Blood Group" />
+
+        <EditText
+            android:id="@+id/address"
+            style="@style/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Hospital Address" />
+        <EditText
+            android:id="@+id/dob"
+            style="@style/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Date(dd/mm/yyyy)"
+            android:inputType="date"
+            />
+
+        <Button
+            android:id="@+id/signup_btn"
+            style="@style/button_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:hint="Post"
+            android:onClick="post" />
+
+
+    </LinearLayout>
+</layout>
