@@ -1,6 +1,8 @@
 package com.example.cse486.uniclubz.Model.entity;
 
-public class Club {
+import java.io.Serializable;
+
+public class Club implements Serializable {
     private String cname;
     private String uni;
     private String[] admins;

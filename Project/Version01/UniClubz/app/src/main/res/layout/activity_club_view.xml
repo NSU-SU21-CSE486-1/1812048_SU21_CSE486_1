@@ -10,7 +10,7 @@
   <ImageView
       android:id="@+id/cvimg"
       android:layout_width="match_parent"
-      android:layout_height="255dp"
+      android:layout_height="230dp"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
@@ -18,7 +18,7 @@
     />
 
   <TextView
-      android:id="@+id/cname"
+      android:id="@+id/clubname"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       app:layout_constraintTop_toBottomOf="@id/cvimg"
@@ -33,7 +33,7 @@
       android:id="@+id/uniname"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      app:layout_constraintTop_toBottomOf="@id/cname"
+      app:layout_constraintTop_toBottomOf="@id/clubname"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       android:text="Uni Name"
@@ -54,81 +54,88 @@
       android:textColor="@color/themered"
       />
 
-  <ScrollView
+
+  <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      app:layout_constraintTop_toBottomOf="@id/status"
-      app:layout_constraintStart_toStartOf="parent"
+      android:gravity="center"
+      android:orientation="vertical"
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      >
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/status">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
-        >
+        android:orientation="horizontal">
 
-      <LinearLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="horizontal"
-          android:layout_margin="8dp"
-          >
+      <Button
+          android:id="@+id/eventbtn"
+          style="@style/card_button"
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:background="@drawable/roundbutton"
+          android:onClick="toevents"
+          android:text="Events" />
 
-        <Button
-            android:id="@+id/eventbtn"
-            style="@style/card_button"
-            android:background="@drawable/roundbutton"
-            android:onClick="toevents"
-            android:text="Events" />
+      <Button
+          android:id="@+id/bdbtn"
+          style="@style/card_button"
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:background="@drawable/roundbutton"
+          android:onClick="tobd"
+          android:text="Blood Donations" />
 
-        <Button
-            android:id="@+id/bdbtn"
-            style="@style/card_button"
-            android:background="@drawable/roundbutton"
-            android:onClick="tobd"
-            android:text="Blood Donations" />
-
-        <Button
-            android:id="@+id/addevntbtn"
-            style="@style/card_button"
-            android:background="@drawable/roundbutton"
-            android:onClick="addevents"
-            android:text="Add Events" />
-
-      </LinearLayout>
-      <LinearLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="horizontal"
-          android:layout_margin="8dp"
-          >
-
-        <Button
-            android:id="@+id/addbd"
-            style="@style/card_button"
-            android:background="@drawable/roundbutton"
-            android:onClick="adddonation"
-            android:text="Add Donation Post"
-            android:textSize="13sp" />
-
-        <Button
-            android:id="@+id/addmem"
-            style="@style/card_button"
-            android:background="@drawable/roundbutton"
-            android:onClick="addmem"
-            android:text="Add Member" />
-
-        <Button
-            android:id="@+id/addadmin"
-            style="@style/card_button"
-            android:background="@drawable/roundbutton"
-            android:onClick="addadmin"
-            android:text="Add Admin" />
-
-      </LinearLayout>
+      <Button
+          android:id="@+id/addevntbtn"
+          style="@style/card_button"
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:background="@drawable/roundbutton"
+          android:onClick="addevents"
+          android:text="Add Events" />
 
     </LinearLayout>
-  </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+      <Button
+          android:id="@+id/addbd"
+          style="@style/card_button"
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:background="@drawable/roundbutton"
+          android:onClick="adddonation"
+          android:text=" Donation Post" />
+
+      <Button
+          android:id="@+id/addmem"
+          style="@style/card_button"
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+
+          android:background="@drawable/roundbutton"
+          android:onClick="addmem"
+          android:text="Add Member" />
+
+      <Button
+          android:id="@+id/addadmin"
+          style="@style/card_button"
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:background="@drawable/roundbutton"
+          android:onClick="addadmin"
+          android:text="Add Admin" />
+
+    </LinearLayout>
+
+  </LinearLayout>
+
   </androidx.constraintlayout.widget.ConstraintLayout>

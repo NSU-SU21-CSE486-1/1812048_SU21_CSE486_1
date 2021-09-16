@@ -1,6 +1,7 @@
 package com.example.cse486.uniclubz.View.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cse486.uniclubz.Model.entity.Club;
 import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.View.ClubViewActivity;
 
 import java.util.ArrayList;
 
@@ -38,6 +40,14 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> {
 
         holder.cuniname.setText(clubs.get(position).getUni());
         holder.clubname.setText(clubs.get(position).getCname());
+        holder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ClubViewActivity.class);
+                intent.putExtra("club",clubs.get(holder.getAdapterPosition()));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
