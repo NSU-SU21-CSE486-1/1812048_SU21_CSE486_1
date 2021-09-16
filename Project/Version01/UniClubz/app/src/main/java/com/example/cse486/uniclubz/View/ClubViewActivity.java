@@ -21,6 +21,9 @@ public class ClubViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_club_view);
 
+
+
+
         Club club = (Club) getIntent().getSerializableExtra("club");
         uni = findViewById(R.id.uniname);
         cname = findViewById(R.id.clubname);
@@ -28,6 +31,8 @@ public class ClubViewActivity extends AppCompatActivity {
 
         uni.setText(club.getUni());
         cname.setText(club.getCname());
+
+
 
 
 

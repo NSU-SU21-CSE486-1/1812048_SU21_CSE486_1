@@ -26,6 +26,8 @@ public class ClubRepository implements ClubDao {
 
     private String uid = "QFGmMdADhIMSYpb4BVwwt2zB8XG2";
     private static Set<Club> adminclubs = new HashSet<>();
+    private static Set<Club> allclubs = new HashSet<>();
+    private static Set<Club> myclubs = new HashSet<>();
     private DatabaseReference databaseReference;
     @Override
     public void createClub(Club club,String uid) {
@@ -52,13 +54,95 @@ public class ClubRepository implements ClubDao {
     @Override
     public ArrayList<Club> getAllclubs() {
 
-        return null;
+        final ArrayList<String>[] clubsid = new ArrayList[]{new ArrayList<>()};
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("clubs");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                allclubs.clear();
+                for (DataSnapshot dsp : snapshot.getChildren()) {
+                    allclubs.add(dsp.getValue(Club.class)); //add result into array list
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        ArrayList<Club> clubs1 = new ArrayList<>();
+        clubs1.addAll(allclubs);
+        return clubs1;
     }
 
     @Override
     public ArrayList<Club> getMyClubs(String uid) {
 
-        return null;
+
+        final ArrayList<String>[] clubsid = new ArrayList[]{new ArrayList<>()};
+        ArrayList<Club>[] clubs =  new ArrayList[]{new ArrayList<>()};
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("users").child(uid).child("clubs");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                myclubs.clear();
+                GenericTypeIndicator<ArrayList<String>> t = new GenericTypeIndicator<ArrayList<String>>() {};
+                ArrayList<String> clubss = new ArrayList<>();
+                // clubss = (ArrayList<String>) snapshot.getValue();
+                for (DataSnapshot dsp : snapshot.getChildren()) {
+                    clubss.add(String.valueOf(dsp.getValue())); //add result into array list
+
+                }
+                clubsid[0] = clubss;
+                Log.d("hello", clubsid[0].get(0));
+
+                for (String s: clubsid[0]
+                ) {
+                    Log.d("hello","heree");
+
+                    databaseReference = FirebaseDatabase.getInstance().getReference().child("clubs").child(s);
+
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            Log.d("hello","hereetoo");
+                            GenericTypeIndicator<Club> t = new GenericTypeIndicator<Club>() {};
+                            Club clubss;
+                            clubss = (Club) snapshot.getValue(Club.class);
+                            myclubs.add(clubss);
+                            //  Log.d("adnm",adminclubs.get(0).getUni());
+                            // Log.d("hello",clubss.getCdesc());
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        ArrayList<Club> clubs1 = new ArrayList<>();
+        clubs1.addAll(myclubs);
+        return clubs1;
     }
 
     @Override

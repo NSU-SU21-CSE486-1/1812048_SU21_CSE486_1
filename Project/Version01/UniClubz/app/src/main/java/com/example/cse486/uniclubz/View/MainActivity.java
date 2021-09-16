@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void allclubs(View view) {
         Intent intent = new Intent(getApplicationContext(),ClubListActivity.class);
+        intent.putExtra("all",true);
         startActivity(intent);
     }
 
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void myclubs(View view) {
         Intent intent = new Intent(getApplicationContext(),ClubListActivity.class);
+        intent.putExtra("which",false);
         startActivity(intent);
     }
 }

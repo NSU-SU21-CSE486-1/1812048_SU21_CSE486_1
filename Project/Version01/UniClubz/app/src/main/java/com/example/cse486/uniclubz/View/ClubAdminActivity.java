@@ -40,7 +40,13 @@ public class ClubAdminActivity extends AppCompatActivity {
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        ArrayList<Club> clubs = clubViewModel.getadminclubs(FirebaseAuth.getInstance().getUid());
+        ClubAdapter adapter = new ClubAdapter(new ArrayList<Club>(),getApplicationContext());
+
+
+      //  ClubAdapter adapter = new ClubAdapter(clubs,getApplicationContext());
+        recyclerView.setAdapter(adapter);
+        ArrayList<Club> clubs = clubViewModel.getadminclubs(FirebaseAuth.getInstance().getUid(),adapter);
+        adapter.notifyDataSetChanged();
       //  Toast.makeText(getApplicationContext(), clubs.get(0).getCname(), Toast.LENGTH_SHORT).show();
 
       //  recyclerView.setAdapter(adapter);
@@ -56,10 +62,12 @@ public class ClubAdminActivity extends AppCompatActivity {
                }
            };
             Handler handler = new Handler();
-            handler.postDelayed(runnable,1200);
+            handler.postDelayed(runnable,1000);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
 
 
         createclub.setOnClickListener(new View.OnClickListener() {

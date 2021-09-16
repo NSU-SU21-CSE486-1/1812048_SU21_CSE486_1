@@ -4,6 +4,7 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cse486.uniclubz.Model.Repository.ClubRepository;
 import com.example.cse486.uniclubz.Model.entity.Club;
@@ -32,9 +33,12 @@ public class ClubViewModel extends AndroidViewModel {
         return clubRepository.getMyClubs(uid);
     }
 
-    public ArrayList<Club> getadminclubs(String uid)
+    public ArrayList<Club> getadminclubs(String uid, RecyclerView.Adapter adapter)
     {
-        return clubRepository.getAdminClubs(uid);
+
+        ArrayList<Club> clubs = clubRepository.getAdminClubs(uid);
+        adapter.notifyDataSetChanged();
+        return clubs ;
     }
 
     public void createclub(Club club, String uid)
