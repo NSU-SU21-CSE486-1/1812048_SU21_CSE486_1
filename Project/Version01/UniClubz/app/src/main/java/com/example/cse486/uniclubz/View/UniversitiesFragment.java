@@ -1,14 +1,23 @@
 package com.example.cse486.uniclubz.View;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.example.cse486.uniclubz.Model.entity.University;
 import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.View.Adapter.UniArrayAdapter;
+import com.example.cse486.uniclubz.ViewModel.SerializableManager;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,50 +26,89 @@ import com.example.cse486.uniclubz.R;
  */
 public class UniversitiesFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    ArrayList<University> uniAffiliations = new ArrayList<>();
+    View view;
+    ListView listView;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public UniversitiesFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment UniversitiesFragment.
-     */
     // TODO: Rename and change types and number of parameters
     public static UniversitiesFragment newInstance(String param1, String param2) {
         UniversitiesFragment fragment = new UniversitiesFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_universities, container, false);
+        view = inflater.inflate(R.layout.fragment_universities, container, false);
+
+        listView = view.findViewById(R.id.list_view);
+
+
+
+        uniAffiliations = SerializableManager.readSerializable(getContext(), "unis.txt");
+
+        if(uniAffiliations==null || uniAffiliations.size()<=1)
+        {
+            uniAffiliations = new ArrayList<University>();
+            uniAffiliations.add(new University("NSU","123456789","CSE","BS","afra@nsu.edu"));
+            uniAffiliations.add(new University("BRAC","34567898","EEE","MS","afra@brac.edu"));
+            uniAffiliations.add(new University("NSU","178239200","Law","PHD","afra05@nsu.edu"));
+
+
+
+        }
+        else {
+
+            uniAffiliations = SerializableManager.readSerializable(getContext(), "unis.txt");
+        }
+
+        setlistview();
+
+        view.findViewById(R.id.add_uni_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),AddUniActivity.class);
+                startActivityForResult(intent,1);
+
+            }
+        });
+
+        return view;
     }
+
+    public void setlistview()
+    {
+        UniArrayAdapter adapter = new UniArrayAdapter(getActivity().getBaseContext(),R.layout.fragment_universities,uniAffiliations);
+        adapter.addAll(uniAffiliations);
+        listView.setAdapter(adapter);
+        SerializableManager.saveSerializable(getContext(),uniAffiliations,"unis.txt");
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1)
+        {
+            if(data!=null && resultCode!=RESULT_OK) {
+                University phone = new University(data.getStringExtra("name"), data.getStringExtra("sid"), data.getStringExtra("dept"), data.getStringExtra("lvl"), data.getStringExtra("email"));
+                uniAffiliations.add(phone);
+                setlistview();
+            }
+
+            // Toast.makeText(getActivity().getBaseContext(), phone.getNumber(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }
