@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class DonationRepository implements DonationDAO {
 
 
-    public ArrayList<Donation> getSampleDonations()
+    public static ArrayList<Donation> getSampleDonations()
     {
         ArrayList<Donation> donations = new ArrayList<>();
         Donation donation = new Donation("Mr.XYZ", "City Hospital", "Banani, Dhaka", "Mr.PQRS", "4324334","14/7/2022","O+");

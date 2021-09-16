@@ -17,7 +17,6 @@ import java.util.ArrayList;
 
 public class BloodDonationListActivity extends AppCompatActivity {
 
-    DonationRepository repository;
     DonationAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +24,10 @@ public class BloodDonationListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_blood_donation_list);
 
 
-        ArrayList<Donation> donations = repository.getSampleDonations();
+        ArrayList<Donation> donations = DonationRepository.getSampleDonations();
 
         adapter= new DonationAdapter(donations,getApplicationContext());
-        RecyclerView recyclerView = findViewById(R.id.crv);
+        RecyclerView recyclerView = findViewById(R.id.drv);
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

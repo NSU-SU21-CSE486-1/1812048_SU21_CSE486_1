@@ -5,7 +5,8 @@
     android:gravity="center"
     android:orientation="vertical"
     android:layout_margin="20dp"
-    android:background="@color/white"
+    android:background="@drawable/roundbutton"
+    android:backgroundTint="@color/themered"
     >
 
     <TextView
