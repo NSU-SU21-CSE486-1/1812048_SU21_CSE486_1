@@ -8,6 +8,8 @@ public class Donation {
     String contact;
     String date;
     String bgroup;
+    String buid;
+    String donor;
 
     public Donation(String patient, String hospital, String address, String contactname, String contact, String date, String bgroup) {
         this.patient = patient;
@@ -17,6 +19,34 @@ public class Donation {
         this.contact = contact;
         this.date = date;
         this.bgroup = bgroup;
+    }
+
+    public Donation(String patient, String hospital, String address, String contactname, String contact, String date, String bgroup, String buid, String donor) {
+        this.patient = patient;
+        this.hospital = hospital;
+        this.address = address;
+        this.contactname = contactname;
+        this.contact = contact;
+        this.date = date;
+        this.bgroup = bgroup;
+        this.buid = buid;
+        this.donor = donor;
+    }
+
+    public String getBuid() {
+        return buid;
+    }
+
+    public void setBuid(String buid) {
+        this.buid = buid;
+    }
+
+    public String getDonor() {
+        return donor;
+    }
+
+    public void setDonor(String donor) {
+        this.donor = donor;
     }
 
     public String getPatient() {
