@@ -1,6 +1,7 @@
 package com.example.cse486.uniclubz.Model.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Event implements Serializable {
     private String ename;
@@ -9,6 +10,8 @@ public class Event implements Serializable {
     private String euni;
     private String edesc;
     private String edate;
+    private ArrayList<String> attendees;
+    private String euid;
 
     public Event(String ename, String eclub, String estatus, String euni, String edesc, String edate) {
         this.ename = ename;
@@ -18,6 +21,33 @@ public class Event implements Serializable {
         this.edesc = edesc;
         this.edate = edate;
 
+    }
+
+    public Event(String ename, String eclub, String estatus, String euni, String edesc, String edate, ArrayList<String> attendees, String euid) {
+        this.ename = ename;
+        this.eclub = eclub;
+        this.estatus = estatus;
+        this.euni = euni;
+        this.edesc = edesc;
+        this.edate = edate;
+        this.attendees = attendees;
+        this.euid = euid;
+    }
+
+    public String getEuid() {
+        return euid;
+    }
+
+    public void setEuid(String euid) {
+        this.euid = euid;
+    }
+
+    public ArrayList<String> getAttendees() {
+        return attendees;
+    }
+
+    public void setAttendees(ArrayList<String> attendees) {
+        this.attendees = attendees;
     }
 
     public String getEdate() {

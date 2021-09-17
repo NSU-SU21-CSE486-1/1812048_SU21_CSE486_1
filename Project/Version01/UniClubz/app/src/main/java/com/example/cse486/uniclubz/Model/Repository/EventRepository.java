@@ -63,9 +63,14 @@ public class EventRepository implements EventDAO {
         ArrayList<Event> events = new ArrayList<>();
         String[] admins1 = {uid};
         String[] admins2 = {"12431241421"};
+        String[] attnds = {"Arif Rahman","Rana Dey","Sania Akhter"};
         Event event = new Event("Boiskhakh Mela", "NSUSS", "Public", "NSU", "Join us at the fair for Boishakhi, Bengali New Year.","14/4/2022");
 
-
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(attnds[0]);
+        arrayList.add(attnds[1]);
+        arrayList.add(attnds[2]);
+        event.setAttendees(arrayList);
         Event event1 = new Event("Concert Fest", "NSUCC", "Public", "NSU", "Join us at the concert","05/04/2022");
 
         Event event2 = new Event(event.getEname(),event.getEclub(),event.getEstatus(),event.getEuni(),event.getEdesc(),event.getEdate());
