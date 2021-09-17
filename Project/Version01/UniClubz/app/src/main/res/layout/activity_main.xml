@@ -21,6 +21,7 @@
         android:textSize="15sp"
         android:text="Notifications"
         android:layout_weight="1"
+        android:visibility="gone"
         style="@style/text_button_style" />
     <TextView
         android:layout_width="match_parent"

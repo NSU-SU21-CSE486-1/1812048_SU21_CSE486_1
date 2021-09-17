@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cse486.uniclubz.Model.Repository.ClubRepository;
@@ -34,6 +35,12 @@ public class ClubListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_club_list);
 
         boolean flag = getIntent().getBooleanExtra("all",false);
+
+        if(flag)
+        {
+            TextView textView = findViewById(R.id.ctv);
+            textView.setText("All Clubs");
+        }
 
         String uid = FirebaseAuth.getInstance().getUid();
 

@@ -25,5 +25,17 @@ Laboris incididunt id Lorem est
 duis deserunt nisi dolore eiusmod
 culpa exercitation consectetur.
 </string>
+    <string name="my_clubs">My Clubs</string>
+    <string name="club_name">Club Name</string>
+    <string name="uni_name">Uni Name</string>
+    <string name="you_are_an_admin_of_this_club">You are an Admin of this club</string>
+    <string name="join">Join</string>
+    <string name="events">Events</string>
+    <string name="blood_donations">Blood Donations</string>
+    <string name="add_events">Add Events</string>
+    <string name="donation_post">Donation Post</string>
+    <string name="add_member">Add Member</string>
+    <string name="add_admin">Add Admin</string>
+    <string name="club_image">Club image</string>
 
 </resources>

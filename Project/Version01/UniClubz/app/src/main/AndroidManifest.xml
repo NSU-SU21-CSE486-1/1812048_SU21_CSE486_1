@@ -11,16 +11,21 @@
         android:theme="@style/Theme.UniClubz" >
         <activity
             android:name=".View.EventViewActivity"
-            android:exported="true" />
+            android:exported="true"
+            />
         <activity
             android:name=".View.AddMemberActivity"
             android:exported="true" />
         <activity
             android:name=".View.AddEvent"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".View.AddDonationActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".View.CreateClub"
             android:exported="true" />
@@ -35,31 +40,46 @@
             android:exported="true" />
         <activity
             android:name=".View.ClubViewActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".View.ClubListActivity"
             android:exported="true" />
         <activity
             android:name=".View.AddContactActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".View.AddUniActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".View.Profile"
-            android:exported="true" />
-        <activity android:name=".View.Signup" />
-        <activity android:name=".View.Login" />
-        <activity android:name=".View.LauncherActivity" >
+            android:exported="true"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".View.Signup"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".View.Login"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".View.LauncherActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.intent.action.MAIN"
+                    />
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
-        <activity android:name=".View.MainActivity" />
+        <activity android:name=".View.MainActivity"
+            android:screenOrientation="portrait"/>
 
         <meta-data
+
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>

@@ -18,6 +18,7 @@
     <string-array name="estatus">
         <item>Public</item>
         <item>Private</item>
+        <item>University</item>
     </string-array>
     <string-array name="contacttype">
         <item>Phone</item>

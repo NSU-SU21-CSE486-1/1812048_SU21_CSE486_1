@@ -19,7 +19,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/club2" />
+        android:src="@drawable/club2"
+        android:contentDescription="@string/club_image" />
 
     <TextView
         android:id="@+id/clubname"
@@ -28,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@id/cvimg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Club Name"
+        android:text="@string/club_name"
         android:textSize="30sp"
         android:textAlignment="center" />
 
@@ -39,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@id/clubname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Uni Name"
+        android:text="@string/uni_name"
         android:textSize="20sp"
         android:textAlignment="center" />
 
@@ -50,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@id/uniname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="You are an Admin of this club"
+        android:text="@string/you_are_an_admin_of_this_club"
         android:textSize="20sp"
         android:textAlignment="center"
         android:textColor="@color/themered" />
@@ -61,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@id/status"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Join"
+        android:text="@string/join"
         android:textSize="30sp"
         android:textAlignment="center"
         android:layout_margin="20dp"
@@ -91,7 +92,7 @@
             android:layout_height="100dp"
             android:background="@drawable/roundbutton"
             android:onClick="toevents"
-            android:text="Events" />
+            android:text="@string/events" />
 
         <Button
             android:id="@+id/bdbtn"
@@ -100,7 +101,7 @@
             android:layout_height="100dp"
             android:background="@drawable/roundbutton"
             android:onClick="tobd"
-            android:text="Blood Donations" />
+            android:text="@string/blood_donations" />
 
         <Button
             android:id="@+id/addevntbtn"
@@ -109,7 +110,7 @@
             android:layout_height="100dp"
             android:background="@drawable/roundbutton"
             android:onClick="addevents"
-            android:text="Add Events" />
+            android:text="@string/add_events" />
 
       </LinearLayout>
 
@@ -126,7 +127,7 @@
             android:layout_height="100dp"
             android:background="@drawable/roundbutton"
             android:onClick="adddonation"
-            android:text=" Donation Post" />
+            android:text="@string/donation_post" />
 
         <Button
             android:id="@+id/addmem"
@@ -136,7 +137,7 @@
 
             android:background="@drawable/roundbutton"
             android:onClick="addmem"
-            android:text="Add Member" />
+            android:text="@string/add_member" />
 
         <Button
             android:id="@+id/addadmin"
@@ -145,7 +146,7 @@
             android:layout_height="100dp"
             android:background="@drawable/roundbutton"
             android:onClick="addadmin"
-            android:text="Add Admin" />
+            android:text="@string/add_admin" />
 
       </LinearLayout>
 

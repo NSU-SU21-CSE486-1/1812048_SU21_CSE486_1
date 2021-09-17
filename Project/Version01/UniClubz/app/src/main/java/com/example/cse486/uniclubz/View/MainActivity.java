@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void myclubs(View view) {
         Intent intent = new Intent(getApplicationContext(),ClubListActivity.class);
-        intent.putExtra("which",false);
+        intent.putExtra("all",false);
         startActivity(intent);
     }
 }

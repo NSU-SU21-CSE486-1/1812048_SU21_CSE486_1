@@ -1,6 +1,7 @@
 package com.example.cse486.uniclubz.View.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.cse486.uniclubz.Model.entity.Club;
 import com.example.cse486.uniclubz.Model.entity.Donation;
 import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.View.EventViewActivity;
+import com.example.cse486.uniclubz.View.NotificationManagerClass;
 
 import java.util.ArrayList;
 
@@ -41,6 +44,12 @@ public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.ViewHo
         holder.group.setText(donations.get(position).getBgroup());
         holder.contact.setText(donations.get(position).getContact());
         holder.hospital.setText(donations.get(position).getHospital());
+        holder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NotificationManagerClass.buildddonationnotif(context,donations.get(holder.getAdapterPosition()).getBgroup());
+            }
+        });
     }
 
     @Override
@@ -58,7 +67,7 @@ public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.ViewHo
             date = (TextView) itemView.findViewById(R.id.date);
             hospital = (TextView) itemView.findViewById(R.id.hospital);
             contact = (TextView) itemView.findViewById(R.id.phone);
-          //  layout = (LinearLayout) v.findViewById(R.id.);
+            layout = (LinearLayout) v.findViewById(R.id.donationitem);
         }
     }
 }
