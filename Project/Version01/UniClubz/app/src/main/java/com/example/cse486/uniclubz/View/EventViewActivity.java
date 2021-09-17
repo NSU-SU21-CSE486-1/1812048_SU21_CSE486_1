@@ -1,6 +1,8 @@
 package com.example.cse486.uniclubz.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,10 +36,11 @@ public class EventViewActivity extends AppCompatActivity {
         uname.setText(event.getEuni());
         edesc.setText(event.getEdesc());
 
+        Context context = this;
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NotificationManagerClass.buildeventnotif(getApplicationContext(),event.getEname(),event);
+                NotificationManagerClass.buildeventnotif(context, event.getEname(),event);
             }
         });
 

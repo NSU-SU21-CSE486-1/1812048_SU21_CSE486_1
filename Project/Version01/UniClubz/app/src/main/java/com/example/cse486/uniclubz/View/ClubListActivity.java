@@ -48,9 +48,9 @@ public class ClubListActivity extends AppCompatActivity {
 
      //   Toast.makeText(getApplicationContext(), repository.getSampleClubs().get(0).getCname(), Toast.LENGTH_SHORT).show();
 
-       ArrayList<Club> clubs = (!flag)? clubViewModel.getmyclubs(uid) : clubViewModel.getallclubs();
+     // ArrayList<Club> clubs = (!flag)? clubViewModel.getmyclubs(uid) : clubViewModel.getallclubs();
 
-
+        ArrayList<Club> clubs = new ClubRepository().getSampleClubs();
        RecyclerView recyclerView = findViewById(R.id.crv);
        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

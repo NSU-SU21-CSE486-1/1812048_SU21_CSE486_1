@@ -34,9 +34,8 @@ public class DonationRepository implements DonationDAO {
         Donation donation4 = new Donation(donation.getPatient(),donation.getHospital(),donation.getAddress(),donation.getContactname(),donation.getContact(),donation.getDate(),donation.getBgroup());
 
 
-        donation1.setBgroup("AB+");
+
         donation1.setHospital("XYZ Clinic");
-        donation2.setBgroup("B+");
         donation3.setHospital("Hello Hospital");
         donations.add(donation);
         donations.add(donation1);

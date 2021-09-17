@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.cse486.uniclubz.Model.Repository.ClubRepository;
 import com.example.cse486.uniclubz.Model.entity.Club;
 import com.example.cse486.uniclubz.R;
 import com.example.cse486.uniclubz.View.Adapter.ClubAdapter;
@@ -34,6 +35,8 @@ public class ClubAdminActivity extends AppCompatActivity {
 
         ActivityClubAdminBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_club_admin);
         ClubViewModel clubViewModel = new ViewModelProvider(this).get(ClubViewModel.class);
+       // ArrayList<Club> clubs = clubViewModel.getadminclubs(FirebaseAuth.getInstance().getUid());
+        ArrayList<Club> clubs = new ClubRepository().getSampleClubs();
         clubViewModel.setContext(getApplicationContext());
 
         createclub = binding.crtclubbtn;
@@ -46,7 +49,7 @@ public class ClubAdminActivity extends AppCompatActivity {
 //
 //      //  ClubAdapter adapter = new ClubAdapter(clubs,getApplicationContext());
 //        recyclerView.setAdapter(adapter);
-        ArrayList<Club> clubs = clubViewModel.getadminclubs(FirebaseAuth.getInstance().getUid());
+
       //  adapter.notifyDataSetChanged();
       //  Toast.makeText(getApplicationContext(), clubs.get(0).getCname(), Toast.LENGTH_SHORT).show();
 

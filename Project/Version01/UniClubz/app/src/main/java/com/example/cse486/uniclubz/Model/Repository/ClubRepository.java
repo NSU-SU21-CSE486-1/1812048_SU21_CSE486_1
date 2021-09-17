@@ -95,7 +95,7 @@ public class ClubRepository implements ClubDao {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Log.d("hello", "error");
             }
         });
 
