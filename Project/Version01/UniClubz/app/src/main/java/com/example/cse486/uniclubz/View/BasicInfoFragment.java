@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +14,12 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.example.cse486.uniclubz.Model.entity.Student;
 import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.ViewModel.StudentViewModel;
 import com.example.cse486.uniclubz.ViewModel.UserPref;
 import com.example.cse486.uniclubz.databinding.FragmentBasicInfoBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +34,7 @@ import java.util.Map;
 public class BasicInfoFragment extends Fragment {
     private static Context mcontext;
     private String[] headers = new String[]{"Name", "Date of Birth", "NID", "Blood Group"};
+    private StudentViewModel studentViewModel;
 
     public BasicInfoFragment() {
         // Required empty public constructor
@@ -57,9 +62,14 @@ public class BasicInfoFragment extends Fragment {
 
         FragmentBasicInfoBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_basic_info, container, false);
 
-        String[] userarr = new String[]{userInfo.getName(),userInfo.getDOB(),userInfo.getNID(), userInfo.getBloodGroup()};
+       // String[] userarr = new String[]{userInfo.getName(),userInfo.getDOB(),userInfo.getNID(), userInfo.getBloodGroup()};
         // Toast.makeText(mcontext, userarr[1], Toast.LENGTH_SHORT).show();
 
+        studentViewModel = (new ViewModelProvider(this
+                ,ViewModelProvider.AndroidViewModelFactory.getInstance(this.getActivity().getApplication()))).get(StudentViewModel.class);
+
+        Student student = studentViewModel.getBasicinfo(FirebaseAuth.getInstance().getUid());
+        String[] userarr = new String[]{student.getName(),student.getDob(),student.getNid(),student.getBgroup()};
         List<Map<String, String>> data = new ArrayList<Map<String, String>>();
         for (int i=0;i<4;i++) {
             Map<String, String> datum = new HashMap<String, String>(2);
