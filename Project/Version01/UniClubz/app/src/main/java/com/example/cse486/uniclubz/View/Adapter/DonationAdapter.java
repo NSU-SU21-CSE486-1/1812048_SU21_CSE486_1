@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -41,13 +42,14 @@ public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         holder.date.setText(donations.get(position).getDate());
-        holder.group.setText(donations.get(position).getBgroup());
+        String bg = donations.get(position).getBgroup();
+        holder.group.setText(bg);
         holder.contact.setText(donations.get(position).getContact());
         holder.hospital.setText(donations.get(position).getHospital());
-        holder.layout.setOnClickListener(new View.OnClickListener() {
+        holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NotificationManagerClass.buildddonationnotif(context,donations.get(holder.getAdapterPosition()).getBgroup());
+                NotificationManagerClass.buildddonationnotif(context,bg);
             }
         });
     }
@@ -60,6 +62,7 @@ public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView group,date,hospital,contact;
         public LinearLayout layout;
+        public Button btn;
 
         public ViewHolder(View v) {
             super(v);
@@ -68,6 +71,8 @@ public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.ViewHo
             hospital = (TextView) itemView.findViewById(R.id.hospital);
             contact = (TextView) itemView.findViewById(R.id.phone);
             layout = (LinearLayout) v.findViewById(R.id.donationitem);
+            btn = (Button) itemView.findViewById(R.id.donatebtn);
+
         }
     }
 }

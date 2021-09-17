@@ -70,7 +70,16 @@ public class NotificationManagerClass {
         mBuilder.setContentIntent(resultPendingIntent);
 
         NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            String channelId = "Your_channel_id";
+            NotificationChannel channel = new NotificationChannel(
+                    channelId,
+                    "Channel human readable title",
+                    NotificationManager.IMPORTANCE_HIGH);
+            mNotificationManager.createNotificationChannel(channel);
+            mBuilder.setChannelId(channelId);
+        }
 // notificationID allows you to update the notification later on.
         mNotificationManager.notify(0, mBuilder.build());
     }
