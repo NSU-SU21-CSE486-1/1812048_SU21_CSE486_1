@@ -24,5 +24,9 @@ public class StudentViewModel extends AndroidViewModel {
 
     }
 
-    public Student getBasicinfo
+    public Student getBasicinfo(String uid)
+    {
+
+        return repository.getbasicinfo(uid);
+    }
 }

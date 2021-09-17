@@ -5,6 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
+import com.example.cse486.uniclubz.Model.entity.Student;
 import com.example.cse486.uniclubz.R;
 import com.example.cse486.uniclubz.ViewModel.UserPref;
 import com.example.cse486.uniclubz.databinding.ActivityProfileBinding;

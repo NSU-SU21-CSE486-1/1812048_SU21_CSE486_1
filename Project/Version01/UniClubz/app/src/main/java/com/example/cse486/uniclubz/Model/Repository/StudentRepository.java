@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.cse486.uniclubz.Model.DAO.StudentDAO;
+import com.example.cse486.uniclubz.Model.entity.Club;
 import com.example.cse486.uniclubz.Model.entity.Contact;
 import com.example.cse486.uniclubz.Model.entity.Student;
 import com.example.cse486.uniclubz.Model.entity.University;
@@ -18,13 +19,17 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class StudentRepository implements StudentDAO {
     DatabaseReference databaseReference;
+    private  static Student student;
     @Override
     public boolean newStudent(String sname, String sbg, String sphone, String snid, String email, String sdob, String password, Activity activity) {
         final boolean[] flag = new boolean[1];
@@ -78,6 +83,21 @@ public class StudentRepository implements StudentDAO {
 
     @Override
     public Student getbasicinfo(String uid) {
-        return null;
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                student = (Student) snapshot.getValue(Student.class);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        return student;
     }
 }
