@@ -54,6 +54,19 @@ public class ClubRepository implements ClubDao {
 
 
     }
+    @Override
+    public void updateClub(String cuid, Club club, String uid)
+
+    {
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        String clubid = cuid;
+        assert clubid != null;
+        databaseReference.child("clubs").child(clubid).setValue(club);
+        databaseReference.child("admins").child(clubid).setValue(club.getAdmins());
+        databaseReference.child("memberslist").child(clubid).setValue(club.getMemberlist());
+        databaseReference.child("users").child(uid).child("clubs").push().setValue(clubid);
+       // databaseReference.child("users").child(uid).child("adminclubs").push().setValue(clubid);
+    }
 
     @Override
     public void getAllclubs(University university) {

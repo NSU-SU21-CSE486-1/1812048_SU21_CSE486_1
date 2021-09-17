@@ -18,4 +18,7 @@ public interface ClubDao {
     
     ArrayList<Club> getAdminClubs(String uid);
 
+
+    void updateClub(String cuid, Club club, String uid);
+
 }

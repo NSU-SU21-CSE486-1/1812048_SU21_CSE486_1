@@ -9,6 +9,7 @@ public class Club implements Serializable {
     private ArrayList<String> admins;
     private ArrayList<String> memberlist;
     private String cdesc;
+    private String cuid;
 
 
 
@@ -18,6 +19,32 @@ public class Club implements Serializable {
         this.admins = admins;
         this.memberlist = members;
         this.cdesc = cdesc;
+
+    }
+
+    public Club(String cname, String uni, ArrayList<String> admins, ArrayList<String> memberlist, String cdesc, String cuid) {
+        this.cname = cname;
+        this.uni = uni;
+        this.admins = admins;
+        this.memberlist = memberlist;
+        this.cdesc = cdesc;
+        this.cuid = cuid;
+    }
+
+    public ArrayList<String> getMemberlist() {
+        return memberlist;
+    }
+
+    public void setMemberlist(ArrayList<String> memberlist) {
+        this.memberlist = memberlist;
+    }
+
+    public String getCuid() {
+        return cuid;
+    }
+
+    public void setCuid(String cuid) {
+        this.cuid = cuid;
     }
 
     public Club()
