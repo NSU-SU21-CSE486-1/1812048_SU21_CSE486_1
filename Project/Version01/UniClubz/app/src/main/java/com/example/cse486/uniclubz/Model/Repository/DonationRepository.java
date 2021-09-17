@@ -11,6 +11,18 @@ import java.util.ArrayList;
 public class DonationRepository implements DonationDAO {
 
 
+
+    @Override
+    public void createDonation(Donation donation) {
+
+    }
+
+    @Override
+    public ArrayList<Event> getAllDonations(University university) {
+
+        return null;
+    }
+
     public static ArrayList<Donation> getSampleDonations()
     {
         ArrayList<Donation> donations = new ArrayList<>();
@@ -31,15 +43,5 @@ public class DonationRepository implements DonationDAO {
         donations.add(donation2);
         donations.add(donation3);
         return donations;
-    }
-    @Override
-    public void createDonation(Donation donation) {
-
-    }
-
-    @Override
-    public ArrayList<Event> getAllDonations(University university) {
-
-        return null;
     }
 }
