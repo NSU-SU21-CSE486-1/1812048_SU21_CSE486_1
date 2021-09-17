@@ -34,19 +34,20 @@ public class ClubAdminActivity extends AppCompatActivity {
 
         ActivityClubAdminBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_club_admin);
         ClubViewModel clubViewModel = new ViewModelProvider(this).get(ClubViewModel.class);
+        clubViewModel.setContext(getApplicationContext());
 
         createclub = binding.crtclubbtn;
         recyclerView = binding.clubadminrv;
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        ClubAdapter adapter = new ClubAdapter(new ArrayList<Club>(),getApplicationContext());
-
-
-      //  ClubAdapter adapter = new ClubAdapter(clubs,getApplicationContext());
-        recyclerView.setAdapter(adapter);
-        ArrayList<Club> clubs = clubViewModel.getadminclubs(FirebaseAuth.getInstance().getUid(),adapter);
-        adapter.notifyDataSetChanged();
+//        ClubAdapter adapter = new ClubAdapter(new ArrayList<Club>(),getApplicationContext());
+//
+//
+//      //  ClubAdapter adapter = new ClubAdapter(clubs,getApplicationContext());
+//        recyclerView.setAdapter(adapter);
+        ArrayList<Club> clubs = clubViewModel.getadminclubs(FirebaseAuth.getInstance().getUid());
+      //  adapter.notifyDataSetChanged();
       //  Toast.makeText(getApplicationContext(), clubs.get(0).getCname(), Toast.LENGTH_SHORT).show();
 
       //  recyclerView.setAdapter(adapter);
@@ -62,7 +63,7 @@ public class ClubAdminActivity extends AppCompatActivity {
                }
            };
             Handler handler = new Handler();
-            handler.postDelayed(runnable,1000);
+            handler.postDelayed(runnable,1200);
         } catch (Exception e) {
             e.printStackTrace();
         }

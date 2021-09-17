@@ -1,5 +1,6 @@
 package com.example.cse486.uniclubz.Model.Repository;
 
+import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -11,6 +12,7 @@ import com.example.cse486.uniclubz.Model.entity.Club;
 import com.example.cse486.uniclubz.Model.entity.University;
 import com.example.cse486.uniclubz.R;
 import com.example.cse486.uniclubz.View.CreateClub;
+import com.example.cse486.uniclubz.ViewModel.UserPref;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +31,13 @@ public class ClubRepository implements ClubDao {
     private static Set<Club> allclubs = new HashSet<>();
     private static Set<Club> myclubs = new HashSet<>();
     private DatabaseReference databaseReference;
+    private Context context;
+
+//  //  public ClubRepository(Context context)
+//    {
+//        this.context =context;
+//    }
+
     @Override
     public void createClub(Club club,String uid) {
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -102,6 +111,7 @@ public class ClubRepository implements ClubDao {
 
                 }
                 clubsid[0] = clubss;
+
                 Log.d("hello", clubsid[0].get(0));
 
                 for (String s: clubsid[0]
@@ -142,6 +152,7 @@ public class ClubRepository implements ClubDao {
 
         ArrayList<Club> clubs1 = new ArrayList<>();
         clubs1.addAll(myclubs);
+       // UserPref userPref = new UserPref(context);
         return clubs1;
     }
 
@@ -165,6 +176,8 @@ public class ClubRepository implements ClubDao {
                 }
                 clubsid[0] = clubss;
                 Log.d("hello", clubsid[0].get(0));
+//                UserPref userPref = new UserPref(context);
+//                userPref.setadmin(new HashSet<>(clubsid[0]));
                 adminclubs.clear();
                 for (String s: clubsid[0]
                 ) {
@@ -231,4 +244,6 @@ public class ClubRepository implements ClubDao {
 
         return clubs;
     }
+
+
 }

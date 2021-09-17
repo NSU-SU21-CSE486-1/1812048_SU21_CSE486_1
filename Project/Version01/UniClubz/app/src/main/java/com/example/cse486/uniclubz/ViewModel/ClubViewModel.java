@@ -1,6 +1,7 @@
 package com.example.cse486.uniclubz.ViewModel;
 
 import android.app.Application;
+import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -15,6 +16,12 @@ public class ClubViewModel extends AndroidViewModel {
     ClubRepository clubRepository;
     public ClubViewModel(@NonNull Application application) {
         super(application);
+        clubRepository = new ClubRepository();
+
+    }
+
+    public void setContext(Context context)
+    {
         clubRepository = new ClubRepository();
     }
 
@@ -33,11 +40,11 @@ public class ClubViewModel extends AndroidViewModel {
         return clubRepository.getMyClubs(uid);
     }
 
-    public ArrayList<Club> getadminclubs(String uid, RecyclerView.Adapter adapter)
+    public ArrayList<Club> getadminclubs(String uid)
     {
 
         ArrayList<Club> clubs = clubRepository.getAdminClubs(uid);
-        adapter.notifyDataSetChanged();
+
         return clubs ;
     }
 

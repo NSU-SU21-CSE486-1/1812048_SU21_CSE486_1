@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.util.Log;
 
+import java.util.Set;
+
 public class UserPref {
 
     // Shared Preferences
@@ -152,6 +154,31 @@ public class UserPref {
     public boolean isLoggedIn() {
         return userinfopref.getBoolean(Keys.LOGGED_IN.name(), false);
     }
+
+    public void setmembers(Set<String> strings) {
+        editor = userinfopref.edit();
+        editor.putStringSet("memberlist",strings);
+        editor.apply();
+    }
+
+    public Set<String> getmembers() {
+
+        return userinfopref.getStringSet("memberlist",null);
+
+    }
+
+    public void setadmin(Set<String> strings) {
+        editor = userinfopref.edit();
+        editor.putStringSet("adminlist",strings);
+        editor.apply();
+    }
+
+    public Set<String> getadmin() {
+
+        return userinfopref.getStringSet("adminlist",null);
+
+    }
+
 
 
 }

@@ -3,7 +3,9 @@ package com.example.cse486.uniclubz.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,21 +14,15 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.ViewModel.StudentViewModel;
 import com.example.cse486.uniclubz.ViewModel.UserPref;
 import com.example.cse486.uniclubz.databinding.ActivitySignupBinding;
 import com.example.cse486.uniclubz.Model.entity.Student;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
 
 public class Signup extends AppCompatActivity {
-    private FirebaseAuth mAuth;
+
     private String email,password,sname,snid,sbg,sphone;
-    private DatabaseReference mDatabase;
     private Student student;
     private UserPref userPref;
     private String sdob;
@@ -38,8 +34,7 @@ public class Signup extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         ActivitySignupBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_signup);
-        mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        StudentViewModel studentViewModel = new ViewModelProvider(this).get(StudentViewModel.class);
 
         binding.signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,35 +50,20 @@ public class Signup extends AppCompatActivity {
 
                 Context context = getApplicationContext();
                 if (!email.isEmpty() && !password.isEmpty()) {
-                    mAuth.createUserWithEmailAndPassword(email, password)
-                            .addOnCompleteListener(Signup.this, new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()) {
-                                        // Sign in success, update UI with the signed-in user's information
-                                        Log.d("firebase", "createUserWithEmail:success");
 
-                                        FirebaseUser user = mAuth.getCurrentUser();
+                    boolean flag = studentViewModel.newStudent( sname,  sbg,  sphone,  snid,  email,  sdob,  password, Signup.this);
 
-                                        writeNewUser(user.getUid(),sname,sbg,sphone,snid,email,sdob);
-
-                                         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK); // clears all previous activities task
-                                        finish();
-                                         startActivity(intent);
-
-
-                                    } else {
-                                        // If sign in fails, display a message to the user.
-                                        Log.w("firebase", "createUserWithEmail:failure", task.getException());
-                                        Toast.makeText( context,"Authentication failed.",Toast.LENGTH_SHORT).show();
-
-                                    }
-
-                                    // ...
-                                }
-                            });
+                    if(flag) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK); // clears all previous activities task
+                        finish();
+                        startActivity(intent);
+                    }
+                    else
+                    {
+                        Toast.makeText( getApplicationContext(),"Authentication failed.",Toast.LENGTH_SHORT).show();
+                    }
 
                 } else {
 
@@ -110,10 +90,5 @@ public class Signup extends AppCompatActivity {
     }
 
 
-    public void writeNewUser(String userId, String sname, String sbg, String sphone, String snid, String email,String sdob) {
-        Student user = new Student(snid, sname, sphone, sdob, sbg, email);
-
-        mDatabase.child("users").child(userId).setValue(user);
-    }
 
 }

@@ -9,17 +9,25 @@ import android.widget.TextView;
 
 import com.example.cse486.uniclubz.Model.entity.Club;
 import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.ViewModel.UserPref;
 
 import java.io.Serializable;
+import java.util.Set;
 
 public class ClubViewActivity extends AppCompatActivity {
 
     TextView uni,cname, status;
+    Set<String> admin,member;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_club_view);
+
+        UserPref userPref = new UserPref(getApplicationContext());
+        admin = userPref.getadmin();
+        member = userPref.getmembers();
+
 
 
 

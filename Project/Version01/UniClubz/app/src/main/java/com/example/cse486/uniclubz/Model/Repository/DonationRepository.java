@@ -16,11 +16,16 @@ public class DonationRepository implements DonationDAO {
         ArrayList<Donation> donations = new ArrayList<>();
         Donation donation = new Donation("Mr.XYZ", "City Hospital", "Banani, Dhaka", "Mr.PQRS", "4324334","14/7/2022","O+");
 
-        Donation donation1 = donation;
-        Donation donation2 = donation;
-        Donation donation3 = donation;
-        Donation donation4 = donation;
+        Donation donation1 = new Donation(donation.getPatient(),donation.getHospital(),donation.getAddress(),donation.getContactname(),donation.getContact(),donation.getDate(),donation.getBgroup());
+        Donation donation2 = new Donation(donation.getPatient(),donation.getHospital(),donation.getAddress(),donation.getContactname(),donation.getContact(),donation.getDate(),donation.getBgroup());
+        Donation donation3 = new Donation(donation.getPatient(),donation.getHospital(),donation.getAddress(),donation.getContactname(),donation.getContact(),donation.getDate(),donation.getBgroup());
+        Donation donation4 = new Donation(donation.getPatient(),donation.getHospital(),donation.getAddress(),donation.getContactname(),donation.getContact(),donation.getDate(),donation.getBgroup());
 
+
+        donation1.setBgroup("AB+");
+        donation1.setHospital("XYZ Clinic");
+        donation2.setBgroup("B+");
+        donation3.setHospital("Hello Hospital");
         donations.add(donation);
         donations.add(donation1);
         donations.add(donation2);

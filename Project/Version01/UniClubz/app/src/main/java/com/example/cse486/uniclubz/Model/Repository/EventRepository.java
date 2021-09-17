@@ -19,9 +19,12 @@ public class EventRepository implements EventDAO {
         Event event = new Event("Boiskhakh Mela", "NSUSS", "Public", "NSU", "Join us at the fair for Boishakhi, Bengali New Year.","14/4/2022");
 
        Event event1 = event;
-       Event event2 = event;
+       Event event2 = new Event(event.getEname(),event.getEclub(),event.getEstatus(),event.getEuni(),event.getEdesc(),event.getEdate());
        Event event3 = event;
        Event event4 = event;
+
+       event2.setEname("Pohela Falgun");
+       event2.setEdate("5/2/2022");
 
        events.add(event);
        events.add(event1);
