@@ -51,10 +51,19 @@ public class EventViewActivity extends AppCompatActivity {
                 UserPref userPref = new UserPref(getApplicationContext());
                 String name = userPref.getName();
                 ArrayList<String> arrayList = event.getAttendees();
+                if(arrayList!=null && !arrayList.isEmpty()){
                 arrayList.add(name);
                 event.setAttendees(arrayList);
                 eventViewModel.addattendee(event);
-                NotificationManagerClass.buildeventnotif(context, event.getEname(),event);
+                NotificationManagerClass.buildeventnotif(context, event.getEname(),event);}
+                else
+                {
+                    arrayList = new ArrayList<>();
+                    arrayList.add(name);
+                    event.setAttendees(arrayList);
+                    eventViewModel.addattendee(event);
+                    NotificationManagerClass.buildeventnotif(context, event.getEname(),event);
+                }
             }
         });
 

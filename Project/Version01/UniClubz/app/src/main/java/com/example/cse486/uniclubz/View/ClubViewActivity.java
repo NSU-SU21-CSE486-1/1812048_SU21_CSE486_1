@@ -38,11 +38,11 @@ public class ClubViewActivity extends AppCompatActivity {
         ArrayList<String> admins = club.getAdmins();
         ArrayList<String> members = club.getMembers();
         String uid = FirebaseAuth.getInstance().getUid();
-        if(admins.contains(uid))
+        if(admins!=null && !admins.isEmpty() && admins.contains(uid))
         {
 
         }
-        else if(members.contains(uid))
+        else if(members!=null && !members.isEmpty() && members.contains(uid))
         {
             binding.addadmin.setVisibility(View.GONE);
             binding.addmem.setVisibility(View.GONE);
@@ -56,16 +56,30 @@ public class ClubViewActivity extends AppCompatActivity {
             binding.addmem.setVisibility(View.GONE);
             binding.addevntbtn.setVisibility(View.GONE);
             binding.addbd.setVisibility(View.GONE);
+            binding.eventbtn.setVisibility(View.GONE);
+            binding.bdbtn.setVisibility(View.GONE);
             binding.status.setText("You are not a member of this Club");
             binding.join.setVisibility(View.VISIBLE);
 
             binding.join.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    members.add(uid);
-                    club.setMemberlist(members);
-                    clubViewModel.addmember(club,uid);
-                    onRestart();
+                    if(members!=null && !members.isEmpty())
+                    {
+                        members.add(uid);
+                        club.setMemberlist(members);
+                        clubViewModel.addmember(club,uid);
+                        onRestart();
+                    }
+                    else
+                    {
+                        ArrayList<String> mem = new ArrayList<>();
+                        mem.add(uid);
+                        club.setMemberlist(mem);
+                        clubViewModel.addmember(club,uid);
+                        onRestart();
+                    }
+
                 }
             });
         }
