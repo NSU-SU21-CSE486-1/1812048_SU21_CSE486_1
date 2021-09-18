@@ -25,6 +25,10 @@ public class EventRepository implements EventDAO {
 
     @Override
     public void createEvent(Event event) {
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("events");
+        String euid = databaseReference.push().getKey();
+        event.setEuid(euid);
+        databaseReference.child(euid).setValue(event);
 
     }
 

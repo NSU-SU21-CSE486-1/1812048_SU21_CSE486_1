@@ -44,8 +44,8 @@ public class Signup extends AppCompatActivity {
                 sname = binding.name.getText().toString().trim();
                 snid = binding.nid.getText().toString().trim();
                 sphone = binding.phone.getText().toString().trim();
-                sbg = binding.bgroup.getSelectedItem().toString();
-                sdob = binding.dob.getText().toString();
+                sbg = binding.bgroup.getSelectedItem().toString().trim();
+                sdob = binding.dob.getText().toString().trim();
 
 
                 Context context = getApplicationContext();

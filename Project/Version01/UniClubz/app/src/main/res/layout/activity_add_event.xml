@@ -13,7 +13,7 @@
       android:orientation="vertical"
       android:gravity="top"
       android:layout_margin="20dp"
-      tools:context=".View.AddDonationActivity">
+      tools:context=".View.AddEvent">
 
 
     <TextView

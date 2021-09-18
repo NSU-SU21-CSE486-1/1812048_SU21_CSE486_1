@@ -48,7 +48,7 @@ public class StudentRepository implements StudentDAO {
                             databaseReference = FirebaseDatabase.getInstance().getReference().child("users");
                             Student student = new Student(snid, sname, sphone, sdob, sbg, email);
                             String uid = databaseReference.push().getKey();
-                            databaseReference.child("users").child(uid).setValue(user);
+                            databaseReference.child(uid).setValue(user);
                             flag[0] = true;
 
 

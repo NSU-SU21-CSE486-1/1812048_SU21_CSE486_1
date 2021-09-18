@@ -129,7 +129,7 @@ public class ContactInfoFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==1)
         {
-            if(data!=null && resultCode!= RESULT_OK) {
+            if(data!=null && resultCode== RESULT_OK) {
                 Contact phone = new Contact(data.getStringExtra("type"), data.getStringExtra("phone"),data.getStringExtra("tag"));
                 woi.add(phone);
                 setuplistview(woi);

@@ -59,7 +59,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tag_edittextview"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:hint="Email"
+            android:hint="Contact"
             android:layout_margin="30dp" />
 
         <Button

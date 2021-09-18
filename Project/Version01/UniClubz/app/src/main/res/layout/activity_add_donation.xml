@@ -64,7 +64,6 @@
             style="@style/edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
             android:hint="Hospital Address" />
         <EditText
             android:id="@+id/dob"

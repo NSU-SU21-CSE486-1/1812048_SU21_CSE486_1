@@ -43,7 +43,7 @@ public class AddContactActivity extends AppCompatActivity {
             binding.addInfoBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String pt = binding.phoneemailTextview.getText().toString();
+                    String pt = binding.contactEdittextview.getText().toString();
                     String tt = binding.tagEdittextview.getText().toString();
                     if(binding.emailorphone.getSelectedItem()!=null) {
                         eorp = binding.emailorphone.getSelectedItem().toString();

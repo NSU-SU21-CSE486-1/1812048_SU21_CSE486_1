@@ -101,7 +101,7 @@ public class UniversitiesFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==1)
         {
-            if(data!=null && resultCode!=RESULT_OK) {
+            if(data!=null && resultCode==RESULT_OK) {
                 University phone = new University(data.getStringExtra("name"), data.getStringExtra("sid"), data.getStringExtra("dept"), data.getStringExtra("lvl"), data.getStringExtra("email"));
                 uniAffiliations.add(phone);
                 setlistview();

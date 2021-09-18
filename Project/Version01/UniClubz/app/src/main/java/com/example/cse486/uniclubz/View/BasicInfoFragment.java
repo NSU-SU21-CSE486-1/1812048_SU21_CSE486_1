@@ -62,14 +62,14 @@ public class BasicInfoFragment extends Fragment {
 
         FragmentBasicInfoBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_basic_info, container, false);
 
-       // String[] userarr = new String[]{userInfo.getName(),userInfo.getDOB(),userInfo.getNID(), userInfo.getBloodGroup()};
+       String[] userarr = new String[]{"Afra Nawar","10/05/2008","123456789", "B+"};
         // Toast.makeText(mcontext, userarr[1], Toast.LENGTH_SHORT).show();
 
         studentViewModel = (new ViewModelProvider(this
                 ,ViewModelProvider.AndroidViewModelFactory.getInstance(this.getActivity().getApplication()))).get(StudentViewModel.class);
 
         Student student = studentViewModel.getBasicinfo(FirebaseAuth.getInstance().getUid());
-        String[] userarr = new String[]{student.getName(),student.getDob(),student.getNid(),student.getBgroup()};
+      //  String[] userarr = new String[]{student.getName(),student.getDob(),student.getNid(),student.getBgroup()};
         List<Map<String, String>> data = new ArrayList<Map<String, String>>();
         for (int i=0;i<4;i++) {
             Map<String, String> datum = new HashMap<String, String>(2);
