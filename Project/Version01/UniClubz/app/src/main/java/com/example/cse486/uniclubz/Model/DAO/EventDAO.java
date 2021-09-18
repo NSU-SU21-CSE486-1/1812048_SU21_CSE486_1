@@ -13,7 +13,9 @@ public interface EventDAO {
 
     void createEvent(Event event);
 
-    ArrayList<Event> getAllEvents(University university);
+    ArrayList<Event> getAllEvents();
+
+    void addattendee(Event event);
 
 
 }

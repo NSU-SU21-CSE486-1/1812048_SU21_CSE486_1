@@ -62,7 +62,7 @@ public class BasicInfoFragment extends Fragment {
 
         FragmentBasicInfoBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_basic_info, container, false);
 
-       String[] userarr = new String[]{"Afra Nawar","10/05/2008","123456789", "B+"};
+       String[] userarr = new String[]{userInfo.getName(),userInfo.getDOB(),userInfo.getNID(),userInfo.getBloodGroup()};
         // Toast.makeText(mcontext, userarr[1], Toast.LENGTH_SHORT).show();
 
         studentViewModel = (new ViewModelProvider(this

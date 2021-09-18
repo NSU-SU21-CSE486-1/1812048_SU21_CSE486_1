@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cse486.uniclubz.Model.entity.Club;
@@ -17,6 +18,7 @@ import com.example.cse486.uniclubz.Model.entity.Donation;
 import com.example.cse486.uniclubz.R;
 import com.example.cse486.uniclubz.View.EventViewActivity;
 import com.example.cse486.uniclubz.View.NotificationManagerClass;
+import com.example.cse486.uniclubz.ViewModel.DonationViewModel;
 
 import java.util.ArrayList;
 
@@ -49,6 +51,7 @@ public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.ViewHo
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 NotificationManagerClass.buildddonationnotif(context,bg);
             }
         });

@@ -56,11 +56,11 @@ public class ClubRepository implements ClubDao {
 
     }
     @Override
-    public void addmember(String cuid, Club club, String uid)
+    public void addmember(Club club, String uid)
 
     {
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        String clubid = cuid;
+        String clubid = club.getCuid();
         assert clubid != null;
         databaseReference.child("clubs").child(clubid).setValue(club);
         databaseReference.child("admins").child(clubid).setValue(club.getAdmins());
@@ -69,10 +69,12 @@ public class ClubRepository implements ClubDao {
        // databaseReference.child("users").child(uid).child("adminclubs").push().setValue(clubid);
     }
 
+
+
     @Override
-    public void addadmin(String cuid, Club club, String uid) {
+    public void addadmin(Club club, String uid) {
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        String clubid = cuid;
+        String clubid = club.getCuid();
         assert clubid != null;
         databaseReference.child("clubs").child(clubid).setValue(club);
         databaseReference.child("admins").child(clubid).setValue(club.getAdmins());
@@ -139,7 +141,7 @@ public class ClubRepository implements ClubDao {
                 }
                 clubsid[0] = clubss;
 
-                Log.d("hello", clubsid[0].get(0));
+
 
                 for (String s: clubsid[0]
                 ) {
@@ -202,7 +204,7 @@ public class ClubRepository implements ClubDao {
 
                 }
                 clubsid[0] = clubss;
-                Log.d("hello", clubsid[0].get(0));
+
 //                UserPref userPref = new UserPref(context);
 //                userPref.setadmin(new HashSet<>(clubsid[0]));
                 adminclubs.clear();

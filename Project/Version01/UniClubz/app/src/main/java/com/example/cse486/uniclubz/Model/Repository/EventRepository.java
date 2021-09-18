@@ -33,7 +33,15 @@ public class EventRepository implements EventDAO {
     }
 
     @Override
-    public ArrayList<Event> getAllEvents(University university) {
+    public void addattendee(Event event) {
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("events");
+        String euid = event.getEuid();
+        databaseReference.child(euid).setValue(event);
+
+    }
+
+    @Override
+    public ArrayList<Event> getAllEvents() {
 
         final ArrayList<String>[] eventsid = new ArrayList[]{new ArrayList<>()};
 

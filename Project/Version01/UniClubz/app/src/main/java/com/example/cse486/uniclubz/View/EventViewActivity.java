@@ -1,6 +1,7 @@
 package com.example.cse486.uniclubz.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +12,10 @@ import android.widget.TextView;
 
 import com.example.cse486.uniclubz.Model.entity.Event;
 import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.ViewModel.EventViewModel;
+import com.example.cse486.uniclubz.ViewModel.UserPref;
+
+import java.util.ArrayList;
 
 public class EventViewActivity extends AppCompatActivity {
 
@@ -25,6 +30,7 @@ public class EventViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_event_view);
 
          event = (Event) getIntent().getSerializableExtra("event");
+        EventViewModel eventViewModel = new ViewModelProvider(this).get(EventViewModel.class);
 
         ename = findViewById(R.id.evname);
         cname = findViewById(R.id.cname);
@@ -42,6 +48,12 @@ public class EventViewActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                UserPref userPref = new UserPref(getApplicationContext());
+                String name = userPref.getName();
+                ArrayList<String> arrayList = event.getAttendees();
+                arrayList.add(name);
+                event.setAttendees(arrayList);
+                eventViewModel.addattendee(event);
                 NotificationManagerClass.buildeventnotif(context, event.getEname(),event);
             }
         });
@@ -50,7 +62,6 @@ public class EventViewActivity extends AppCompatActivity {
 
     public void attendees(View view) {
         Intent intent = new Intent(getApplicationContext(),EventAttendees.class);
-
         intent.putExtra("event",event);
         startActivity(intent);
 

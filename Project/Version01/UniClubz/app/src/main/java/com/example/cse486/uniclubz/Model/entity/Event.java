@@ -12,6 +12,10 @@ public class Event implements Serializable {
     private String edate;
     private ArrayList<String> attendees;
     private String euid;
+    public Event()
+    {
+
+    }
 
     public Event(String ename, String eclub, String estatus, String euni, String edesc, String edate) {
         this.ename = ename;

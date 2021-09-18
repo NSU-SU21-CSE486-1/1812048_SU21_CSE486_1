@@ -19,6 +19,7 @@ import com.example.cse486.uniclubz.R;
 import com.example.cse486.uniclubz.View.Adapter.ClubAdapter;
 import com.example.cse486.uniclubz.View.Adapter.DonationAdapter;
 import com.example.cse486.uniclubz.ViewModel.DonationViewModel;
+import com.example.cse486.uniclubz.ViewModel.UserPref;
 
 import java.util.ArrayList;
 
@@ -31,8 +32,10 @@ public class BloodDonationListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blood_donation_list);
 
+        UserPref userPref = new UserPref(getApplicationContext());
+
         DonationViewModel donationViewModel = new ViewModelProvider(this).get(DonationViewModel.class);
-        ArrayList<Donation> donations = donationViewModel.getsampledonations();
+        ArrayList<Donation> donations = donationViewModel.getalldonations(userPref.getBloodGroup());
 
         button = findViewById(R.id.donatebtn);
 
@@ -45,5 +48,7 @@ public class BloodDonationListActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+
+
     }
 }

@@ -22,6 +22,11 @@ public class Donation {
         this.donor ="";
     }
 
+    public Donation()
+    {
+
+    }
+
     public Donation(String patient, String hospital, String address, String contactname, String contact, String date, String bgroup, String buid, String donor) {
         this.patient = patient;
         this.hospital = hospital;

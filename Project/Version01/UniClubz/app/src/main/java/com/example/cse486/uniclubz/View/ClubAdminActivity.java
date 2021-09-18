@@ -35,8 +35,8 @@ public class ClubAdminActivity extends AppCompatActivity {
 
         ActivityClubAdminBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_club_admin);
         ClubViewModel clubViewModel = new ViewModelProvider(this).get(ClubViewModel.class);
-       // ArrayList<Club> clubs = clubViewModel.getadminclubs(FirebaseAuth.getInstance().getUid());
-        ArrayList<Club> clubs = new ClubRepository().getSampleClubs();
+        ArrayList<Club> clubs = clubViewModel.getadminclubs(FirebaseAuth.getInstance().getUid());
+       // ArrayList<Club> clubs = new ClubRepository().getSampleClubs();
         clubViewModel.setContext(getApplicationContext());
 
         createclub = binding.crtclubbtn;
@@ -54,23 +54,24 @@ public class ClubAdminActivity extends AppCompatActivity {
       //  Toast.makeText(getApplicationContext(), clubs.get(0).getCname(), Toast.LENGTH_SHORT).show();
 
       //  recyclerView.setAdapter(adapter);
+        if(clubs==null || clubs.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "No Clubs To Show", Toast.LENGTH_SHORT).show();
+        }else {
+            try {
 
-
-        try {
-
-           Runnable runnable = new Runnable() {
-               @Override
-               public void run() {
-                   ClubAdapter adapter = new ClubAdapter(clubs,getApplicationContext());
-                   recyclerView.setAdapter(adapter);
-               }
-           };
-            Handler handler = new Handler();
-            handler.postDelayed(runnable,1200);
-        } catch (Exception e) {
-            e.printStackTrace();
+                Runnable runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        ClubAdapter adapter = new ClubAdapter(clubs, getApplicationContext());
+                        recyclerView.setAdapter(adapter);
+                    }
+                };
+                Handler handler = new Handler();
+                handler.postDelayed(runnable, 1200);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-
 
 
 
@@ -82,9 +83,9 @@ public class ClubAdminActivity extends AppCompatActivity {
             }
         });
 
-
+}
 
     }
 
 
-}
+

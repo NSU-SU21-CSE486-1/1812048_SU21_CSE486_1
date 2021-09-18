@@ -2,6 +2,7 @@ package com.example.cse486.uniclubz.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.cse486.uniclubz.Model.entity.Club;
 import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.ViewModel.ClubViewModel;
 import com.example.cse486.uniclubz.ViewModel.UserPref;
 import com.example.cse486.uniclubz.databinding.ActivityClubViewBinding;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,19 +23,15 @@ import java.util.Set;
 public class ClubViewActivity extends AppCompatActivity {
 
     TextView uni,cname, status;
-    Set<String> admin,member;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_club_view);
 
-        UserPref userPref = new UserPref(getApplicationContext());
-        admin = userPref.getadmin();
-        member = userPref.getmembers();
-
         ActivityClubViewBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_club_view);
-
+        ClubViewModel clubViewModel = new ViewModelProvider(this).get(ClubViewModel.class);
 
 
         Club club = (Club) getIntent().getSerializableExtra("club");
@@ -66,6 +64,7 @@ public class ClubViewActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     members.add(uid);
                     club.setMemberlist(members);
+                    clubViewModel.addmember(club,uid);
                     onRestart();
                 }
             });

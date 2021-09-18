@@ -64,6 +64,14 @@ DatabaseReference databaseReference;
 
     }
 
+    @Override
+    public void adddonor(String uid,Donation donation) {
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("donations");
+        String buid = donation.getBuid();
+        donation.setBuid(buid);
+        databaseReference.child(buid).setValue(donation);
+    }
+
     public static ArrayList<Donation> getSampleDonations()
     {
         ArrayList<Donation> donations = new ArrayList<>();

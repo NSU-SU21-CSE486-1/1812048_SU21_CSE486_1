@@ -52,4 +52,9 @@ public class ClubViewModel extends AndroidViewModel {
     {
         clubRepository.createClub(club,uid);
     }
+
+    public void addmember(Club club,String uid)
+    {
+        clubRepository.addmember(club,uid);
+    }
 }

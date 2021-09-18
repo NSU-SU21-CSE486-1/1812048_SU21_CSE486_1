@@ -22,7 +22,7 @@ public class DonationViewModel extends AndroidViewModel {
         repository = new DonationRepository();
     }
 
-    public ArrayList<Donation> getallevents(String bg)
+    public ArrayList<Donation> getalldonations(String bg)
     {
         return repository.getAllDonations(bg);
     }
@@ -34,5 +34,10 @@ public class DonationViewModel extends AndroidViewModel {
 
     public void createdonation(Donation donation){
         repository.createDonation(donation);
+    }
+
+    public void adddonor(String uid,Donation donation)
+    {
+        repository.adddonor(uid,donation);
     }
 }

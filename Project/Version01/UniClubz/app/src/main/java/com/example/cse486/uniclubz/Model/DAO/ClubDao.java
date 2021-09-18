@@ -19,9 +19,9 @@ public interface ClubDao {
     ArrayList<Club> getAdminClubs(String uid);
 
 
-    void addmember(String cuid, Club club, String uid);
+    void addmember(Club club, String uid);
 
-    void addadmin(String cuid, Club club, String uid);
+    void addadmin(Club club, String uid);
 
 
 }
