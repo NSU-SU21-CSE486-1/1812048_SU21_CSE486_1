@@ -20,7 +20,7 @@ import java.util.Set;
 public class DonationRepository implements DonationDAO {
 
 DatabaseReference databaseReference;
-    private static Set<Donation> alevents = new HashSet<>();
+    private static Set<Donation> donationSet = new HashSet<>();
 
     @Override
     public void createDonation(Donation donation) {
@@ -41,11 +41,11 @@ DatabaseReference databaseReference;
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                alevents.clear();
+                donationSet.clear();
                 for (DataSnapshot dsp : snapshot.getChildren()) {
                     Donation donation = dsp.getValue(Donation.class);
                     if(donation.getBgroup().equals(bg))
-                        alevents.add(donation);
+                        donationSet.add(donation);
 
 
                 }
@@ -59,7 +59,7 @@ DatabaseReference databaseReference;
         });
 
         ArrayList<Donation> donations = new ArrayList<>();
-        donations.addAll(alevents);
+        donations.addAll(donationSet);
         return donations;
 
     }

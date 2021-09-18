@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public interface StudentDAO {
 
-    boolean newStudent(String sname, String sbg, String sphone, String snid, String email, String sdob, String password, Activity activity);
+    void newStudent(String sname, String sbg, String sphone, String snid, String email, String sdob, String password, Activity activity);
 
     ArrayList<University> getAllUni(String uid);
 

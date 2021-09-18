@@ -19,6 +19,7 @@ public class Donation {
         this.contact = contact;
         this.date = date;
         this.bgroup = bgroup;
+        this.donor ="";
     }
 
     public Donation(String patient, String hospital, String address, String contactname, String contact, String date, String bgroup, String buid, String donor) {

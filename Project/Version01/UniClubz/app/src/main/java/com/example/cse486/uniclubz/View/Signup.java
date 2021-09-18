@@ -18,6 +18,9 @@ import com.example.cse486.uniclubz.ViewModel.StudentViewModel;
 import com.example.cse486.uniclubz.ViewModel.UserPref;
 import com.example.cse486.uniclubz.databinding.ActivitySignupBinding;
 import com.example.cse486.uniclubz.Model.entity.Student;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Signup extends AppCompatActivity {
@@ -26,6 +29,7 @@ public class Signup extends AppCompatActivity {
     private Student student;
     private UserPref userPref;
     private String sdob;
+    private DatabaseReference databaseReference;
 
 
     @Override
@@ -51,19 +55,26 @@ public class Signup extends AppCompatActivity {
                 Context context = getApplicationContext();
                 if (!email.isEmpty() && !password.isEmpty()) {
 
-                    boolean flag = studentViewModel.newStudent( sname,  sbg,  sphone,  snid,  email,  sdob,  password, Signup.this);
+                    studentViewModel.newStudent( sname,  sbg,  sphone,  snid,  email,  sdob,  password, Signup.this);
 
-                    if(flag) {
+                    UserPref userPref = new UserPref(getApplicationContext());
+
+                    userPref.setLogin(true);
+                    userPref.setName(sname);
+                    userPref.setBloodGroup(sbg);
+                    userPref.setPhone(sphone);
+                    userPref.setDOB(sdob);
+                    userPref.setEmail(email);
+                    userPref.setNID(snid);
+
+
+
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK); // clears all previous activities task
-                        finish();
                         startActivity(intent);
-                    }
-                    else
-                    {
-                        Toast.makeText( getApplicationContext(),"Authentication failed.",Toast.LENGTH_SHORT).show();
-                    }
+                        finish();
+
 
                 } else {
 
@@ -86,6 +97,8 @@ public class Signup extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent(getApplicationContext(),LauncherActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 

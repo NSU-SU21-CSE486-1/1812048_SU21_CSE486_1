@@ -1,12 +1,15 @@
 package com.example.cse486.uniclubz.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.cse486.uniclubz.Model.entity.Student;
 import com.example.cse486.uniclubz.R;
+import com.example.cse486.uniclubz.ViewModel.StudentViewModel;
 import com.example.cse486.uniclubz.ViewModel.UserPref;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         userPref = new UserPref(getApplicationContext());
+        StudentViewModel studentViewModel = new ViewModelProvider(this).get(StudentViewModel.class);
 
         if(!userPref.isLoggedIn())
         {
@@ -27,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         {
 
         }
+
+
     }
 
     public void tolauncher(View view) {

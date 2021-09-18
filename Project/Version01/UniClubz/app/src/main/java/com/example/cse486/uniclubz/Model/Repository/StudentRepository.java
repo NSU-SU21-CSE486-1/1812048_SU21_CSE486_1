@@ -14,6 +14,7 @@ import com.example.cse486.uniclubz.Model.entity.Student;
 import com.example.cse486.uniclubz.Model.entity.University;
 import com.example.cse486.uniclubz.View.MainActivity;
 import com.example.cse486.uniclubz.View.Signup;
+import com.example.cse486.uniclubz.ViewModel.UserPref;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -31,10 +32,11 @@ public class StudentRepository implements StudentDAO {
     DatabaseReference databaseReference;
     private  static Student student;
     @Override
-    public boolean newStudent(String sname, String sbg, String sphone, String snid, String email, String sdob, String password, Activity activity) {
-        final boolean[] flag = new boolean[1];
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    public void newStudent(String sname, String sbg, String sphone, String snid, String email, String sdob, String password, Activity activity) {
 
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("users");
+        String uid = databaseReference.push().getKey();
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -43,13 +45,9 @@ public class StudentRepository implements StudentDAO {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("firebase", "createUserWithEmail:success");
 
-                            FirebaseUser user = mAuth.getCurrentUser();
 
-                            databaseReference = FirebaseDatabase.getInstance().getReference().child("users");
-                            Student student = new Student(snid, sname, sphone, sdob, sbg, email);
-                            String uid = databaseReference.push().getKey();
-                            databaseReference.child(uid).setValue(user);
-                            flag[0] = true;
+                            Log.d("hello","hereee");
+
 
 
 
@@ -58,7 +56,7 @@ public class StudentRepository implements StudentDAO {
                             // If sign in fails, display a message to the user.
                             Log.w("firebase", "createUserWithEmail:failure", task.getException());
 
-                            flag[0]=false;
+
 
 
                         }
@@ -67,8 +65,24 @@ public class StudentRepository implements StudentDAO {
                     }
                 });
 
+        Student student = new Student(snid, sname, sphone, sdob, sbg, email);
+        databaseReference.child(uid).setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
 
-        return flag[0];
+                if(task.isSuccessful()) Log.d("hello","User Added");
+                else Log.d("hello","Could not add user");
+            }
+        });
+
+
+
+    }
+
+    public void addstudentinfo(String uid,Student student)
+    {
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("users");
+        databaseReference.child(uid).setValue(student);
     }
 
     @Override

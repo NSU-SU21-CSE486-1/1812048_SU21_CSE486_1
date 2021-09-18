@@ -1,15 +1,18 @@
 package com.example.cse486.uniclubz.Model.entity;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Student {
+@IgnoreExtraProperties
+public class Student implements Serializable {
     private String nid;
     private String name;
     private String phone;
     private String dob;
     private String bgroup;
     private String email;
-    private boolean isSet;
     private ArrayList<University> universities;
     private ArrayList<Contact> contacts;
 
@@ -25,17 +28,16 @@ public class Student {
         this.dob = dob;
         this.bgroup = bgroup;
         this.email = email;
-        setSet(true);
+
     }
 
-    public Student(String nid, String name, String phone, String dob, String bgroup, String email, boolean isSet, ArrayList<University> universities, ArrayList<Contact> contacts) {
+    public Student(String nid, String name, String phone, String dob, String bgroup, String email, ArrayList<University> universities, ArrayList<Contact> contacts) {
         this.nid = nid;
         this.name = name;
         this.phone = phone;
         this.dob = dob;
         this.bgroup = bgroup;
         this.email = email;
-        this.isSet = isSet;
         this.universities = universities;
         this.contacts = contacts;
     }
@@ -80,13 +82,6 @@ public class Student {
         this.phone = phone;
     }
 
-    public boolean isSet() {
-        return isSet;
-    }
-
-    public void setSet(boolean set) {
-        isSet = set;
-    }
 
     public String getDob() {
         return dob;

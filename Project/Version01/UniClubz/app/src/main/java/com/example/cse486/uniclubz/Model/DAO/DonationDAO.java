@@ -14,6 +14,7 @@ public interface DonationDAO {
 
     void createDonation(Donation donation);
 
+    //Get donations with user's bg
     ArrayList<Donation> getAllDonations(String bg);
 
 

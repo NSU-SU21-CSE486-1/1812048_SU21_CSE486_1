@@ -18,9 +18,9 @@ public class StudentViewModel extends AndroidViewModel {
         repository = new StudentRepository();
     }
 
-    public boolean newStudent(String sname, String sbg, String sphone, String snid, String email, String sdob, String password, Activity activity)
+    public void newStudent(String sname, String sbg, String sphone, String snid, String email, String sdob, String password, Activity activity)
     {
-        return repository.newStudent(sname,sbg,sphone,snid,email,sdob,password,activity);
+         repository.newStudent(sname,sbg,sphone,snid,email,sdob,password,activity);
 
     }
 
@@ -28,5 +28,10 @@ public class StudentViewModel extends AndroidViewModel {
     {
 
         return repository.getbasicinfo(uid);
+    }
+
+    public void addstudentinfo(String uid,Student student)
+    {
+        repository.addstudentinfo(uid,student);
     }
 }
