@@ -31,7 +31,7 @@ DatabaseReference databaseReference;
     }
 
     @Override
-    public ArrayList<Event> getAllDonations(University university) {
+    public ArrayList<Donation> getAllDonations(String bg) {
 
         final ArrayList<String>[] eventsid = new ArrayList[]{new ArrayList<>()};
 
@@ -43,7 +43,9 @@ DatabaseReference databaseReference;
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 alevents.clear();
                 for (DataSnapshot dsp : snapshot.getChildren()) {
-                    alevents.add(dsp.getValue(Event.class)); //add result into array list
+                    Donation donation = dsp.getValue(Donation.class);
+                    if(donation.getBgroup().equals(bg))
+                        alevents.add(donation);
 
 
                 }
@@ -56,11 +58,10 @@ DatabaseReference databaseReference;
             }
         });
 
-        ArrayList<Event> events = new ArrayList<>();
-        events.addAll(alevents);
-        return events;
+        ArrayList<Donation> donations = new ArrayList<>();
+        donations.addAll(alevents);
+        return donations;
 
-        return null;
     }
 
     public static ArrayList<Donation> getSampleDonations()

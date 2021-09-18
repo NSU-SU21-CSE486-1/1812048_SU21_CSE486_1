@@ -14,7 +14,7 @@ public interface DonationDAO {
 
     void createDonation(Donation donation);
 
-    ArrayList<Event> getAllDonations(University university);
+    ArrayList<Donation> getAllDonations(String bg);
 
 
 }

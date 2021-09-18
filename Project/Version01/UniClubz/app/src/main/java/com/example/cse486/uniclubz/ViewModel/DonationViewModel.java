@@ -22,9 +22,9 @@ public class DonationViewModel extends AndroidViewModel {
         repository = new DonationRepository();
     }
 
-    public ArrayList<Event> getallevents(University university)
+    public ArrayList<Donation> getallevents(String bg)
     {
-        return repository.getAllDonations(university);
+        return repository.getAllDonations(bg);
     }
 
     public ArrayList<Donation> getsampledonations()
