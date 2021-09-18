@@ -47,19 +47,19 @@ Department of Electrical & Computer Engineering
 
 [Club 10](#club)
 
-[Events 11](#events)
+[Events 11](#section)
 
-[Blood Donation 12](#blood-donation)
+[Blood Donation 13](#blood-donation)
 
-[Roadblocks and Challenges 12](#roadblocks-and-challenges)
+[Roadblocks and Challenges 13](#roadblocks-and-challenges)
 
-[Firebase Database Integration 12](#firebase-database-integration)
+[Firebase Database Integration 13](#firebase-database-integration)
 
-[Responsive UI 13](#responsive-ui)
+[Responsive UI 14](#responsive-ui)
 
-[Architecture 13](#architecture)
+[Architecture 14](#architecture)
 
-[Open Ended Questions 13](#open-ended-questions)
+[Open Ended Questions 14](#open-ended-questions)
 
 UniClubz
 
@@ -198,11 +198,15 @@ id="_Toc82825425" class="anchor"></span>
 
 ## <img src="./media/image14.png" style="width:2.62986in;height:4.675in" /><img src="./media/image15.png" style="width:2.62986in;height:4.67639in" /><img src="./media/image16.png" style="width:2.54861in;height:4.53056in" /><img src="./media/image17.png" style="width:2.54861in;height:4.53194in" />Club 
 
-## <img src="./media/image18.png" style="width:2.66528in;height:4.73889in" /><img src="./media/image19.png" style="width:2.54861in;height:4.53056in" /><img src="./media/image20.png" style="width:2.54861in;height:4.53194in" /><img src="./media/image21.png" style="width:2.57569in;height:4.31458in" />Events
+## <img src="./media/image18.png" style="width:2.54861in;height:4.53056in" /><img src="./media/image19.png" style="width:2.54861in;height:4.53056in" />
+
+## 
+
+## <img src="./media/image20.png" style="width:2.66528in;height:4.73889in" /><img src="./media/image21.png" style="width:2.54861in;height:4.53056in" /><img src="./media/image22.png" style="width:2.54861in;height:4.53194in" /><img src="./media/image23.png" style="width:2.57569in;height:4.31458in" />Events
 
 ## Blood Donation
 
-<img src="./media/image22.png" style="width:2.54861in;height:4.53194in" /><img src="./media/image23.png" style="width:2.54861in;height:4.53194in" />
+<img src="./media/image24.png" style="width:2.54861in;height:4.53194in" /><img src="./media/image25.png" style="width:2.54861in;height:4.53194in" />
 
 # Roadblocks and Challenges
 
